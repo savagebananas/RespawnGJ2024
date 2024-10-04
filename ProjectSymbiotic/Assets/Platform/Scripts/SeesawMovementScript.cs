@@ -13,13 +13,11 @@ public class SeesawMovementScript : MonoBehaviour
     float timer = 0;
     List<Collision2D> collisions = new();
 
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
