@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Transform attackPos;
     public float attackRange;
-    public LayerMask damagableLayer;
+    public LayerMask damageableLayer;
     public int damage;
 
     void Update()
@@ -25,21 +25,22 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             timeBetweenAttack -= Time.deltaTime;
-            isReadyToAttack = false;
         }
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
+        Debug.Log("Start");
         if (context.performed && isReadyToAttack)
         {
-            Collider2D[] damagables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, damagableLayer);
-            for (int i = 0; i < damagables.Length; i++)
+            Debug.Log("Swing");
+            isReadyToAttack = false;
+            Collider2D[] damageables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, damageableLayer);
+            for (int i = 0; i < damageables.Length; i++)
             {
-                //put something about damage here once destroyables are made
-                //damagables.GetComponent<damagable>().health -= damage;
-                //or
-                //damagables.GetComponent<damagable>().TakeDamage(damage)
+                Debug.Log("Hit");
+                //damageables.GetValueAt(i).GetComponent<PlayerAttack>().Attack(context);
+                //damageables.GetValueAt(i).GetComponent<damageable>().TakeDamage(damage)
             }
         }
     }

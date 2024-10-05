@@ -436,11 +436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f276fc697585dc43aaceb9c812ee132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBetweenAttack: 0.5
+  startTimeBetweenAttack: 2
   isReadyToAttack: 1
   attackPos: {fileID: 138724064}
   attackRange: 1.26
-  damagableLayer:
+  damageableLayer:
     serializedVersion: 2
     m_Bits: 128
   damage: 1
