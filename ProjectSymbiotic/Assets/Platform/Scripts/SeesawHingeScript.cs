@@ -11,6 +11,11 @@ public class SeesawHingeScript : MonoBehaviour
     private Rigidbody2D rb;
     List<Collision2D> collisions = new();
 
+    public float getAngle()
+    {
+        return rb.rotation;
+    }
+
     void Start()
     {
         hinge = GetComponent<HingeJoint2D>();
