@@ -38,7 +38,7 @@ public class FallingObjectSpawner : MonoBehaviour
         int numOfObjects = Random.Range(minPerSpawn, maxPerSpawn + 1);
         for(int i = 0; i < numOfObjects; i++)
         {
-            var obj = Instantiate(objects[Random.Range(0, objects.Count + 1)], new Vector2(transform.position.x + Random.Range(-spawnerWidth / 2, spawnerWidth / 2), 
+            var obj = Instantiate(objects[Random.Range(0, objects.Count)], new Vector2(transform.position.x + Random.Range(-spawnerWidth / 2, spawnerWidth / 2), 
                 transform.position.y + Random.Range(-spawnerHeight / 2, spawnerHeight / 2)), Quaternion.identity);
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
             if (rb != null) rb.AddForce(-obj.transform.position.normalized * force, ForceMode2D.Impulse);
