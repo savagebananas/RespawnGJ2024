@@ -4,7 +4,7 @@ using Interactables;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Chain : IInteractable
+public class Chain : MonoBehaviour
 {
     public WorldMovement worldMovement;
     private bool interactable;
@@ -14,10 +14,6 @@ public class Chain : IInteractable
         return interactable;
     }
 
-    public void InteractSelectedLoop()
-    {
-        return;
-    }
 
     public void OnInteract()
     {
