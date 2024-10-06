@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class LensMover : MonoBehaviour
 {
-    // Start is called before the first frame update
     public static float LensSpeed = 1.0f;
     private static float tgt;
     public static void ChangeLens(float target)
@@ -18,7 +17,6 @@ public class LensMover : MonoBehaviour
         tgt = 3.31f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CinemachineVirtualCamera cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
