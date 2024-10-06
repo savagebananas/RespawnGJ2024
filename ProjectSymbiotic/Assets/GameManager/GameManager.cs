@@ -24,7 +24,7 @@ public class GameManager : StateMachineManager
         MeterCounter.UpdateUI(score);
 
     }
-    public static float GetScore()
+    public static float GetHeight()
     {
         return score;
     }

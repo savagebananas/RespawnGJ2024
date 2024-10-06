@@ -31,7 +31,6 @@ public class PressUp : MonoBehaviour
             {
                 if (cdown != 0)
                 {
-                    Debug.Log("Not going up: cdown=" + cdown);
                     cdown -= Time.deltaTime;
                     shakecdown = stopshaking;
                     if (cdown <= 0) cdown = 0;
@@ -55,7 +54,6 @@ public class PressUp : MonoBehaviour
             }
             else
             {
-                Debug.Log("No E");
                 cdown = def;
                 shakecdown = stopshaking;
                 shakeChains.endShake();
