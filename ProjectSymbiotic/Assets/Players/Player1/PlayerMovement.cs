@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
 
     private float horizontal;
     private float speed = 8f;
