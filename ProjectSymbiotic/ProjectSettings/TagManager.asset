@@ -38,8 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Far Background
+    uniqueID: 3495837277
+    locked: 0
+  - name: Close Background
     uniqueID: 1126672437
+    locked: 0
+  - name: Foreground
+    uniqueID: 3704838461
     locked: 0
   - name: Default
     uniqueID: 0
@@ -50,9 +56,9 @@ TagManager:
   - name: Platform
     uniqueID: 3722299347
     locked: 0
-  - name: New Layer 4
-    uniqueID: 3704838461
-    locked: 0
   - name: New Layer 5
     uniqueID: 1792092847
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 2954900739
     locked: 0

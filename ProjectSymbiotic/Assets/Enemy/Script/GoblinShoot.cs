@@ -38,6 +38,8 @@ public class GoblinShoot : MonoBehaviour
     /// </summary>
     void ShootArrow()
     {
+        if (target == null) return;
+
         float dx = target.position.x - transform.position.x;
         float dy = target.position.y - transform.position.y;
 
