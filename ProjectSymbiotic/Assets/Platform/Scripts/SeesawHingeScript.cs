@@ -21,7 +21,6 @@ public class SeesawHingeScript : MonoBehaviour
     {
         if (collisions.Count == 0 && Math.Abs(rb.rotation) > 0.4)
         {
-            Debug.Log(hinge.motor.motorSpeed);
             motor = hinge.motor;
             motor.motorSpeed = resetSpeed*Mathf.Sign(rb.rotation);
             hinge.motor = motor;
