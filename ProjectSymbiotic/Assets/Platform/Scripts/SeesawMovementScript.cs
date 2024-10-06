@@ -40,7 +40,7 @@ public class SeesawMovementScript : MonoBehaviour
 
             float nextRotation = rb.rotation + rb.angularVelocity * Time.deltaTime;
 
-            Debug.Log($"Ang Vel: {rb.angularVelocity}, Next Rot: {nextRotation}");
+            //Debug.Log($"Ang Vel: {rb.angularVelocity}, Next Rot: {nextRotation}");
             if (rb.angularVelocity < 0 ? nextRotation <= 0 : nextRotation >= 0)
             {
                 rb.freezeRotation = true; // Turns out writing to rb.angularVelocity results in unexpected behaviors lol whoopsies, gotta rewrite using transform or smth lol... shouldn't use the phsyics engine tho
