@@ -15,7 +15,7 @@ public class LensMover : MonoBehaviour
     }
     void Start()
     {
-        
+        tgt = 3.31f;
     }
 
     // Update is called once per frame

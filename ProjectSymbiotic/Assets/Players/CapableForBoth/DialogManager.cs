@@ -134,7 +134,7 @@ public class DialogManager : MonoBehaviour
             }
         }
     }
-    void Start()
+    void Awake()
     {
         FindObject();
         DialogRelocate();
