@@ -42,10 +42,10 @@ public class DialogManager : MonoBehaviour
             Debug.Log("UGUI not found");
             Application.Quit(1);
         }
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("Player1");
         if (Player == null)
         {
-            Player = GameObject.Find("Player 2");
+            Player = GameObject.Find("Player2");
             if (Player != null) Debug.Log("Player2 Found");
         }// This is trying to fit in both p1 and p2 with same code
         if (Player == null)

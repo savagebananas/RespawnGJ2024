@@ -45,6 +45,11 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void SpecialAttack(InputAction.CallbackContext context)
+    {
+        
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
