@@ -28,6 +28,7 @@ public class DialogSystem : MonoBehaviour
         dialogPlaying = true;
         //Play scripts from the number until finding a -1 to end the conversation
         PlayNextDialog = PlayerScripts.connect[x];
+        if (PlayNextDialog == -1) dialogPlaying = false;
         ShowScript(x);
     }
     void Start()

@@ -16,7 +16,7 @@ public class PlayerScripts : MonoBehaviour
     /// <summary>
     /// Input all the scripts downside.
     /// </summary>
-    void Start()
+    void Awake()
     {
         SetScript(0, "XuebaoBizui", 1, 2);
         SetScript(1, "HuaiwoHaoshi", 2, -1);
