@@ -35,10 +35,6 @@ public class DialogSystem : MonoBehaviour
         p1 = GameObject.Find("Player");
         p2 = GameObject.Find("Player 2");
         dm1=p1.GetComponent<DialogManager>();
-        if (dm1 != null)
-        {
-            Debug.Log("Success");
-        }
         dm2=p2.GetComponent<DialogManager>();
         Playfrom(0);
     }
