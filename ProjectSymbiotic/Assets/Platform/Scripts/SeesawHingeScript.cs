@@ -13,8 +13,8 @@ public class SeesawHingeScript : MonoBehaviour
 
     void Start()
     {
-        hinge = this.GetComponent<HingeJoint2D>();
-        rb = this.GetComponent<Rigidbody2D>();
+        hinge = GetComponent<HingeJoint2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
