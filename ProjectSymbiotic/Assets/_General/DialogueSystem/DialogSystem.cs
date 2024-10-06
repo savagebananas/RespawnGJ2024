@@ -33,8 +33,8 @@ public class DialogSystem : MonoBehaviour
     }
     void Start()
     {
-        p1 = GameObject.Find("Player");
-        p2 = GameObject.Find("Player 2");
+        p1 = GameObject.Find("Player1");
+        p2 = GameObject.Find("Player2");
         dm1=p1.GetComponent<DialogManager>();
         dm2=p2.GetComponent<DialogManager>();
         Playfrom(0);
