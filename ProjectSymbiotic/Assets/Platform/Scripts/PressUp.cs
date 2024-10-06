@@ -7,7 +7,7 @@ public class PressUp : MonoBehaviour
 {
     public float velocity;
     private float cdown;
-    public float def=0.6f;
+    public float def = 0.6f;
     ShakeChains shakeChains;
     ShakePlatform shakePlatform;
     // Start is called before the first frame update
@@ -17,6 +17,7 @@ public class PressUp : MonoBehaviour
         {
             if ((Input.GetKey(KeyCode.E)) && (cdown == 0))
             {
+
                 if (cdown != 0)
                 {
                     cdown -= Time.deltaTime;
@@ -26,11 +27,11 @@ public class PressUp : MonoBehaviour
                 }
                 else
                 {
-                    MeterCounter.AddHeight(Time.deltaTime * velocity);
+                    GameManager.AddScore(Time.deltaTime * velocity);
                     shakeChains.Shake();
                     shakePlatform.Shake();
                 }
-                MeterCounter.AddHeight(Time.deltaTime * velocity);
+                GameManager.AddScore(Time.deltaTime * velocity);
             }
             else
             {
@@ -49,13 +50,13 @@ public class PressUp : MonoBehaviour
     void Start()
     {
         cdown = def;
-        shakeChains= GameObject.Find("Platform (RB)/Chain").GetComponent<ShakeChains>();
-        shakePlatform= GameObject.Find("Platform (RB)/Seesaw").GetComponent<ShakePlatform>();
+        shakeChains = GameObject.Find("Platform (RB)/Chain").GetComponent<ShakeChains>();
+        shakePlatform = GameObject.Find("Platform (RB)/Seesaw").GetComponent<ShakePlatform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
