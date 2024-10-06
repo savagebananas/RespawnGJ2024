@@ -4,24 +4,50 @@ using UnityEngine;
 
 public class GoblinShoot : MonoBehaviour
 {
-    public float sbs = 1.0f;
-    private float ShootingCoolDown;
-    private ShootEvent Event;
-    // Start is called before the first frame update
+    public Transform target;
+    public GameObject arrowPrefab;
+    public int difficulty = 1;
+
+    public float shootingCooldown = 3.0f;
+    private float timer;
+
+    private float timeToHit;
+    const float GRAVITY = 9.81f;
+    private float arrowMass;
+
     void Start()
     {
-        ShootingCoolDown = sbs;
-        Event = GetComponent<ShootEvent>();
+        timer = shootingCooldown;
+        arrowMass = arrowPrefab.GetComponent<Rigidbody2D>().mass;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ShootingCoolDown -= Time.deltaTime;
-        if (ShootingCoolDown <=0)
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            Event.Shoot();
-            ShootingCoolDown = sbs;
+            ShootArrow();
+            timer = shootingCooldown;
         }
+    }
+
+    /// <summary>
+    /// Uses physics to calculate initial velocities of arrow
+    /// Time till hitting target is scaled based on distance from player (farther = longer time)
+    /// </summary>
+    void ShootArrow()
+    {
+        float dx = target.position.x - transform.position.x;
+        float dy = target.position.y - transform.position.y;
+
+        timeToHit = new Vector2(dx, dy).magnitude/ (7 * difficulty);
+
+        float velocityX = dx / timeToHit;
+        float velocityY = (dy + GRAVITY/2 * Mathf.Pow(timeToHit, 2)) / timeToHit;
+
+        var arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
+
     }
 }
