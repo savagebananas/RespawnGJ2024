@@ -11,12 +11,12 @@ public class ShakePlatform : MonoBehaviour
         Vector2 posi=transform.position;
         if (phase == 0)
         {
-            posi.y -= 0.05f;
+            posi.y -= 0.08f;
             transform.position = posi;
         }
         else
         {
-            posi.y += 0.05f;
+            posi.y += 0.08f;
             transform.position = posi;
         }
         if (phase == 0)

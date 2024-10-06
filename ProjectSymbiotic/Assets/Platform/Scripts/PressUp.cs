@@ -7,49 +7,71 @@ public class PressUp : MonoBehaviour
 {
     public float velocity;
     private float cdown;
-    public float def = 1.6f;
+    public float def = 0.6f;
+    public float stopshaking = 1.0f;
+    private float shakecdown;
     ShakeChains shakeChains;
     ShakePlatform shakePlatform;
+    private float laste = 0.1f;
     // Start is called before the first frame update
+    private bool Inpute()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            laste = 0.05f;
+        }
+        if (laste < 0) return false;
+        return true;
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<DialogManager>() != null)
+        if ((collision.GetComponent<PlayerMovement>() != null)|| (collision.GetComponent<Player2Movement>() != null))
         {
-            if ((Input.GetKey(KeyCode.E)))
+            if (Inpute())
             {
-
                 if (cdown != 0)
                 {
+                    Debug.Log("Not going up: cdown=" + cdown);
                     cdown -= Time.deltaTime;
+                    shakecdown = stopshaking;
                     if (cdown <= 0) cdown = 0;
-                    shakeChains.Shake();
-                    shakePlatform.Shake();
+                    if (shakecdown > 0)
+                    {
+                        shakeChains.Shake();
+                        shakePlatform.Shake();
+                    }
                 }
                 else
                 {
                     GameManager.AddScore(Time.deltaTime * velocity);
-                    shakeChains.Shake();
-                    shakePlatform.Shake();
+                    shakecdown -= Time.deltaTime;
+                    if (shakecdown <= 0) shakecdown = 0;
+                    if (shakecdown > 0)
+                    {
+                        shakeChains.Shake();
+                        shakePlatform.Shake();
+                    }
                 }
-                GameManager.AddScore(Time.deltaTime * velocity);
             }
             else
             {
+                Debug.Log("No E");
                 cdown = def;
+                shakecdown = stopshaking;
                 shakeChains.endShake();
                 shakePlatform.EndShake();
             }
         }
         else
         {
-            cdown = def;
+            if (cdown<def) cdown += Time.deltaTime;
+            shakecdown = stopshaking;
             shakeChains.endShake();
             shakePlatform.EndShake();
         }
     }
     void Start()
     {
-        cdown = def;
         shakeChains = GameObject.Find("Platform (RB)/Chain").GetComponent<ShakeChains>();
         shakePlatform = GameObject.Find("Platform (RB)/Seesaw").GetComponent<ShakePlatform>();
     }
@@ -57,6 +79,6 @@ public class PressUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (laste > 0) laste -= Time.deltaTime;
     }
 }
