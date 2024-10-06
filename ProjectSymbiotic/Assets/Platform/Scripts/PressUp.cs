@@ -12,7 +12,7 @@ public class PressUp : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                MeterCounter.AddHeight(Time.deltaTime * velocity);
+                GameManager.AddScore(Time.deltaTime * velocity);
             }
         }
     }

@@ -12,7 +12,7 @@ public class Parallax : MonoBehaviour
     void Update()
     {
 
-        transform.position = new Vector2(transform.position.x, transform.position.y - MeterCounter.n / distanceFromCamera);
+        transform.position = new Vector2(transform.position.x, transform.position.y - GameManager.GetScore() / distanceFromCamera);
     }
 
     public void SetHeight(float h)
