@@ -13,7 +13,6 @@ public class PressUp : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 MeterCounter.addmeter(Time.deltaTime * velocity);
-                Debug.Log("Find E");
             }
         }
     }

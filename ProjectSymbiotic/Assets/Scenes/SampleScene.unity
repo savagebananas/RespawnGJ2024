@@ -1538,6 +1538,7 @@ GameObject:
   - component: {fileID: 1277055287}
   - component: {fileID: 1277055289}
   - component: {fileID: 1277055288}
+  - component: {fileID: 1277055290}
   m_Layer: 0
   m_Name: Camera System
   m_TagString: Untagged
@@ -1588,6 +1589,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54be699ad1d64ff4e9130ae839257fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1277055290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277055286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cc11cde69fc504c902c3d69bc1a1b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  musicClips: []
+  soundEffects: []
 --- !u!1 &1292380682
 GameObject:
   m_ObjectHideFlags: 0
