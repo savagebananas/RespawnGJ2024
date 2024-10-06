@@ -11,12 +11,12 @@ public class ShakePlatform : MonoBehaviour
         Vector2 posi=transform.position;
         if (phase == 0)
         {
-            posi.y -= 0.03f;
+            posi.y -= 0.05f;
             transform.position = posi;
         }
         else
         {
-            posi.y += 0.03f;
+            posi.y += 0.05f;
             transform.position = posi;
         }
         if (phase == 0)
@@ -35,6 +35,6 @@ public class ShakePlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

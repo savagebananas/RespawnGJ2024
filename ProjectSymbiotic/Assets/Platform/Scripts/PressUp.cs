@@ -7,7 +7,7 @@ public class PressUp : MonoBehaviour
 {
     public float velocity;
     private float cdown;
-    public float def = 0.6f;
+    public float def = 1.6f;
     ShakeChains shakeChains;
     ShakePlatform shakePlatform;
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class PressUp : MonoBehaviour
     {
         if (collision.GetComponent<DialogManager>() != null)
         {
-            if ((Input.GetKey(KeyCode.E)) && (cdown == 0))
+            if ((Input.GetKey(KeyCode.E)))
             {
 
                 if (cdown != 0)

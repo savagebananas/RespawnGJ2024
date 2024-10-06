@@ -10,12 +10,12 @@ public class ShakeChains : MonoBehaviour
         Vector2 posi = transform.position;
         if ((phase == 0)||(phase==3))
         {
-            posi.x -= 0.005f;
+            posi.x -= 0.01f;
             transform.position = posi;
         }
         else
         {
-            posi.x += 0.005f;
+            posi.x += 0.01f;
             transform.position = posi;
         }
         phase++;
