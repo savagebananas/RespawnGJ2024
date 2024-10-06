@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
 
+    public int health;
+
     // Update is called once per frame
     void Update()
     {
@@ -61,5 +63,30 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    public void GetStunned()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        StartCoroutine(Stunned());
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    public void Die()
+    {
+        //destroy player spout blood play willhelm
+    }
+
+    IEnumerator Stunned()
+    {
+        yield return new WaitForSeconds(5);
+
+        
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 }
