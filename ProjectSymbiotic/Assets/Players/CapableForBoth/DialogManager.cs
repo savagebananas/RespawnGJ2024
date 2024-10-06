@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     private double TextDisplayTime = 0;
     private TextMeshProUGUI dialogUGUI;
     private bool TextDisplaying = false;
-    private int InitFinalLength = 0, WordCount=0;
+    private int WordCount=0;
     private string CompleteText;
     private double TimeTillNextWord = 0;
     [SerializeField] double VanishTime = 1.0;
@@ -72,7 +72,6 @@ public class DialogManager : MonoBehaviour
     {
         TextDisplayTime = 0;
         RectVanishCoolDown = VanishTime;
-        InitFinalLength = 0;
     }
     /// <summary>
     /// CreateANewText:
@@ -89,14 +88,13 @@ public class DialogManager : MonoBehaviour
             TextDisplayTime = 0;
         }
         TextDisplayTime = displaytime;
-        InitFinalLength = newtext.Length;
         CompleteText = newtext;
         TextDisplaying = true;
         WordCount = 0;
     }
     private void DialogStateCheck()
     {
-        if (dialogtext.text.Length<InitFinalLength)
+        if ((TextDisplaying) && (CompleteText!=null) && (dialogtext.text.Length<CompleteText.Length))
         {
             if (TimeTillNextWord>0)
                 TimeTillNextWord -= Time.deltaTime;
