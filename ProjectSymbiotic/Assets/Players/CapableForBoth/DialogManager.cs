@@ -10,7 +10,7 @@ using System;
 
 public class DialogManager : MonoBehaviour
 {
-    private GameObject dialog,Player;
+    public GameObject dialog,Player;
     private TMP_Text dialogtext;
     private RectTransform dialogRect;
     private double RectVanishCoolDown = 0;
@@ -25,11 +25,6 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     private void FindObject()
     {
-        dialog=transform.Find("Canvas/PlayerDialog").gameObject;
-        if (dialog != null)
-        {
-            dialogtext = dialog.GetComponent<TMP_Text>();
-        }
         dialogRect=dialog.GetComponent<RectTransform>();
         if (dialogRect == null)
         {
@@ -42,21 +37,11 @@ public class DialogManager : MonoBehaviour
             Debug.Log("UGUI not found");
             Application.Quit(1);
         }
-        Player = GameObject.Find("Player1");
-        if (Player == null)
-        {
-            Player = GameObject.Find("Player2");
-            if (Player != null) Debug.Log("Player2 Found");
-        }// This is trying to fit in both p1 and p2 with same code
-        if (Player == null)
-        {
-            Debug.Log("Player not found");
-            Application.Quit(1);
-        }
+        dialogtext= dialog.GetComponent<TMP_Text>();
     }
     private void DialogRelocate()
     {
-        dialogRect.anchoredPosition = new Vector2(0, 0);//Player.transform.position;
+        dialogRect.anchoredPosition = Player.transform.position;//Player.transform.position;
     }
     private void InitDialog()
     {
