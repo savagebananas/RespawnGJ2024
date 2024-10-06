@@ -11,7 +11,6 @@ public class PressUp : MonoBehaviour
     ShakeChains shakeChains;
     ShakePlatform shakePlatform;
     // Start is called before the first frame update
-    public float velocity = 1;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.GetComponent<DialogManager>() != null)
@@ -27,7 +26,7 @@ public class PressUp : MonoBehaviour
                 }
                 else
                 {
-                    MeterCounter.addmeter(Time.deltaTime * velocity);
+                    MeterCounter.AddHeight(Time.deltaTime * velocity);
                     shakeChains.Shake();
                     shakePlatform.Shake();
                 }
