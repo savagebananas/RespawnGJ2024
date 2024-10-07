@@ -392,6 +392,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isFacingRight: 1
+  canBeHurt: 1
 --- !u!114 &897437405251817041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +407,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimeBetweenAttack: 2
   isReadyToAttack: 1
+  startTimeBetweenSpecial: 0
+  isReadyToSpecial: 1
+  buildTime: 0
+  rockShield: {fileID: 0}
   attackPos: {fileID: 4875926669533349929}
   attackRange: 100
   damageableLayer:
@@ -426,6 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0412183a528bf404ebf4562b75d3f968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialog: {fileID: 0}
+  Player: {fileID: 0}
   VanishTime: 1
   cps: 6
 --- !u!1 &2113566191712564907
