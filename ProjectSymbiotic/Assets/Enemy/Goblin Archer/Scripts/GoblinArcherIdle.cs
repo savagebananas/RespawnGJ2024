@@ -19,9 +19,14 @@ public class GoblinArcherIdle : State
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            stateMachineManager.setNewState(goblinShootState);
+            stateMachine.setNewState(goblinShootState);
         }
     }
 
-    public override void OnLateUpdate(){}
+    public override void OnLateUpdate() { }
+
+    public override void OnExit()
+    {
+        return;
+    }
 }

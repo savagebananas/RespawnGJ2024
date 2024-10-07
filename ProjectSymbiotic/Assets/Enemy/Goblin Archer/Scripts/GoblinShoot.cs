@@ -19,12 +19,12 @@ public class GoblinShoot : State
     {
         arrowMass = arrowPrefab.GetComponent<Rigidbody2D>().mass;
         ShootArrow();
-        stateMachineManager.setNewState(idleState);
+        stateMachine.setNewState(idleState);
     }
 
-    public override void OnUpdate(){}
+    public override void OnUpdate() { }
 
-    public override void OnLateUpdate(){}
+    public override void OnLateUpdate() { }
 
     /// <summary>
     /// Uses physics to calculate initial velocities of arrow
@@ -37,13 +37,18 @@ public class GoblinShoot : State
         float dx = target.position.x - transform.position.x;
         float dy = target.position.y - transform.position.y;
 
-        timeToHit = new Vector2(dx, dy).magnitude/ (7 * difficulty);
+        timeToHit = new Vector2(dx, dy).magnitude / (7 * difficulty);
 
         float velocityX = dx / timeToHit;
-        float velocityY = (dy + GRAVITY/2 * Mathf.Pow(timeToHit, 2)) / timeToHit;
+        float velocityY = (dy + GRAVITY / 2 * Mathf.Pow(timeToHit, 2)) / timeToHit;
 
         var arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
 
+    }
+
+    public override void OnExit()
+    {
+        return;
     }
 }
