@@ -5,7 +5,7 @@ using static FallingObjectSpawner;
 
 public class Obstacles : FallingSpawnState
 {
-    private FallingObjectSpawner spawner = stateMachine.spawner;
+    //private FallingObjectSpawner spawner = stateMachine.spawner;
     public override void OnStart()
     {
         InitializeSpawnedObjects(objects, weights, spawnedObjects);
