@@ -1578,6 +1578,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1914724663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &844301061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844301062}
+  - component: {fileID: 844301063}
+  m_Layer: 0
+  m_Name: GoblinArcherIdle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &844301062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844301061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855970076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &844301063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844301061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229df43acb74f724c91c1944e273200b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachineManager: {fileID: 855970077}
+  shootingCooldown: 1
+  goblinShootState: {fileID: 893062095}
+--- !u!1 &855970075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855970076}
+  - component: {fileID: 855970077}
+  m_Layer: 0
+  m_Name: State Machine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &855970076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855970075}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 844301062}
+  - {fileID: 893062094}
+  m_Father: {fileID: 2107047709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855970077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855970075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: {fileID: 844301063}
 --- !u!1 &875049014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,6 +1901,56 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &893062093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 893062094}
+  - component: {fileID: 893062095}
+  m_Layer: 0
+  m_Name: GoblinArcherShoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &893062094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893062093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855970076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &893062095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893062093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2b325ead07bec45a3a2d4831eaacbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachineManager: {fileID: 855970077}
+  target: {fileID: 1129282787}
+  arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
+  difficulty: 1
+  idleState: {fileID: 844301063}
+  deathState: {fileID: 0}
 --- !u!1 &966940562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,10 +2313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2b325ead07bec45a3a2d4831eaacbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachineManager: {fileID: 0}
   target: {fileID: 1129282787}
   arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
   difficulty: 1
-  shootingCooldown: 1
+  idleState: {fileID: 0}
+  deathState: {fileID: 0}
 --- !u!212 &1219004036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3686,7 +3832,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2107047709}
   - component: {fileID: 2107047708}
-  - component: {fileID: 2107047707}
   - component: {fileID: 2107047710}
   m_Layer: 0
   m_Name: Goblin 1
@@ -3695,22 +3840,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2107047707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107047705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2b325ead07bec45a3a2d4831eaacbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1258468436}
-  arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
-  difficulty: 1
-  shootingCooldown: 1
 --- !u!212 &2107047708
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3775,7 +3904,8 @@ Transform:
   m_LocalPosition: {x: 7.47, y: 2.28, z: 0}
   m_LocalScale: {x: 0.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 855970076}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2107047710
