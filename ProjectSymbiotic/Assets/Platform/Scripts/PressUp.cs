@@ -11,8 +11,8 @@ public class PressUp : MonoBehaviour
     public float stopshaking = 1.0f;
     private float shakecdown;
     public GameObject chain, plat;
-    private ShakeChains shakeChains;
-    private ShakePlatform shakePlatform;
+    //private ShakeChains shakeChains;
+    //private ShakePlatform shakePlatform;
     private float laste = 0.1f;
     // Start is called before the first frame update
     private bool Inpute()
@@ -37,8 +37,8 @@ public class PressUp : MonoBehaviour
                     if (cdown <= 0) cdown = 0;
                     if (shakecdown > 0)
                     {
-                        shakeChains.Shake();
-                        shakePlatform.Shake();
+                        //shakeChains.Shake();
+                        //shakePlatform.Shake();
                     }
                 }
                 else
@@ -48,8 +48,8 @@ public class PressUp : MonoBehaviour
                     if (shakecdown <= 0) shakecdown = 0;
                     if (shakecdown > 0)
                     {
-                        shakeChains.Shake();
-                        shakePlatform.Shake();
+                        //shakeChains.Shake();
+                        //shakePlatform.Shake();
                     }
                 }
             }
@@ -57,22 +57,22 @@ public class PressUp : MonoBehaviour
             {
                 cdown = def;
                 shakecdown = stopshaking;
-                shakeChains.endShake();
-                shakePlatform.EndShake();
+                //shakeChains.endShake();
+                //shakePlatform.EndShake();
             }
         }
         else
         {
             if (cdown<def) cdown += Time.deltaTime;
             shakecdown = stopshaking;
-            shakeChains.endShake();
-            shakePlatform.EndShake();
+            //shakeChains.endShake();
+           // shakePlatform.EndShake();
         }
     }
     void Start()
     {
-        shakeChains=chain.GetComponent<ShakeChains>();
-        shakePlatform=plat.GetComponent<ShakePlatform>();
+        //shakeChains=chain.GetComponent<ShakeChains>();
+        //shakePlatform=plat.GetComponent<ShakePlatform>();
     }
 
     // Update is called once per frame
