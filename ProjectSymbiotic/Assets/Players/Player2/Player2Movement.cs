@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using Unity.Mathematics;
 using UnityEngine.InputSystem;
 
 public class Player2Movement : MonoBehaviour
@@ -12,9 +13,20 @@ public class Player2Movement : MonoBehaviour
 
     private float horizontal;
     private float speed = 8f;
+    private float originalSpeed;
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
     public bool canBeHurt = true;
+
+    [SerializeField]
+    private SeesawHingeScript seesaw;
+
+    public int health;
+
+    void Start()
+    {
+        originalSpeed = speed;
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,6 +41,16 @@ public class Player2Movement : MonoBehaviour
         else if(isFacingRight && horizontal < 0f)
         {
             Flip();
+        }
+
+        float platformAngle = seesaw.GetAngle(); 
+        if(isFacingRight && platformAngle > 0)
+        {
+            speed =  originalSpeed - math.abs(platformAngle) / 10;
+        }
+        else if(!isFacingRight && platformAngle < 0)
+        {
+            speed = originalSpeed - math.abs(platformAngle) / 10;
         }
     }
 
@@ -45,9 +67,34 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
+    public void GetStunned()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        StartCoroutine(Stunned());
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(canBeHurt)
+        {
+            health -= damage;
+            if (health <= 0) 
+            {
+                Die();
+            }
+        }   
+    }
+
+    public void Die()
+    {
+        //destroy player spout blood play willhelm
+        //PlayerDiedHandle.Reseter();
+    }
+
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, .1f);
     }
 
     private void Flip()
@@ -61,5 +108,13 @@ public class Player2Movement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    IEnumerator Stunned()
+    {
+        yield return new WaitForSeconds(5);
+
+        
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 }
