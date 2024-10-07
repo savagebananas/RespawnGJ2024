@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 966940571}
   m_Layer: 6
   m_Name: Seesaw
-  m_TagString: Untagged
+  m_TagString: CrateStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3041,9 +3041,12 @@ MonoBehaviour:
   minPerSpawn: 1
   maxPerSpawn: 3
   force: 10
-  objects:
-  - {fileID: 5568952044480341097, guid: dbd1ca61ef97173439f13a735bf75e78, type: 3}
+  initialObjects:
   - {fileID: 7782443165462334504, guid: 23734a0a1329c0e48b5ff1b392352ea9, type: 3}
+  - {fileID: 5568952044480341097, guid: dbd1ca61ef97173439f13a735bf75e78, type: 3}
+  initialWeights:
+  - 1
+  - 1
 --- !u!4 &1864515849
 Transform:
   m_ObjectHideFlags: 0
