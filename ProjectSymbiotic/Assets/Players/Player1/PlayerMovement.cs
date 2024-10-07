@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,11 +15,20 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     public float speed = 8f;
+    private float originalSpeed;
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
 
     public bool canBeHurt = true;
     public int health;
+
+    [SerializeField]
+    private SeesawHingeScript seesaw;
+
+    void Start()
+    {
+        originalSpeed = speed;
+    }
 
     // Update is called once per frame
     void Update()
@@ -32,6 +43,16 @@ public class PlayerMovement : MonoBehaviour
         else if(isFacingRight && horizontal < 0f)
         {
             Flip();
+        }
+
+        float platformAngle = seesaw.GetAngle(); 
+        if(isFacingRight && platformAngle > 0)
+        {
+            speed =  originalSpeed - math.abs(platformAngle) / 10;
+        }
+        else if(!isFacingRight && platformAngle < 0)
+        {
+            speed = originalSpeed - math.abs(platformAngle) / 10;
         }
     }
 
