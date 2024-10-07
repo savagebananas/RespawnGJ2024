@@ -11,17 +11,26 @@ public class GameManager : StateMachineManager
     void Start()
     {
         MeterCounter.UpdateUI(score);
+        if (CurrentState != null)
+        {
+            CurrentState.OnStart();
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (CurrentState != null)
+        {
+            CurrentState.OnUpdate();
+        }
     }
     public static void AddScore(float height)
     {
         score += height;
         MeterCounter.UpdateUI(score);
+        Debug.Log(score);
 
     }
     public static float GetHeight()
