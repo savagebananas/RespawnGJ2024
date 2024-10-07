@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000035a82743e1f5d9aad3c7dddd3d59d3dcaf2ad16a5d3e5ed0033520b0d709fcdf
@@ -1856,7 +1856,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 350
   m_LinearDrag: 0
   m_AngularDrag: 3
   m_GravityScale: 0
@@ -3112,6 +3112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 897437405251817041, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: rockShield
+      value: 
+      objectReference: {fileID: 5457790168554748188, guid: 2e604274014912f48a5bf65d5f60bcce, type: 3}
     - target: {fileID: 1080942502114370165, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -3212,6 +3216,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.6875
       objectReference: {fileID: 0}
+    - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: seesaw
+      value: 
+      objectReference: {fileID: 966940567}
     m_RemovedComponents:
     - {fileID: 4948222112515742516, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
     m_RemovedGameObjects: []
@@ -3317,6 +3325,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: seesaw
+      value: 
+      objectReference: {fileID: 966940567}
     - target: {fileID: 3761354116501088026, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
       propertyPath: m_Sprite
       value: 
