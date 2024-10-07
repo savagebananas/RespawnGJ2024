@@ -39,20 +39,22 @@ public class FallingObjectSpawner : MonoBehaviour
     {
         timer = timePerSpawn;
 
-        InitializeSpawnedObjects();
+        InitializeSpawnedObjects(initialObjects, initialWeights, spawnedObjects);
         NormalizeWeights();
     }
 
-    private void InitializeSpawnedObjects()
+    public static void InitializeSpawnedObjects(List<GameObject> objects, List<float> weights, List<SpawnedObject> spawnedObjects)
     {
-        for (int i = 0; i < initialObjects.Count; i++)
+        if (objects == null || weights == null || spawnedObjects == null) return;
+        for (int i = 0; i < objects.Count; i++)
         {
-            if (i >= initialWeights.Count)
+            if (objects[i] == null) continue;
+            if (i >= weights.Count)
             {
-                spawnedObjects.Add(new SpawnedObject(initialObjects[i], 0));
+                spawnedObjects.Add(new SpawnedObject(objects[i], 1));
             } else
             {
-                spawnedObjects.Add(new SpawnedObject(initialObjects[i], initialWeights[i]));
+                spawnedObjects.Add(new SpawnedObject(objects[i], weights[i]));
             }
         }
     }
@@ -64,6 +66,14 @@ public class FallingObjectSpawner : MonoBehaviour
     public void AddSpawnedObject(SpawnedObject obj)
     {
         spawnedObjects.Add(obj);
+        NormalizeWeights();
+    }
+    public void AddSpawnedObjects(IList<SpawnedObject> objs)
+    {
+        foreach (SpawnedObject obj in objs)
+        {
+            spawnedObjects.Add(obj);
+        }
         NormalizeWeights();
     }
 
