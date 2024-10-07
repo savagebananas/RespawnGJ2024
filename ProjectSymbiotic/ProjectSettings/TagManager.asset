@@ -53,12 +53,12 @@ TagManager:
   - name: Chain
     uniqueID: 2866410977
     locked: 0
-  - name: Platform
-    uniqueID: 3722299347
-    locked: 0
-  - name: New Layer 5
+  - name: Player1
     uniqueID: 1792092847
     locked: 0
-  - name: New Layer 7
+  - name: Player2
     uniqueID: 2954900739
+    locked: 0
+  - name: Platform
+    uniqueID: 3722299347
     locked: 0
