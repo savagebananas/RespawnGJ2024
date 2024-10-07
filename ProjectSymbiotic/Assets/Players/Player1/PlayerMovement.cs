@@ -97,11 +97,12 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if (health <= 0) Die();
     }
 
     public void Die()
     {
-        //destroy player spout blood play willhelm
+        //PlayerDiedHandle.Reseter();
     }
 
     IEnumerator Stunned()
