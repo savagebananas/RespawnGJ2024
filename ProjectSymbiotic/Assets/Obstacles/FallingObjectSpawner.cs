@@ -23,7 +23,7 @@ public class FallingObjectSpawner : MonoBehaviour
 
         public SpawnedObject(GameObject obj, float weight)
         {
-            if (weight <= 0) throw new System.Exception("SpawnedObjects must have positive weights");
+            if (weight < 0) throw new System.Exception("SpawnedObjects can't have negative weights");
             this.obj = obj;
             this.weight = weight;
         }

@@ -23,7 +23,7 @@ public class SeesawHingeScript : MonoBehaviour
 
     public Vector2 GetNormalVector()
     {
-        return new Vector2(Mathf.Sin(rb.rotation), Mathf.Cos(rb.rotation));
+        return new Vector2(Mathf.Sin(-rb.rotation*Mathf.Deg2Rad), Mathf.Cos(rb.rotation*Mathf.Deg2Rad));
     }
 
     /// <summary>
