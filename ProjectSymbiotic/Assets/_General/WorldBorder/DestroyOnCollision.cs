@@ -8,4 +8,9 @@ public class DestroyOnCollision : MonoBehaviour
     {
         GameObject.Destroy(collision.gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }
