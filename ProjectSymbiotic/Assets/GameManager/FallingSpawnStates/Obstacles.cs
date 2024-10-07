@@ -5,9 +5,10 @@ using static FallingObjectSpawner;
 
 public class Obstacles : FallingSpawnState
 {
-    //private FallingObjectSpawner spawner = stateMachine.spawner;
+    private FallingObjectSpawner spawner;
     public override void OnStart()
     {
+        spawner = stateMachine.GetComponent<FallingObjectSpawner>();
         InitializeSpawnedObjects(objects, weights, spawnedObjects);
         spawner.AddSpawnedObjects(spawnedObjects);
     }
