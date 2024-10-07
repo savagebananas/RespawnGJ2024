@@ -2,35 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinShoot : MonoBehaviour
+public class GoblinShoot : State
 {
     public Transform target;
     public GameObject arrowPrefab;
     public int difficulty = 1;
 
-    public float shootingCooldown = 3.0f;
-    private float timer;
-
     private float timeToHit;
     const float GRAVITY = 9.81f;
     private float arrowMass;
 
-    void Start()
+    public State idleState; // Timer cooldown for shooting is in goblin idle state
+    public State deathState;
+
+    public override void OnStart()
     {
-        timer = shootingCooldown;
         arrowMass = arrowPrefab.GetComponent<Rigidbody2D>().mass;
+        ShootArrow();
+        stateMachineManager.setNewState(idleState);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            ShootArrow();
-            timer = shootingCooldown;
-        }
-    }
+    public override void OnUpdate(){}
+
+    public override void OnLateUpdate(){}
 
     /// <summary>
     /// Uses physics to calculate initial velocities of arrow
