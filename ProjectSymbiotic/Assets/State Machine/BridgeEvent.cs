@@ -23,11 +23,6 @@ public class BridgeEvent : State
 
     public override void OnExit()
     {
-        return;
-    }
-
-    public override void OnExit()
-    {
 
     }
 }
