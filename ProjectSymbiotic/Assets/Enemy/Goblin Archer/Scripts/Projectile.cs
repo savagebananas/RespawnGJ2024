@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer rend;
-    private int direction = 1;
 
     public string targetTag; // tag of objects the projectile will hit
     
@@ -29,7 +28,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Coll");
         if (collision.gameObject.tag == "Player1" && targetTag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class FallingObjectSpawner : MonoBehaviour
@@ -15,18 +16,104 @@ public class FallingObjectSpawner : MonoBehaviour
 
     private float timer = 0;
 
-    // List of prefabs
-    [SerializeField] private List<GameObject> objects = new List<GameObject>();
+    public struct SpawnedObject
+    {
+        public GameObject obj;
+        public float weight;
+
+        public SpawnedObject(GameObject obj, float weight)
+        {
+            if (weight <= 0) throw new System.Exception("SpawnedObjects must have positive weights");
+            this.obj = obj;
+            this.weight = weight;
+        }
+    }
+
+    // List of prefabs with weights
+    [SerializeField] private List<GameObject> initialObjects = new();
+    [SerializeField] private List<float> initialWeights = new();
+    private static List<SpawnedObject> spawnedObjects = new();
+    private List<float> rngMap = new(); // Contains values between 0 and 1, last value is 1.
 
     private void Start()
     {
         timer = timePerSpawn;
+
+        InitializeSpawnedObjects();
+        NormalizeWeights();
+    }
+
+    private void InitializeSpawnedObjects()
+    {
+        for (int i = 0; i < initialObjects.Count; i++)
+        {
+            if (i >= initialWeights.Count)
+            {
+                spawnedObjects.Add(new SpawnedObject(initialObjects[i], 0));
+            } else
+            {
+                spawnedObjects.Add(new SpawnedObject(initialObjects[i], initialWeights[i]));
+            }
+        }
+    }
+
+    public void AddSpawnedObject(GameObject obj, float weight)
+    {
+        AddSpawnedObject(new SpawnedObject(obj, weight));
+    }
+    public void AddSpawnedObject(SpawnedObject obj)
+    {
+        spawnedObjects.Add(obj);
+        NormalizeWeights();
+    }
+
+    public void ClearSpawnedObjects()
+    {
+        spawnedObjects.Clear();
+    }
+
+    private void NormalizeWeights()
+    {
+        float totalWeight = 0;
+        rngMap.Clear();
+
+        foreach (SpawnedObject obj in spawnedObjects)
+        {
+            totalWeight += obj.weight;
+        }
+        for (int i = 0; i < spawnedObjects.Count; i++)
+        {
+            SpawnedObject obj = spawnedObjects[i];
+            obj.weight /= totalWeight;
+            spawnedObjects[i] = obj;
+        }
+        totalWeight = 0;
+        foreach (SpawnedObject obj in spawnedObjects)
+        {
+            totalWeight += obj.weight;
+            rngMap.Add(totalWeight);
+        }
+    }
+
+    private GameObject ChooseObject()
+    {
+        float rng = Random.value;
+        int i = 0;
+        foreach (float val in rngMap)
+        {
+            if (rng < val)
+            {
+                return spawnedObjects[i].obj;
+            }
+            i++;
+        }
+        return null; // Shouldn't happen
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (timer <= 0 && spawnedObjects.Count > 0)
         {
             SpawnObjects();
             timer = timePerSpawn;
@@ -38,10 +125,10 @@ public class FallingObjectSpawner : MonoBehaviour
         int numOfObjects = Random.Range(minPerSpawn, maxPerSpawn + 1);
         for(int i = 0; i < numOfObjects; i++)
         {
-            var obj = Instantiate(objects[Random.Range(0, objects.Count)], new Vector2(transform.position.x + Random.Range(-spawnerWidth / 2, spawnerWidth / 2), 
+            var obj = Instantiate(ChooseObject(), new Vector2(transform.position.x + Random.Range(-spawnerWidth / 2, spawnerWidth / 2), 
                 transform.position.y + Random.Range(-spawnerHeight / 2, spawnerHeight / 2)), Quaternion.identity);
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            if (rb != null) rb.AddForce(-obj.transform.position.normalized * force, ForceMode2D.Impulse);
+            if (rb != null) rb.AddForce(-rb.mass * force * obj.transform.position.normalized, ForceMode2D.Impulse);
 
         }
     }

@@ -21,6 +21,11 @@ public class SeesawHingeScript : MonoBehaviour
         return rb.rotation;
     }
 
+    public Vector2 GetNormalVector()
+    {
+        return new Vector2(Mathf.Sin(rb.rotation), Mathf.Cos(rb.rotation));
+    }
+
     /// <summary>
     /// Set the rotation limit of the platform, in degrees. It will be directionally symmetrical.
     /// </summary>
