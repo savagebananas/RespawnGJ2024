@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 4451765016561221358}
   - component: {fileID: 2731448973786902809}
   - component: {fileID: 3435453178314647139}
+  - component: {fileID: 7217894600483323943}
+  - component: {fileID: -4302471079343609283}
   m_Layer: 0
   m_Name: Crate Gray
   m_TagString: Untagged
@@ -241,3 +243,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.625, y: 0.5625}
   m_EdgeRadius: 0
+--- !u!114 &7217894600483323943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782443165462334504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93452e2ce48de834b811cb499608d2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RemainTime: 0.5
+  parent: 1
+  infinite: 0
+  ParSys: {fileID: 4831008266682930712, guid: b0ba7a57ca8eef84181d0673f9caa53c, type: 3}
+--- !u!114 &-4302471079343609283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782443165462334504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d596aa78b76c043bf009ecc86c1021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
