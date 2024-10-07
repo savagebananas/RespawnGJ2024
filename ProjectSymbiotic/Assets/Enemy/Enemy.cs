@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
+        Debug.Log("Take DMG");
         health -= dmg;
         if (health <= 0 && deathState != null) stateMachine.setNewState(deathState);
         else stateMachine.setNewState(hurtState);

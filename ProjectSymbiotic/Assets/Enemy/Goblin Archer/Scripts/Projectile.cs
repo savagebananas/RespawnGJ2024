@@ -4,19 +4,20 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Arrow : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private int direction = 1;
-    // Start is called before the first frame update
+
+    public string targetTag; // tag of objects the projectile will hit
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (rb.velocity.x < 0)
@@ -26,19 +27,21 @@ public class Arrow : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x)*Mathf.Rad2Deg);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1")
+        Debug.Log("Coll");
+        if (collision.gameObject.tag == "Player1" && targetTag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
         }
-        if (collision.gameObject.tag == "Player2")
+        if (collision.gameObject.tag == "Player2" && targetTag == "Player")
         {
             collision.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
         }
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && targetTag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
         }
     }
+
 }

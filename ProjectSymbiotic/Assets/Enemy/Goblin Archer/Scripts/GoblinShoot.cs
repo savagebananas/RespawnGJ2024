@@ -43,6 +43,7 @@ public class GoblinShoot : State
 
         var arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
+        arrow.GetComponent<Projectile>().targetTag = "Player";
 
     }
 

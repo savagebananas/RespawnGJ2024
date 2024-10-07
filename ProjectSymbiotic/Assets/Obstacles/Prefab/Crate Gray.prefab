@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 2731448973786902809}
   - component: {fileID: 3435453178314647139}
   - component: {fileID: 7217894600483323943}
-  - component: {fileID: -4302471079343609283}
   - component: {fileID: -1553643675576831679}
   m_Layer: 0
   m_Name: Crate Gray
@@ -260,19 +259,6 @@ MonoBehaviour:
   parent: 1
   infinite: 0
   ParSys: {fileID: 4831008266682930712, guid: b0ba7a57ca8eef84181d0673f9caa53c, type: 3}
---- !u!114 &-4302471079343609283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7782443165462334504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d596aa78b76c043bf009ecc86c1021, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cdown: 0
 --- !u!114 &-1553643675576831679
 MonoBehaviour:
   m_ObjectHideFlags: 0
