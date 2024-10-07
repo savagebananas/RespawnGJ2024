@@ -10,8 +10,9 @@ public class PressUp : MonoBehaviour
     public float def = 0.6f;
     public float stopshaking = 1.0f;
     private float shakecdown;
-    ShakeChains shakeChains;
-    ShakePlatform shakePlatform;
+    public GameObject chain, plat;
+    private ShakeChains shakeChains;
+    private ShakePlatform shakePlatform;
     private float laste = 0.1f;
     // Start is called before the first frame update
     private bool Inpute()
@@ -70,8 +71,8 @@ public class PressUp : MonoBehaviour
     }
     void Start()
     {
-        shakeChains = GameObject.Find("Platform (RB)/Chain").GetComponent<ShakeChains>();
-        shakePlatform = GameObject.Find("Platform (RB)/Seesaw").GetComponent<ShakePlatform>();
+        shakeChains=chain.GetComponent<ShakeChains>();
+        shakePlatform=plat.GetComponent<ShakePlatform>();
     }
 
     // Update is called once per frame
