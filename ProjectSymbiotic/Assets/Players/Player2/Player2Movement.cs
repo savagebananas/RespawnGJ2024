@@ -21,6 +21,8 @@ public class Player2Movement : MonoBehaviour
     [SerializeField]
     private SeesawHingeScript seesaw;
 
+    public int health;
+
     void Start()
     {
         originalSpeed = speed;
@@ -63,6 +65,24 @@ public class Player2Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(canBeHurt)
+        {
+            health -= damage;
+            if (health <= 0) 
+            {
+                Die();
+            }
+        }   
+    }
+
+    public void Die()
+    {
+        //destroy player spout blood play willhelm
+        //PlayerDiedHandle.Reseter();
     }
 
     private bool IsGrounded()
