@@ -67,6 +67,13 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
+    public void GetStunned()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        StartCoroutine(Stunned());
+    }
+
     public void TakeDamage(int damage)
     {
         if(canBeHurt)
@@ -101,5 +108,13 @@ public class Player2Movement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    IEnumerator Stunned()
+    {
+        yield return new WaitForSeconds(5);
+
+        
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 }

@@ -22,7 +22,7 @@ public class GoblinShoot : State
     public override void OnStart()
     {
         ShootArrow();
-        stateMachineManager.setNewState(idleState);
+        stateMachine.setNewState(idleState);
     }
 
     /// <summary>
@@ -36,17 +36,17 @@ public class GoblinShoot : State
         float dx = target.position.x - transform.position.x;
         float dy = target.position.y - transform.position.y;
 
-        timeToHit = new Vector2(dx, dy).magnitude/ (7 * difficulty);
+        timeToHit = new Vector2(dx, dy).magnitude / (7 * difficulty);
 
         float velocityX = dx / timeToHit;
-        float velocityY = (dy + GRAVITY/2 * Mathf.Pow(timeToHit, 2)) / timeToHit;
+        float velocityY = (dy + GRAVITY / 2 * Mathf.Pow(timeToHit, 2)) / timeToHit;
 
         var arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
 
     }
 
-    public override void OnUpdate() { }
-
-    public override void OnLateUpdate() { }
+    public override void OnUpdate(){}
+    public override void OnLateUpdate(){}
+    public override void OnExit(){}
 }
