@@ -7,7 +7,9 @@ using UnityEngine.Rendering;
 public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private SpriteRenderer rend;
+    public SpriteRenderer rend;
+
+    [HideInInspector] public bool isFired = false;
 
     public string targetTag; // tag of objects the projectile will hit
     
@@ -15,14 +17,14 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
     void Update()
     {
-        if (rb.velocity.x < 0)
-        {
-            rend.flipX = true;
-        }
+        if (!isFired) return;
+
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x)*Mathf.Rad2Deg);
     }
 

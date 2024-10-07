@@ -66,6 +66,9 @@ TagManager:
   - name: Chain
     uniqueID: 2866410977
     locked: 0
+  - name: Enemy
+    uniqueID: 2469550051
+    locked: 0
   - name: Player1
     uniqueID: 1792092847
     locked: 0

@@ -7,7 +7,7 @@ public class GoblinArcherIdle : State
     public float shootingCooldown = 3.0f;
     private float timer;
 
-    public State goblinShootState;
+    public State goblinPrepareShot;
 
     public override void OnStart()
     {
@@ -17,9 +17,10 @@ public class GoblinArcherIdle : State
     public override void OnUpdate()
     {
         timer -= Time.deltaTime;
+
         if (timer <= 0)
         {
-            stateMachine.setNewState(goblinShootState);
+            stateMachine.setNewState(goblinPrepareShot);
         }
     }
 
