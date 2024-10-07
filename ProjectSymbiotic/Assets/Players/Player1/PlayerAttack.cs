@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,12 @@ public class PlayerAttack : MonoBehaviour
     public float startTimeBetweenAttack;
     public bool isReadyToAttack = true;
 
+    private float timeBetweenSpecial;
+    public float startTimeBetweenSpecial;
+    public bool isReadyToSpecial = true;
+    public bool isSpecialAttacking = false;
+    public float chargeTime;
+
     public Transform attackPos;
     public float attackRange;
     public LayerMask damageableLayer;
@@ -16,10 +23,26 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        while(isSpecialAttacking)
+        {
+            //TODO copy everything from attack function
+        }
+
         if (timeBetweenAttack <= 0)
         {
             timeBetweenAttack = startTimeBetweenAttack;
             isReadyToAttack = true;
+        }
+
+        else
+        {
+            timeBetweenAttack -= Time.deltaTime;
+        }
+
+        if (timeBetweenSpecial <= 0)
+        {
+            timeBetweenSpecial = startTimeBetweenSpecial;
+            isReadyToSpecial = true;
         }
 
         else
@@ -47,12 +70,28 @@ public class PlayerAttack : MonoBehaviour
 
     public void SpecialAttack(InputAction.CallbackContext context)
     {
-        
+        Debug.Log("Special Start");
+        isReadyToSpecial = false;
+        StartCoroutine(Charge());
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+    IEnumerator Charge()
+    {
+        //TODO Start animation
+        isSpecialAttacking = true;
+        this.GetComponent<PlayerMovement>().canBeHurt = false;
+        this.GetComponent<PlayerMovement>().speed *= 2;
+        yield return new WaitForSeconds(chargeTime);
+
+        //TODO Stop animation
+        isSpecialAttacking = false;
+        this.GetComponent<PlayerMovement>().speed /= 2;
+        this.GetComponent<PlayerMovement>().canBeHurt = true;
     }
 }

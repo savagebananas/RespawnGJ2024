@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask playerLayer;
 
     private float horizontal;
-    private float speed = 8f;
+    public float speed = 8f;
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
 
+    public bool canBeHurt = true;
     public int health;
 
     // Update is called once per frame

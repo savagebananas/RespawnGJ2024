@@ -14,6 +14,7 @@ public class Player2Movement : MonoBehaviour
     private float speed = 8f;
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
+    public bool canBeHurt = true;
 
     // Update is called once per frame
     void Update()
