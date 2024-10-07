@@ -25,4 +25,20 @@ public class Arrow : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x)*Mathf.Rad2Deg);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player1")
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
+        }
+        if (collision.gameObject.tag == "Player2")
+        {
+            collision.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
+        }
+    }
 }

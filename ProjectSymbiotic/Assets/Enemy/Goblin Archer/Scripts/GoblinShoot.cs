@@ -13,18 +13,17 @@ public class GoblinShoot : State
     private float arrowMass;
 
     public State idleState; // Timer cooldown for shooting is in goblin idle state
-    public State deathState;
+
+    private void Awake()
+    {
+        arrowMass = arrowPrefab.GetComponent<Rigidbody2D>().mass;
+    }
 
     public override void OnStart()
     {
-        arrowMass = arrowPrefab.GetComponent<Rigidbody2D>().mass;
         ShootArrow();
         stateMachineManager.setNewState(idleState);
     }
-
-    public override void OnUpdate(){}
-
-    public override void OnLateUpdate(){}
 
     /// <summary>
     /// Uses physics to calculate initial velocities of arrow
@@ -46,4 +45,8 @@ public class GoblinShoot : State
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(velocityX, velocityY);
 
     }
+
+    public override void OnUpdate() { }
+
+    public override void OnLateUpdate() { }
 }

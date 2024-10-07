@@ -1657,6 +1657,7 @@ Transform:
   m_Children:
   - {fileID: 844301062}
   - {fileID: 893062094}
+  - {fileID: 995429167}
   m_Father: {fileID: 2107047709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &855970077
@@ -1950,7 +1951,6 @@ MonoBehaviour:
   arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
   difficulty: 1
   idleState: {fileID: 844301063}
-  deathState: {fileID: 0}
 --- !u!1 &966940562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,6 +2150,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.75}
   m_EdgeRadius: 0
+--- !u!1 &995429166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995429167}
+  - component: {fileID: 995429168}
+  m_Layer: 0
+  m_Name: GoblinDeath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995429167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995429166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855970076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995429168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995429166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachineManager: {fileID: 855970077}
 --- !u!1 &1129282771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1080942502114370165, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
@@ -2318,7 +2363,6 @@ MonoBehaviour:
   arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
   difficulty: 1
   idleState: {fileID: 0}
-  deathState: {fileID: 0}
 --- !u!212 &1219004036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3841,6 +3885,8 @@ GameObject:
   - component: {fileID: 2107047709}
   - component: {fileID: 2107047708}
   - component: {fileID: 2107047710}
+  - component: {fileID: 2107047711}
+  - component: {fileID: 2107047712}
   m_Layer: 0
   m_Name: Goblin 1
   m_TagString: Untagged
@@ -3943,6 +3989,57 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!70 &2107047711
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107047705}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!114 &2107047712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107047705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286fc5e1314e922479706406e41a51d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  stateMachine: {fileID: 855970077}
+  hurtState: {fileID: 0}
+  deathState: {fileID: 995429168}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
