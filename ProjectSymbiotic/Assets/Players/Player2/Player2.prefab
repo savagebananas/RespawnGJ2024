@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 7223455994396394507}
   - component: {fileID: 897437405251817041}
   - component: {fileID: 1175150650045281450}
-  - component: {fileID: 6891161626839915788}
   - component: {fileID: 415652514851420367}
   m_Layer: 3
   m_Name: Player2
@@ -351,6 +350,7 @@ MonoBehaviour:
   isFacingRight: 1
   canBeHurt: 1
   seesaw: {fileID: 0}
+  health: 0
 --- !u!114 &897437405251817041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,22 +393,6 @@ MonoBehaviour:
   Player: {fileID: 1080942502114370165}
   VanishTime: 1
   cps: 6
---- !u!114 &6891161626839915788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080942502114370165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0412183a528bf404ebf4562b75d3f968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 0}
-  Player: {fileID: 1080942502114370165}
-  VanishTime: 1
-  cps: 12
 --- !u!70 &415652514851420367
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

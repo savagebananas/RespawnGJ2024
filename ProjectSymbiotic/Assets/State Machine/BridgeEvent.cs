@@ -20,4 +20,9 @@ public class BridgeEvent : State
     {
         
     }
+
+    public override void OnExit()
+    {
+
+    }
 }
