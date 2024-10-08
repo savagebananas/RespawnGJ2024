@@ -68,6 +68,9 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+            // Jump Animation
+            anim.SetTrigger("jump");
         }
 
         if(context.canceled && rb.velocity.y > 0f)
@@ -121,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+        anim.SetBool("isWalking", true);
     }
 
     public void GetStunned()
@@ -134,6 +138,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(canBeHurt)
         {
+            anim.SetTrigger("hurt");
+
             health -= damage;
             if (health <= 0) 
             {

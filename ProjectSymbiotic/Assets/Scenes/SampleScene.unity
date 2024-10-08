@@ -14983,6 +14983,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2024224280}
+    - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
       propertyPath: mvUp
       value: 
       objectReference: {fileID: 1228053959}
