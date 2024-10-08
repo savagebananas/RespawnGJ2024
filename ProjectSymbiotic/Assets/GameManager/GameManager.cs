@@ -31,7 +31,6 @@ public class GameManager : StateMachineManager
     public static void AddScore(float height)
     {
         score += height;
-        Debug.Log(score);
         MeterCounter.UpdateUI(score);
     }
     public static float GetHeight()
