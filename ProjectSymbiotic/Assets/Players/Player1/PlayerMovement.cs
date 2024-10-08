@@ -133,6 +133,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
     }
+    public void WinningTheGame()
+    {
+        anim.SetTrigger("isWinning");
+    }
+
 
     public void GetStunned()
     {

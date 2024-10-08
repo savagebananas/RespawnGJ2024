@@ -134,6 +134,11 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
+    public void WinningTheGame()
+    {
+        //anim.SetTrigger("isWinning");
+    }
+
     public void GetStunned()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;

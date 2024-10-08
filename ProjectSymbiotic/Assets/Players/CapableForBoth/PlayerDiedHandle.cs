@@ -48,6 +48,7 @@ public class PlayerDiedHandle : MonoBehaviour
                 Time.timeScale = 1;
                 p1.GetComponent<PlayerMovement>().health = 5;
                 p2.GetComponent<Player2Movement>().health = 5;
+                Debug.Log("Some people died.");
                 resetting = false;
             }
         }
