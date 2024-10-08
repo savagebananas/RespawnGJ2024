@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 184848124}
   FinalPosition: 0
-  IOgravity: 500
+  IOgravity: 1000
   WorldButtonMonitor: {fileID: 1832659891}
   buttonName: Play
 --- !u!1 &204564627
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 204564629}
   FinalPosition: 0
-  IOgravity: 500
+  IOgravity: 1000
   WorldButtonMonitor: {fileID: 1832659891}
   buttonName: Credits
 --- !u!1 &238298188
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 703942798}
   FinalPosition: 0
-  IOgravity: 500
+  IOgravity: 1000
   WorldButtonMonitor: {fileID: 1832659891}
   buttonName: Settings
 --- !u!1 &751843536
@@ -2327,7 +2327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 751843538}
   FinalPosition: 0
-  IOgravity: 500
+  IOgravity: 1000
   WorldButtonMonitor: {fileID: 1832659891}
   buttonName: Help
 --- !u!1 &872266490
