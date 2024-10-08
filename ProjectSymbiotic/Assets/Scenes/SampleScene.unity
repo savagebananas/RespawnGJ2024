@@ -15279,6 +15279,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1792092847
       objectReference: {fileID: 0}
+    - target: {fileID: 3964401585139293395, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: chargeTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964401585139293395, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: startTimeBetweenSpecial
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4197994140971931691, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
       propertyPath: m_Size.x
       value: 0.45

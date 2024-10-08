@@ -23,10 +23,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        while(isSpecialAttacking)
-        {
-            //TODO copy everything from attack function
-        }
+        
 
         if (timeBetweenAttack <= 0)
         {
@@ -47,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
 
         else
         {
-            timeBetweenAttack -= Time.deltaTime;
+            timeBetweenSpecial -= Time.deltaTime;
         }
     }
 
@@ -70,8 +67,11 @@ public class PlayerAttack : MonoBehaviour
     public void SpecialAttack(InputAction.CallbackContext context)
     {
         Debug.Log("Special Start");
-        isReadyToSpecial = false;
-        StartCoroutine(Charge());
+        if(isReadyToSpecial)
+        {
+            isReadyToSpecial = false;
+            StartCoroutine(Charge());
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -85,12 +85,13 @@ public class PlayerAttack : MonoBehaviour
         //TODO Start animation
         isSpecialAttacking = true;
         this.GetComponent<PlayerMovement>().canBeHurt = false;
-        this.GetComponent<PlayerMovement>().speed *= 2;
+        this.GetComponent<PlayerMovement>().speed *= 1.5f;
         yield return new WaitForSeconds(chargeTime);
+        Debug.Log("Done timer");
 
         //TODO Stop animation
         isSpecialAttacking = false;
-        this.GetComponent<PlayerMovement>().speed /= 2;
+        this.GetComponent<PlayerMovement>().speed /= 1.5f;
         this.GetComponent<PlayerMovement>().canBeHurt = true;
     }
 }
