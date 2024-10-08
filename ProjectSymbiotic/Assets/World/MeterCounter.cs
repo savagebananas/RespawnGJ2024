@@ -5,17 +5,21 @@ using TMPro;
 
 public class MeterCounter : MonoBehaviour
 {
-    static TMP_Text txmp;
+    public TMP_Text txmp;
+    public static float x;
 
     void Start()
     {
-        txmp = GetComponent<TMP_Text>();
+        
     }
 
 
     public static void UpdateUI(float n)
     {
-        txmp.text = n.ToString("F2") + "m";
+        x = n;
     }
-
+    private void Update()
+    {
+        txmp.text = x.ToString("F2") + "m";
+    }
 }

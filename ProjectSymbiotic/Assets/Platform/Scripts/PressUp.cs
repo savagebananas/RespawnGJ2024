@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PressUp : MonoBehaviour
 {
 
-    public float def = 0.6f;
+ /*   public float def = 0.6f;
     public GameObject chain, plat; // GameObjects to shake
     private ShakeChains shakeChains;
     private ShakePlatform shakePlatform;
@@ -52,80 +53,63 @@ public class PressUp : MonoBehaviour
         shakePlatform = plat.GetComponent<ShakePlatform>();
         idle = gm.GetComponent<Idle>();
     }
-}
-// public float velocity;
-// private float cdown;
-// public float def = 0.6f;
-// public float stopshaking = 1.0f;
-// private float shakecdown;
-// public GameObject chain, plat;
-// private ShakeChains shakeChains;
-// private ShakePlatform shakePlatform;
-// private float laste = 0.1f;
-// // Start is called before the first frame update
-// private bool Inpute()
-// {
-//     if (Input.GetKey(KeyCode.E))
-//     {
-//         laste = 0.05f;
-//     }
-//     if (laste < 0) return false;
-//     return true;
-// }
-// private void OnTriggerStay2D(Collider2D collision)
-// {
-//     if ((collision.GetComponent<PlayerMovement>() != null)|| (collision.GetComponent<Player2Movement>() != null))
-//     {
-//         if (Inpute())
-//         {
-//             if (cdown != 0)
-//             {
-//                 cdown -= Time.deltaTime;
-//                 shakecdown = stopshaking;
-//                 if (cdown <= 0) cdown = 0;
-//                 if (shakecdown > 0)
-//                 {
-//                     shakeChains.Shake();
-//                     shakePlatform.Shake();
-//                 }
-//             }
-//             else
-//             {
-//                 GameManager.AddScore(Time.deltaTime * velocity);
-//                 shakecdown -= Time.deltaTime;
-//                 if (shakecdown <= 0) shakecdown = 0;
-//                 if (shakecdown > 0)
-//                 {
-//                     shakeChains.Shake();
-//                     shakePlatform.Shake();
-//                 }
-//             }
-//         }
-//         else
-//         {
-//             cdown = def;
-//             shakecdown = stopshaking;
-//             shakeChains.endShake();
-//             shakePlatform.EndShake();
-//         }
-//     }
-//     else
-//     {
-//         if (cdown<def) cdown += Time.deltaTime;
-//         shakecdown = stopshaking;
-//         shakeChains.endShake();
-//         shakePlatform.EndShake();
-//     }
-// }
-// void Start()
-// {
-//     shakeChains=chain.GetComponent<ShakeChains>();
-//     shakePlatform=plat.GetComponent<ShakePlatform>();
-// }
+}*/
+ public float velocity=5;
+ private float cdown;
+ public float def = 0.6f;
+ public float stopshaking = 1.0f;
+ public GameObject chain, plat;
+ private float laste = 0f;
+ // Start is called before the first frame update
+ private bool Inpute()
+ {   
+     Debug.Log("laste=" + laste);
+        if (laste <= 0)
+        {
+               return false;
+        }
+        return true;
+ }
+ private void OnTriggerStay2D(Collider2D collision)
+ {
+    if ((collision.GetComponent<PlayerMovement>() != null)|| (collision.GetComponent<Player2Movement>() != null))
+     {
+         if (Inpute())
+         {
+             Debug.Log("EPress cdown="+cdown);
+             if (cdown > 0)
+             {
+                 cdown -= Time.deltaTime;
+                 if (cdown <= 0) cdown = 0;
+             }
+             else
+             {
+                 GameManager.AddScore(Time.deltaTime * velocity);
+             }
+         }
+         else
+         {
+                if (cdown < def) cdown += Time.deltaTime;
+            }
+     }
+     else
+     {
+            if (cdown < def) cdown += Time.deltaTime;
+            //shakeChains.endShake();
+            //shakePlatform.EndShake();
+        }
+ }
+ void Start()
+ {
 
-// // Update is called once per frame
-// void Update()
-// {
-//     if (laste > 0) laste -= Time.deltaTime;
-// }
-//}
+ }
+ // Update is called once per frame
+ void Update()
+ {
+        if (Input.GetKey(KeyCode.E))
+        {
+            laste = 0.05f;
+        }
+        else if (laste>0) laste-=Time.deltaTime;
+ }
+}
