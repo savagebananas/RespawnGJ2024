@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
+    public int health;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void Update()
     {
-        // kill/stun player
-
-        // 
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
