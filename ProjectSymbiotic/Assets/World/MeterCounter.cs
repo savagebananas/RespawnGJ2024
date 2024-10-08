@@ -20,6 +20,6 @@ public class MeterCounter : MonoBehaviour
     }
     private void Update()
     {
-        txmp.text = x.ToString("F2") + "m";
+        txmp.text = "Raised height: "+ x.ToString("F2") + "m";
     }
 }
