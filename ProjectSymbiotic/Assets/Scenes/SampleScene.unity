@@ -8813,16 +8813,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864515847}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6a510b6e06ef11458fdd910f0b700b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerWidth: 30
   spawnerHeight: 10
-  timePerSpawn: 1
+  timePerSpawn: 5
   minPerSpawn: 1
-  maxPerSpawn: 3
+  maxPerSpawn: 1
   force: 10
   initialObjects:
   - {fileID: 7782443165462334504, guid: 23734a0a1329c0e48b5ff1b392352ea9, type: 3}
