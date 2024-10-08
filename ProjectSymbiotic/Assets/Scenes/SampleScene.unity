@@ -14942,9 +14942,25 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1129282789}
+    - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: mvUp
+      value: 
+      objectReference: {fileID: 1228053959}
+    - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
       propertyPath: seesaw
       value: 
       objectReference: {fileID: 966940567}
+    - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: platform
+      value: 
+      objectReference: {fileID: 1228053960}
+    - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: stationary
+      value: 
+      objectReference: {fileID: 1228053958}
     m_RemovedComponents:
     - {fileID: 4244169189023545799, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
     m_RemovedGameObjects: []
