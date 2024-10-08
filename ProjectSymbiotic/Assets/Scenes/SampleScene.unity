@@ -578,11 +578,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484536ae7a7acd64489ed97f756a4699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 4.69
   def: 0.6
-  stopshaking: 1
   chain: {fileID: 10262279}
   plat: {fileID: 966940562}
+  gm: {fileID: 842570296}
+  platform: {fileID: 1228053960}
+  mvUp: {fileID: 1228053959}
+  pullPlayer: {fileID: 0}
+  stationary: {fileID: 1228053958}
 --- !u!61 &273506382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11462,7 +11465,7 @@ MonoBehaviour:
   velocity: 1
   chain: {fileID: 10262279}
   plat: {fileID: 966940562}
-  normalState: {fileID: 842570295}
+  normalState: {fileID: 0}
 --- !u!114 &842570295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12297,6 +12300,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1228053957}
+  - component: {fileID: 1228053960}
+  - component: {fileID: 1228053959}
+  - component: {fileID: 1228053958}
   m_Layer: 6
   m_Name: Platform (RB)
   m_TagString: Untagged
@@ -12322,6 +12328,50 @@ Transform:
   - {fileID: 877002899}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1228053958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228053956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61cb5c544b8c45d29977f0231181634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 1228053960}
+--- !u!114 &1228053959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228053956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41153969d86a4b02a8ef386ecf85972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 1228053960}
+  moveDelay: 0.6
+  velocity: 1
+  chain: {fileID: 10262279}
+  plat: {fileID: 966940562}
+  normalState: {fileID: 1228053958}
+--- !u!114 &1228053960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228053956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: {fileID: 0}
 --- !u!1 &1277055286
 GameObject:
   m_ObjectHideFlags: 0
