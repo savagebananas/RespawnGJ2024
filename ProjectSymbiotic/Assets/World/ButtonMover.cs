@@ -37,7 +37,6 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         FinalPosition = -960;
         velocity = 30;
-        Debug.Log("Button Pressed: " + myButton.name);
         WorldButtonMonitor.PressEvent(buttonName);
     }
     public void OnPointerEnter(PointerEventData eventData)
@@ -48,7 +47,6 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             FinalPosition = -175;
             velocity = 30;
         }
-        Debug.Log("Button Selected: " + gameObject.name);
     }
 
     // This method is called when the mouse stops hovering over the button
@@ -60,7 +58,6 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             FinalPosition = -200;
             velocity = 0;
         }
-        Debug.Log("Button Deselected: " + gameObject.name);
     }
 
     public void NormalReset()
@@ -91,11 +88,11 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 rectTransform.anchoredPosition = new Vector2(FinalPosition, rectTransform.anchoredPosition.y);
                 velocity = 0;
+                if (rectTransform.anchoredPosition.x == -960)
+                {
+                    WorldButtonMonitor.WorldActivate(buttonName);
+                }
             }
-        }
-        if (rectTransform.anchoredPosition.x==-960)
-        {
-            WorldButtonMonitor.WorldActivate(buttonName);
         }
     }
 }

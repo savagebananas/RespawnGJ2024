@@ -61,16 +61,15 @@ public class WorldButtonMonitor : MonoBehaviour
             case "Credits": SceneManager.LoadScene("Credits"); break;
             default: break;
         }
-
-        // Update is called once per frame
-        void Update()
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (countdown > 0)
         {
-            if (countdown>0)
-            {
-                countdown -= Time.deltaTime;
-                if (countdown < 0)
-                    SceneManager.LoadScene("SampleScene");
-            }
+            countdown -= Time.deltaTime;
+            if (countdown <= 0)
+                SceneManager.LoadScene("SampleScene");
         }
     }
 }
