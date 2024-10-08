@@ -62,8 +62,7 @@ public class PlayerAttack : MonoBehaviour
             for (int i = 0; i < damageables.Length; i++)
             {
                 Debug.Log("Hit");
-                //damageables.GetValueAt(i).GetComponent<PlayerAttack>().Attack(context);
-                //damageables.GetValueAt(i).GetComponent<damageable>().TakeDamage(damage)
+                damageables[i].GetComponent<FallingObject>().TakeDamage(damage);
             }
         }
     }
