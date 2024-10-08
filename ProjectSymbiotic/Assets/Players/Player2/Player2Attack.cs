@@ -44,7 +44,7 @@ public class Player2Attack : MonoBehaviour
 
         else
         {
-            timeBetweenAttack -= Time.deltaTime;
+            timeBetweenSpecial -= Time.deltaTime;
         }
     }
 
