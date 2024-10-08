@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using Unity.VisualScripting;
 using Unity.Mathematics;
 using UnityEngine.InputSystem;
 
@@ -10,22 +11,29 @@ public class Player2Movement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
 
     private float horizontal;
-    private float speed = 8f;
+    public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
     public bool canBeHurt = true;
+    public int health;
 
     [SerializeField]
     private SeesawHingeScript seesaw;
 
-    public int health;
+    public StateMachineManager platform;
+    public MovingUp mvUp;
+    public Stationary stationary;
+    public bool isOnButton = false;
+    public Animator anim;
 
     void Start()
     {
         originalSpeed = speed;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,6 +67,9 @@ public class Player2Movement : MonoBehaviour
         if(context.performed && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+            // Jump Animation
+            anim.SetTrigger("jump");
         }
 
         if(context.canceled && rb.velocity.y > 0f)
@@ -67,29 +78,33 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
-    public void GetStunned()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-
-        StartCoroutine(Stunned());
-    }
-
-    public void TakeDamage(int damage)
-    {
-        if(canBeHurt)
+        if(collider.tag == "UpButton")
         {
-            health -= damage;
-            if (health <= 0) 
-            {
-                Die();
-            }
-        }   
+            isOnButton = true;
+        }
     }
 
-    public void Die()
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        //destroy player spout blood play willhelm
-        //PlayerDiedHandle.Reseter();
+        if(collider.tag == "UpButton")
+        {
+            isOnButton = false;
+            platform.setNewState(stationary);
+        }
+    }
+
+    public void PullChain(InputAction.CallbackContext context){ 
+        if(context.performed && isOnButton)
+        {
+            platform.setNewState(mvUp);
+        }
+
+        if(context.canceled)
+        {
+            platform.setNewState(stationary);
+        }
     }
 
     private bool IsGrounded()
@@ -108,6 +123,42 @@ public class Player2Movement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+
+        if(context.started)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else if(context.canceled)
+        {
+            anim.SetBool("isWalking", false);
+        }
+    }
+
+    public void GetStunned()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        StartCoroutine(Stunned());
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(canBeHurt)
+        {
+            anim.SetTrigger("hurt");
+
+            health -= damage;
+            if (health <= 0) 
+            {
+                Die();
+            }
+        }   
+    }
+
+    public void Die()
+    {
+        PlayerDiedHandle.Reseter();
+        //destroy player spout blood play willhelm
     }
 
     IEnumerator Stunned()
