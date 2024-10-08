@@ -47,7 +47,7 @@ public class PlayerDiedHandle : MonoBehaviour
                 p2.transform.position = new Vector2(1, 0);
                 Time.timeScale = 1;
                 p1.GetComponent<PlayerMovement>().health = 5;
-                //p2.GetComponent<Player2Movement>().health = 5;
+                p2.GetComponent<Player2Movement>().health = 5;
                 resetting = false;
             }
         }
