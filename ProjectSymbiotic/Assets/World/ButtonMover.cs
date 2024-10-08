@@ -42,7 +42,8 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (FinalPosition != -960)
+        if (!myButton.interactable) return;
+        if (FinalPosition > -960)
         {
             FinalPosition = -175;
             velocity = 30;
@@ -53,7 +54,8 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // This method is called when the mouse stops hovering over the button
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (FinalPosition != -960)
+        if (!myButton.interactable) return;
+        if (FinalPosition > -960)
         {
             FinalPosition = -200;
             velocity = 0;
