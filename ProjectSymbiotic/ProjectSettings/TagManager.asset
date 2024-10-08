@@ -45,17 +45,17 @@ TagManager:
   - name: Background 0
     uniqueID: 3495837277
     locked: 0
-  - name: Background Particles 0
-    uniqueID: 2056899585
-    locked: 0
   - name: Background 1
     uniqueID: 392929653
     locked: 0
-  - name: Background Particles 1
-    uniqueID: 1465691875
+  - name: Background Particles 0
+    uniqueID: 2056899585
     locked: 0
   - name: Background 2
     uniqueID: 1126672437
+    locked: 0
+  - name: Background Particles 1
+    uniqueID: 1465691875
     locked: 0
   - name: Foreground
     uniqueID: 3704838461

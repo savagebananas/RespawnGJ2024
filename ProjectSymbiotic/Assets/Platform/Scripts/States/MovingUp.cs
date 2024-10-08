@@ -18,19 +18,18 @@ public class MovingUp : State
     public GameObject plat;
     private ShakeChains shakeChains;
     private ShakePlatform shakePlatform;
-    public State normalState;
+    public Stationary normalState;
     public override void OnStart()
     {
         delayTimer = moveDelay;
         shakeChains = chain.GetComponent<ShakeChains>();
-        shakePlatform = plat.GetComponent<ShakePlatform>();
+        //shakePlatform = plat.GetComponent<ShakePlatform>();
     }
 
     public override void OnUpdate()
     {
         if (!Input.GetKey(KeyCode.E))
         {
-            Debug.Log("FU");
             stateMachine.setNewState(normalState);
             return;
         }
@@ -45,7 +44,7 @@ public class MovingUp : State
 
         // While shaking timer is active, shake the objects
         shakeChains.Shake();
-        shakePlatform.Shake();
+        //shakePlatform.Shake();
 
 
     }
@@ -59,6 +58,6 @@ public class MovingUp : State
     {
 
         shakeChains.endShake();
-        shakePlatform.EndShake();
+        //shakePlatform.EndShake();
     }
 }
