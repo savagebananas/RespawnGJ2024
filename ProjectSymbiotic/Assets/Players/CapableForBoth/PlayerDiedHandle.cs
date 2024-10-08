@@ -14,27 +14,37 @@ public class PlayerDiedHandle : MonoBehaviour
     {
         Time.timeScale = 0;
         resetting = true;
-        resetvelo = GameManager.GetHeight() / 10;
+        resetvelo = (GameManager.GetHeight() / 10) + 5;
+        //Debug.Log("Velo=" + resetvelo);
         cod = 1.5f;
+        resetting = true;
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cod > 0) cod -= Time.unscaledDeltaTime;
-        else if (GameManager.GetHeight()>0)
-            GameManager.AddScore(-resetvelo * Time.unscaledDeltaTime);
-        else
+        if (resetting)
         {
-            p1.transform.position = new Vector2(-1, 2);
-            p2.transform.position = new Vector2(1, 2);
-            Time.timeScale = 1;
-            p1.GetComponent<PlayerMovement>().health = 5;
-            //p2.GetComponent<Player2Movement>().health = 5;
+            //Debug.Log("reset");
+            if (cod > 0)
+            {
+                cod -= Time.unscaledDeltaTime;
+            }
+            else if (GameManager.GetHeight() > 0)
+                GameManager.AddScore(-resetvelo * Time.unscaledDeltaTime);
+            else
+            {
+                p1.transform.position = new Vector2(-1, 0);
+                p2.transform.position = new Vector2(1, 0);
+                Time.timeScale = 1;
+                p1.GetComponent<PlayerMovement>().health = 5;
+                //p2.GetComponent<Player2Movement>().health = 5;
+                resetting = false;
+            }
         }
     }
 }

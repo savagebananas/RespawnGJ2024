@@ -489,7 +489,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273506379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 484536ae7a7acd64489ed97f756a4699, type: 3}
   m_Name: 
@@ -1575,6 +1575,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1914724663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &656206078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080942502114370165, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+  m_PrefabInstance: {fileID: 1966365004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &769032227
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,6 +6732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cb4f1a258392d4483c789c0f34ac1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txmp: {fileID: 875049016}
 --- !u!222 &875049018
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7288,6 +7294,7 @@ GameObject:
   - component: {fileID: 1277055287}
   - component: {fileID: 1277055289}
   - component: {fileID: 1277055288}
+  - component: {fileID: 1277055291}
   - component: {fileID: 1277055290}
   m_Layer: 0
   m_Name: Camera System
@@ -7351,10 +7358,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cc11cde69fc504c902c3d69bc1a1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
-  musicClips: []
-  soundEffects: []
+--- !u!114 &1277055291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277055286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b9e0de32983cc48935534b1e929b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1: {fileID: 71793394}
+  p2: {fileID: 656206078}
 --- !u!1 &1292380682
 GameObject:
   m_ObjectHideFlags: 0
@@ -8860,6 +8877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 1
   target: {fileID: 0}
+  aimLeft: 0
   health: 1
   stateMachine: {fileID: 855970077}
   hurtState: {fileID: 0}
