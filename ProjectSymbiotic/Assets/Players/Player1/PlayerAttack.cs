@@ -59,7 +59,14 @@ public class PlayerAttack : MonoBehaviour
             for (int i = 0; i < damageables.Length; i++)
             {
                 Debug.Log("Hit");
-                damageables[i].GetComponent<FallingObject>().TakeDamage(damage);
+                if(damageables[i].GetComponent<FallingObject>() != null){
+                    damageables[i].GetComponent<FallingObject>().TakeDamage(damage);
+                }
+                else if(damageables[i].GetComponent<Enemy>() != null)
+                {
+                    damageables[i].GetComponent<Enemy>().TakeDamage(damage);
+                }
+                
             }
         }
     }
