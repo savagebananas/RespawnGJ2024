@@ -147,7 +147,6 @@ public class Player2Movement : MonoBehaviour
         Debug.Log("P2 is winning");
         canBeHurt = false;
         won = true;
-        //anim.SetTrigger("isWinning");
     }
 
     public void GetStunned()

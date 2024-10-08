@@ -149,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("I am winning");
         won = true;
         canBeHurt = false;
-        anim.SetTrigger("isWinning");
     }
 
 
