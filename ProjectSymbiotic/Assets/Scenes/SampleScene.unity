@@ -9334,6 +9334,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: mvUp
+      value: 
+      objectReference: {fileID: 1228053959}
+    - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
@@ -9341,6 +9345,14 @@ PrefabInstance:
       propertyPath: seesaw
       value: 
       objectReference: {fileID: 966940567}
+    - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: platform
+      value: 
+      objectReference: {fileID: 1228053960}
+    - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: stationary
+      value: 
+      objectReference: {fileID: 1228053958}
     - target: {fileID: 3761354116501088026, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
       propertyPath: m_Sprite
       value: 
