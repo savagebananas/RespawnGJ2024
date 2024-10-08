@@ -12,6 +12,7 @@ public class WinningTheGame : MonoBehaviour
     public float TimeToNextStage=6f;
     private float Timecd;
     public Collider2D father;
+    public static bool Won;
 
     public void DestroyAllUnneed()
     {
@@ -33,6 +34,7 @@ public class WinningTheGame : MonoBehaviour
                 Timecd = TimeToNextStage;
                 father.isTrigger = false;
                 DestroyAllUnneed();
+                Won = true;
             }
         }
         else if (other.gameObject == p2)
@@ -45,13 +47,14 @@ public class WinningTheGame : MonoBehaviour
                 Timecd = TimeToNextStage;
                 father.isTrigger = false;
                 DestroyAllUnneed();
+                Won = true;
             }
         }
         else { Debug.Log("Not verified."); }
     }
     void Start()
     {
-        
+        Won = false;   
     }
 
     // Update is called once per frame
@@ -63,8 +66,8 @@ public class WinningTheGame : MonoBehaviour
             if (Timecd < 0) SceneManager.LoadScene(stageName);
             p1.GetComponent<PlayerMovement>().anim.SetBool("isWalking", true);
             p2.GetComponent<Player2Movement>().anim.SetBool("isWalking", true);
-            p1.GetComponent<PlayerMovement>().horizontal = 1;
-            p2.GetComponent<Player2Movement>().horizontal= 1;
+            //p1.GetComponent<PlayerMovement>().horizontal = 1;
+            //p2.GetComponent<Player2Movement>().horizontal= 1;
         }
     }
 }

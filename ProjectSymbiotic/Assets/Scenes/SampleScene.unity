@@ -13746,7 +13746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 842570296}
   moveDelay: 0.6
-  velocity: 1
+  velocity: 0.7
   chain: {fileID: 10262279}
   plat: {fileID: 966940562}
   normalState: {fileID: 0}
