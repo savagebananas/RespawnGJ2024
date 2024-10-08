@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnButton = false;
     public Animator anim;
 
+    [SerializeField] private ParticleSystem dust;
+
     void Start()
     {
         originalSpeed = speed;
@@ -74,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
                 // Jump Animation
                 anim.SetTrigger("jump");
+                dust.Stop();
             }
 
             if (context.canceled && rb.velocity.y > 0f)
@@ -137,10 +140,13 @@ public class PlayerMovement : MonoBehaviour
             if (context.started)
             {
                 anim.SetBool("isWalking", true);
+                if (IsGrounded()) dust.Play();
+                else dust.Stop();
             }
             else if (context.canceled)
             {
                 anim.SetBool("isWalking", false);
+                dust.Stop();
             }
         }
     }
