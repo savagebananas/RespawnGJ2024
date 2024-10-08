@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinArcherIdle : State
+public class GoblinArcherCooldown : State
 {
     public float shootingCooldown = 3.0f;
     private float timer;
