@@ -109,8 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        //destroy player spout blood play willhelm
-        //PlayerDiedHandle.Reseter();
+        PlayerDiedHandle.Reseter();
     }
 
     IEnumerator Stunned()
