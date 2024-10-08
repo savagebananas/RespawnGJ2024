@@ -16,11 +16,11 @@ public class DialogSystem : MonoBehaviour
     {
         if (PlayerScripts.player[x]==1)
         {
-            dm1.CreateANewText(PlayerScripts.playerScripts[x], defaultPlayTime);
+            dm1.SetText(PlayerScripts.playerScripts[x], defaultPlayTime);
         }
         else
         {
-            dm2.CreateANewText(PlayerScripts.playerScripts[x], defaultPlayTime);
+            dm2.SetText(PlayerScripts.playerScripts[x], defaultPlayTime);
         }
     }
     public static void Playfrom(int x)

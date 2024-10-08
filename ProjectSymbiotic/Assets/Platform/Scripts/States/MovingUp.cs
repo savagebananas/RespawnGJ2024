@@ -23,7 +23,7 @@ public class MovingUp : State
 
     void Start()
     {
-        chainAnimater = chain.GetComponent<Animator>();
+
     }
 
     public override void OnStart()
@@ -48,7 +48,7 @@ public class MovingUp : State
             {
                 shakeChains.endShake();
                 //shakePlatform.endShake();
-                chainAnimater.SetTrigger("moveChain");
+                chainAnimater.SetBool("isMoving", true);
                 chainMoving = true;
             }
             if (!WinningTheGame.Won) 
@@ -67,7 +67,7 @@ public class MovingUp : State
     public override void OnExit()
     {
         //shakeChains.endShake();
-        chainAnimater.SetTrigger("stopChain");
+        chainAnimater.SetBool("isMoving", false);
         chainMoving = false;
 
         //shakePlatform.EndShake();

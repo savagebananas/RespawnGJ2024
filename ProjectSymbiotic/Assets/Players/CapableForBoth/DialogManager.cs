@@ -48,7 +48,6 @@ public class DialogManager : MonoBehaviour
         dialogtext.text = "";
     }
     /// <summary>
-    /// ClearText():
     /// Clear the Text.
     /// You cannot Clear the Text Immediately.
     /// But it is going to vanish....
@@ -58,13 +57,13 @@ public class DialogManager : MonoBehaviour
         TextDisplayTime = 0;
         RectVanishCoolDown = VanishTime;
     }
+
     /// <summary>
-    /// CreateANewText:
-    /// Start a new dialog to make a new text!
+    /// Set new dialog lines and duration
     /// </summary>
-    /// <param name="newtext"><The container>
+    /// <param name="newtext"><The dialogue>
     /// <param name="displaytime"><The time you want it to stay>
-    public void CreateANewText(string newtext,float displaytime) 
+    public void SetText(string newtext,float displaytime) 
     {
         if (dialogtext.text!="")
         {
