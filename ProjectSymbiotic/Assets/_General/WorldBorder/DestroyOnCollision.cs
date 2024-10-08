@@ -6,7 +6,8 @@ public class DestroyOnCollision : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMovement>()!=null)
+        if ((collision.gameObject.GetComponent<PlayerMovement>()!=null)||
+            (collision.gameObject.GetComponent<Player2Movement>() != null))
         {
             PlayerDiedHandle.Reseter();
         }
