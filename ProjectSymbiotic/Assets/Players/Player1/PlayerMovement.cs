@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private float originalSpeed;
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
-
     public bool canBeHurt = true;
     public int health;
 
@@ -68,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+            // Jump Animation
+            anim.SetTrigger("jump");
         }
 
         if(context.canceled && rb.velocity.y > 0f)
@@ -121,6 +123,15 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+        
+        if(context.started)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else if(context.canceled)
+        {
+            anim.SetBool("isWalking", false);
+        }
     }
 
     public void GetStunned()
@@ -134,18 +145,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if(canBeHurt)
         {
+            anim.SetTrigger("hurt");
+
             health -= damage;
             if (health <= 0) 
             {
                 Die();
             }
-        }
-        
+        }  
     }
 
     public void Die()
     {
         PlayerDiedHandle.Reseter();
+        //destroy player spout blood play willhelm
     }
 
     IEnumerator Stunned()

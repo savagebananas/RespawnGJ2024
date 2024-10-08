@@ -23,6 +23,8 @@ public class Player2Attack : MonoBehaviour
     public GameObject projectile;
     public int projectileSpeed;
 
+    public SeesawHingeScript seesaw;
+
     void Update()
     {
         if (timeBetweenAttack <= 0)
@@ -44,7 +46,7 @@ public class Player2Attack : MonoBehaviour
 
         else
         {
-            timeBetweenAttack -= Time.deltaTime;
+            timeBetweenSpecial -= Time.deltaTime;
         }
     }
 
@@ -71,10 +73,15 @@ public class Player2Attack : MonoBehaviour
 
     public void SpecialAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("Special Start");
-        isReadyToSpecial = false;
+        if(isReadyToSpecial)
+        {
+            Debug.Log("Special Start");
+            isReadyToSpecial = false;
 
-        GameObject rockWall = Instantiate(rockShield, attackPos.position, Quaternion.identity) as GameObject;
+            GameObject rockWall = Instantiate(rockShield, attackPos.position, Quaternion.identity) as GameObject;
+            //rockWall.transform.rotation = seesaw.GetAngle();
+            rockWall.transform.parent = seesaw.gameObject.transform;
+        }
     }
 
     IEnumerator Build()
