@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     public SpriteRenderer rend;
 
-    [HideInInspector] public bool isFired = false;
+    public bool isFired = false;
 
     public string targetTag; // tag of objects the projectile will hit
     
@@ -17,8 +17,6 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
-
-        rb.bodyType = RigidbodyType2D.Static;
     }
 
     void Update()

@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e19bd979a2b0445890928287a55cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 1454539177187088994}
+  isFired: 1
+  targetTag: Enemy
