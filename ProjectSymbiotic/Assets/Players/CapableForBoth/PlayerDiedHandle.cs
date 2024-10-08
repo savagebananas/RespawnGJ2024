@@ -14,7 +14,7 @@ public class PlayerDiedHandle : MonoBehaviour
     {
         Time.timeScale = 0;
         resetting = true;
-        resetvelo = (GameManager.GetHeight() / 10) + 5;
+        resetvelo = (GameManager.GetHeight() / 5) +0.5f;
         //Debug.Log("Velo=" + resetvelo);
         cod = 1.5f;
         resetting = true;
@@ -35,7 +35,12 @@ public class PlayerDiedHandle : MonoBehaviour
                 cod -= Time.unscaledDeltaTime;
             }
             else if (GameManager.GetHeight() > 0)
-                GameManager.AddScore(-resetvelo * Time.unscaledDeltaTime);
+            {
+                if (GameManager.GetHeight()>= resetvelo * Time.unscaledDeltaTime)
+                    GameManager.AddScore(-resetvelo * Time.unscaledDeltaTime);
+                else
+                    GameManager.AddScore(-GameManager.GetHeight());
+            }
             else
             {
                 p1.transform.position = new Vector2(-1, 0);

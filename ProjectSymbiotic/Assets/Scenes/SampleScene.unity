@@ -489,18 +489,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273506379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 484536ae7a7acd64489ed97f756a4699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 0.16
   def: 0.6
+  stopshaking: 1
   chain: {fileID: 10262279}
   plat: {fileID: 966940562}
-  gm: {fileID: 0}
-  mvUp: {fileID: 0}
-  pullPlayer: {fileID: 0}
-  idle: {fileID: 0}
 --- !u!61 &273506382
 BoxCollider2D:
   m_ObjectHideFlags: 0
