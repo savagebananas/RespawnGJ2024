@@ -69,7 +69,7 @@ public class Player2Movement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (!won)
+       // if (!won)
         {
             if (context.performed && IsGrounded())
             {
@@ -104,15 +104,19 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
-    public void PullChain(InputAction.CallbackContext context){ 
-        if(context.performed && isOnButton)
+    public void PullChain(InputAction.CallbackContext context)
+    {
+        if (!won)
         {
-            platform.setNewState(mvUp);
-        }
+            if (context.performed && isOnButton)
+            {
+                platform.setNewState(mvUp);
+            }
 
-        if(context.canceled)
-        {
-            platform.setNewState(stationary);
+            if (context.canceled)
+            {
+                platform.setNewState(stationary);
+            }
         }
     }
 
@@ -131,7 +135,7 @@ public class Player2Movement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (!won)
+        //if (!won)
         {
             horizontal = context.ReadValue<Vector2>().x;
 

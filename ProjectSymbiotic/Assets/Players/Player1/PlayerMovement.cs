@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (!won)
+        //if (!won)
         {
             if (context.performed && IsGrounded())
             {
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (!won)
+        //if (!won)
         {
             horizontal = context.ReadValue<Vector2>().x;
 

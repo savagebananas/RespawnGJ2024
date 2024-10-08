@@ -51,7 +51,8 @@ public class MovingUp : State
                 chainAnimater.SetTrigger("moveChain");
                 chainMoving = true;
             }
-            GameManager.AddScore(velocity * Time.deltaTime);
+            if (!WinningTheGame.Won) 
+                GameManager.AddScore(velocity * Time.deltaTime);
         }
 
         // While shaking timer is active, shake the objects
