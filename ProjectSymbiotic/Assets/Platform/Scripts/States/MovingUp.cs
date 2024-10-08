@@ -30,7 +30,7 @@ public class MovingUp : State
     {
         delayTimer = moveDelay;
         shakeChains = chain.GetComponent<Shake>();
-        shakePlatform = plat.GetComponent<Shake>();
+        //shakePlatform = plat.GetComponent<Shake>();
     }
 
     public override void OnUpdate()
@@ -39,7 +39,7 @@ public class MovingUp : State
         {
             delayTimer -= Time.deltaTime;
             shakeChains.ShakeX();
-            shakePlatform.ShakeX();
+            //shakePlatform.ShakeX();
 
         }
         else
@@ -47,7 +47,7 @@ public class MovingUp : State
             if (!chainMoving)
             {
                 shakeChains.endShake();
-                shakePlatform.endShake();
+                //shakePlatform.endShake();
                 chainAnimater.SetTrigger("moveChain");
                 chainMoving = true;
             }
