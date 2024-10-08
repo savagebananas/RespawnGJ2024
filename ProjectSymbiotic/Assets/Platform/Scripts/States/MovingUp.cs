@@ -15,14 +15,22 @@ public class MovingUp : State
     public float velocity;
     public GameObject chain;
     public GameObject plat;
-    private ShakeChains shakeChains;
-    private ShakePlatform shakePlatform;
+    private Shake shakeChains;
+    private Shake shakePlatform;
     public Stationary normalState;
+    public Animator chainAnimater;
+    private bool chainMoving;
+
+    void Start()
+    {
+        chainAnimater = chain.GetComponent<Animator>();
+    }
+
     public override void OnStart()
     {
         delayTimer = moveDelay;
-        shakeChains = chain.GetComponent<ShakeChains>();
-        //shakePlatform = plat.GetComponent<ShakePlatform>();
+        shakeChains = chain.GetComponent<Shake>();
+        shakePlatform = plat.GetComponent<Shake>();
     }
 
     public override void OnUpdate()
@@ -30,14 +38,23 @@ public class MovingUp : State
         if (delayTimer > 0)
         {
             delayTimer -= Time.deltaTime;
+            shakeChains.ShakeX();
+            shakePlatform.ShakeX();
+
         }
         else
         {
+            if (!chainMoving)
+            {
+                shakeChains.endShake();
+                shakePlatform.endShake();
+                chainAnimater.SetTrigger("moveChain");
+                chainMoving = true;
+            }
             GameManager.AddScore(velocity * Time.deltaTime);
         }
 
         // While shaking timer is active, shake the objects
-        shakeChains.Shake();
         //shakePlatform.Shake();
     }
 
@@ -48,7 +65,10 @@ public class MovingUp : State
 
     public override void OnExit()
     {
-        shakeChains.endShake();
+        //shakeChains.endShake();
+        chainAnimater.SetTrigger("stopChain");
+        chainMoving = false;
+
         //shakePlatform.EndShake();
     }
 }

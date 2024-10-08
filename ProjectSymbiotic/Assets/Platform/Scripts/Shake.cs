@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShakeChains : MonoBehaviour
+public class Shake : MonoBehaviour
 {
     private int phase;
-    public void Shake()
+    public float displacement = 0.01f;
+    public void ShakeX()
     {
         Vector2 posi = transform.position;
-        if ((phase == 0)||(phase==3))
+        if ((phase == 0) || (phase == 3))
         {
-            posi.x -= 0.01f;
+            posi.x -= displacement;
             transform.position = posi;
         }
         else
         {
-            posi.x += 0.01f;
+            posi.x += displacement;
             transform.position = posi;
         }
         phase++;
@@ -24,7 +25,7 @@ public class ShakeChains : MonoBehaviour
     }
     public void endShake()
     {
-        while (phase != 0) { Shake(); }
+        while (phase != 0) { ShakeX(); }
     }
     void Start()
     {
