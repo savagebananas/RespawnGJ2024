@@ -13,7 +13,8 @@ public class Player2Movement : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask playerLayer;
 
-    private float horizontal;
+    public bool won = false;
+    public float horizontal;
     public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
@@ -34,6 +35,7 @@ public class Player2Movement : MonoBehaviour
     {
         originalSpeed = speed;
         anim = GetComponent<Animator>();
+        won = false;
     }
 
     // Update is called once per frame
@@ -64,17 +66,20 @@ public class Player2Movement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && IsGrounded())
+        if (!won)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            if (context.performed && IsGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
-            // Jump Animation
-            anim.SetTrigger("jump");
-        }
+                // Jump Animation
+                anim.SetTrigger("jump");
+            }
 
-        if(context.canceled && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            if (context.canceled && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
         }
     }
 
@@ -122,20 +127,26 @@ public class Player2Movement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
+        if (!won)
+        {
+            horizontal = context.ReadValue<Vector2>().x;
 
-        if(context.started)
-        {
-            anim.SetBool("isWalking", true);
-        }
-        else if(context.canceled)
-        {
-            anim.SetBool("isWalking", false);
+            if (context.started)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            else if (context.canceled)
+            {
+                anim.SetBool("isWalking", false);
+            }
         }
     }
 
     public void WinningTheGame()
     {
+        Debug.Log("P2 is winning");
+        canBeHurt = false;
+        won = true;
         //anim.SetTrigger("isWinning");
     }
 

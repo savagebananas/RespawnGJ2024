@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 7448263343536061921}
   - component: {fileID: 6560092443652271561}
   - component: {fileID: 2173266760849731595}
+  - component: {fileID: 1685001979076202339}
   m_Layer: 7
   m_Name: Goblin Archer
   m_TagString: Enemy
@@ -399,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286fc5e1314e922479706406e41a51d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 1
   target: {fileID: 0}
   aimLeft: 0
   health: 1
@@ -427,6 +427,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1685001979076202339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833820254625128653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21b7abebdac65644958741113656612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6689503780403976270
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 3035294615785544228}
-  shootingCooldown: 1
   goblinPrepareShot: {fileID: 5484237577306641521}
 --- !u!1 &6893769762841191822
 GameObject:
