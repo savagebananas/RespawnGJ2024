@@ -124,7 +124,18 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
-        anim.SetBool("isWalking", true);
+        
+        if(context.started)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else if(context.canceled)
+        {
+            anim.SetBool("isWalking", false);
+        }
+        
+
+
     }
 
     public void GetStunned()
