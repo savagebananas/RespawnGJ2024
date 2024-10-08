@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -12,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public LayerMask playerLayer;
-
-    private float horizontal;
+    public bool won;
+    public float horizontal;
     public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         originalSpeed = speed;
+        won = false;
         anim = GetComponent<Animator>();
     }
 
@@ -64,17 +66,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && IsGrounded())
+        if (!won)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            if (context.performed && IsGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
-            // Jump Animation
-            anim.SetTrigger("jump");
-        }
+                // Jump Animation
+                anim.SetTrigger("jump");
+            }
 
-        if(context.canceled && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            if (context.canceled && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
         }
     }
 
@@ -95,15 +100,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void PullChain(InputAction.CallbackContext context){ 
-        if(context.performed && isOnButton)
+    public void PullChain(InputAction.CallbackContext context){
+        if (!won)
         {
-            platform.setNewState(mvUp);
-        }
+            if (context.performed && isOnButton)
+            {
+                platform.setNewState(mvUp);
+            }
 
-        if(context.canceled)
-        {
-            platform.setNewState(stationary);
+            if (context.canceled)
+            {
+                platform.setNewState(stationary);
+            }
         }
     }
 
@@ -122,19 +130,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
-        
-        if(context.started)
+        if (!won)
         {
-            anim.SetBool("isWalking", true);
-        }
-        else if(context.canceled)
-        {
-            anim.SetBool("isWalking", false);
+            horizontal = context.ReadValue<Vector2>().x;
+
+            if (context.started)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            else if (context.canceled)
+            {
+                anim.SetBool("isWalking", false);
+            }
         }
     }
     public void WinningTheGame()
     {
+        Debug.Log("I am winning");
+        won = true;
+        canBeHurt = false;
         anim.SetTrigger("isWinning");
     }
 
