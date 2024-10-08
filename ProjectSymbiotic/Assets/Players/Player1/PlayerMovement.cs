@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private float originalSpeed;
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
-
     public bool canBeHurt = true;
     public int health;
 
@@ -133,9 +132,6 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
-        
-
-
     }
 
     public void GetStunned()
@@ -156,13 +152,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 Die();
             }
-        }
-        
+        }  
     }
 
     public void Die()
     {
         PlayerDiedHandle.Reseter();
+        //destroy player spout blood play willhelm
     }
 
     IEnumerator Stunned()

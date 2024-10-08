@@ -38,7 +38,7 @@ public class GoblinShoot : State
         float dx = target.position.x - transform.position.x;
         float dy = target.position.y - transform.position.y;
 
-        timeToHit = new Vector2(dx, dy).magnitude / (7 * enemyBase.difficulty);
+        timeToHit = new Vector2(dx, dy).magnitude / (7 * Enemy.difficulty);
 
         float velocityX = dx / timeToHit;
         float velocityY = (dy + GRAVITY / 2 * Mathf.Pow(timeToHit, 2)) / timeToHit;
@@ -53,7 +53,7 @@ public class GoblinShoot : State
 
     }
 
-    public override void OnUpdate(){}
-    public override void OnLateUpdate(){}
-    public override void OnExit(){}
+    public override void OnUpdate() { }
+    public override void OnLateUpdate() { }
+    public override void OnExit() { }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int difficulty = 1;
+    public static int difficulty = 1;
 
     private Transform p1;
     private Transform p2;

@@ -12329,6 +12329,7 @@ GameObject:
   - component: {fileID: 842570296}
   - component: {fileID: 842570295}
   - component: {fileID: 842570294}
+  - component: {fileID: 842570298}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12396,6 +12397,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842570298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842570293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2498f99b7124714bfcccf29de09e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  spawner: {fileID: 1864515848}
+  easy:
+    objectSpawnTime: 7
+    minPerSpawn: 1
+    maxPerSpawn: 2
+    fallingForce: 5
+    shootingCooldown: 4
+    arrowSpeed: 1
+  medium:
+    objectSpawnTime: 5
+    minPerSpawn: 1
+    maxPerSpawn: 3
+    fallingForce: 10
+    shootingCooldown: 3
+    arrowSpeed: 1
+  hard:
+    objectSpawnTime: 3
+    minPerSpawn: 1
+    maxPerSpawn: 3
+    fallingForce: 20
+    shootingCooldown: 2
+    arrowSpeed: 2
 --- !u!1 &875049014
 GameObject:
   m_ObjectHideFlags: 0
@@ -12431,7 +12467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 251, y: 206}
+  m_AnchoredPosition: {x: 231.4, y: 154.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875049016
@@ -13456,6 +13492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 0.3
   audioManager: {fileID: 0}
+  l: {fileID: 0}
+  r: {fileID: 0}
+  canvasRectTransform: {fileID: 0}
 --- !u!114 &1106397407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14818,6 +14857,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 897437405251817041, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: buildTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 897437405251817041, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: startTimeBetweenSpecial
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1080942502114370165, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
       propertyPath: m_Name
       value: Player2
