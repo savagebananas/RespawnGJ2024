@@ -91,14 +91,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void PullChain(InputAction.CallbackContext context){
-        //bool isInRange = PressUp.
+    public void PullChain(InputAction.CallbackContext context){ 
         if(context.performed && isOnButton)
         {
             platform.setNewState(mvUp);
         }
 
-        if(context.canceled && isOnButton)
+        if(context.canceled)
         {
             platform.setNewState(stationary);
         }
