@@ -8,15 +8,15 @@ public class ShakePlatform : MonoBehaviour
     private int phase;
     public void Shake()
     {
-        Vector2 posi=transform.position;
+        Vector2 posi = transform.position;
         if (phase == 0)
         {
-            posi.y -= 0.08f;
+            posi.x -= 0.02f;
             transform.position = posi;
         }
         else
         {
-            posi.y += 0.08f;
+            posi.x += 0.02f;
             transform.position = posi;
         }
         if (phase == 0)

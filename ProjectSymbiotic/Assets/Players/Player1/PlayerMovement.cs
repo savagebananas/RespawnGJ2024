@@ -29,10 +29,12 @@ public class PlayerMovement : MonoBehaviour
     public MovingUp mvUp;
     public Stationary stationary;
     public bool isOnButton = false;
+    public Animator anim;
 
     void Start()
     {
         originalSpeed = speed;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame

@@ -7,9 +7,6 @@ using UnityEngine.Rendering;
 public class PressUp : MonoBehaviour
 {
 
-    public float def = 0.6f;
-    public GameObject chain, plat; // GameObjects to shake
-    public GameManager gm;
     public StateMachineManager platform;
     public MovingUp mvUp;
 
@@ -17,40 +14,13 @@ public class PressUp : MonoBehaviour
     /// The player who is currently pulling the chain(if any)
     /// </summary>
     public Collider2D pullPlayer;
-
     public Stationary stationary;
-
-
-
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (platform.CurrentState == mvUp) return;
-        // Check if the player is colliding with the object
-        if (collision.tag.StartsWith("Player"))
-        {
-            if (Input.GetKey(KeyCode.E))
-            {
-                // Set GameManager state to MovingUp when "E" is pressed
-                platform.setNewState(mvUp);
-                pullPlayer = collision;
-
-            }
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other == pullPlayer)
-        {
-            platform.setNewState(stationary);
-            pullPlayer = null;
-        }
-    }
 
     private void Start()
     {
         stationary = platform.GetComponent<Stationary>();
     }
+
 }
 //  public float velocity=5;
 //  private float cdown;
