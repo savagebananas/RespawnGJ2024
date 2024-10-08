@@ -5,16 +5,22 @@ using UnityEngine;
 public class GameManager : StateMachineManager
 {
     private static float score;
+    [SerializeField] static Difficulty difficulty;
+    static int mediumThreshold = 50;
+    static int hardThreshold = 100;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        difficulty = gameObject.GetComponent<Difficulty>();
         MeterCounter.UpdateUI(score);
         if (CurrentState != null)
         {
             CurrentState.OnStart();
         }
+        difficulty.SetDifficulty(Level.Easy);
 
     }
 
@@ -32,9 +38,22 @@ public class GameManager : StateMachineManager
     {
         score += height;
         MeterCounter.UpdateUI(score);
+        if (score > hardThreshold)
+        {
+            difficulty.SetDifficulty(Level.Hard);
+        }
+        else if (score > mediumThreshold)
+        {
+            difficulty.SetDifficulty(Level.Medium);
+        }
     }
     public static float GetHeight()
     {
         return score;
     }
+    public static void ChangeDifficulty(Level level)
+    {
+        difficulty.SetDifficulty(level);
+    }
+
 }

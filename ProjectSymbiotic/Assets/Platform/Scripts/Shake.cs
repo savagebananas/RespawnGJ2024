@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shake : MonoBehaviour
 {
     private int phase;
-    public float displacement = 0.01f;
+    [SerializeField] float displacement = 0.01f;
     public void ShakeX()
     {
         Vector2 posi = transform.position;

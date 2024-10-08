@@ -7,14 +7,14 @@ public class MovingUp : State
     /// <summary>
     /// The delay between the chain pull and the platform moving
     /// </summary>
-    public float moveDelay = 0.6f;
+    [SerializeField] float moveDelay = 0.6f;
     private float delayTimer;
     /// <summary>
     /// How fast the platform moves up
     /// </summary>
     public float velocity;
-    public GameObject chain;
-    public GameObject plat;
+    [SerializeField] GameObject chain;
+    [SerializeField] GameObject plat;
     private Shake shakeChains;
     private Shake shakePlatform;
     public Stationary normalState;

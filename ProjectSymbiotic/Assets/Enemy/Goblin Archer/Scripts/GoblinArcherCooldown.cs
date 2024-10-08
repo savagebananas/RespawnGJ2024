@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoblinArcherCooldown : State
 {
-    public float shootingCooldown = 3.0f;
+    public static float shootingCooldown = 3.0f;
     private float timer;
 
     public State goblinPrepareShot;
