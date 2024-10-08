@@ -15,7 +15,7 @@ public class HelpButtonMain : MonoBehaviour
         setting.SetActive(true);
         settext.SetActive(true);
         o1.SetActive(true);
-        setting.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1f);
+        setting.GetComponent<Image>().color = new Color(1, 1, 1, 0.7f);
         Time.timeScale = 0;
     }
     void Start()
