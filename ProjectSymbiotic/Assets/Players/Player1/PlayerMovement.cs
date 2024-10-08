@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private SeesawHingeScript seesaw;
 
+    public StateMachineManager platform;
+    public MovingUp mvUp;
+    public Stationary stationary;
+    public bool isOnButton = false;
+
     void Start()
     {
         originalSpeed = speed;
@@ -66,6 +71,36 @@ public class PlayerMovement : MonoBehaviour
         if(context.canceled && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "UpButton")
+        {
+            isOnButton = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if(collider.tag == "UpButton")
+        {
+            isOnButton = false;
+            platform.setNewState(stationary);
+        }
+    }
+
+    public void PullChain(InputAction.CallbackContext context){
+        //bool isInRange = PressUp.
+        if(context.performed && isOnButton)
+        {
+            platform.setNewState(mvUp);
+        }
+
+        if(context.canceled && isOnButton)
+        {
+            platform.setNewState(stationary);
         }
     }
 

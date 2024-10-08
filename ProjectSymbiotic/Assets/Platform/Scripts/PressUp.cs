@@ -17,6 +17,7 @@ public class PressUp : MonoBehaviour
     /// The player who is currently pulling the chain(if any)
     /// </summary>
     public Collider2D pullPlayer;
+
     public Stationary stationary;
 
 

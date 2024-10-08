@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MovingUp : State
 {
-
     /// <summary>
     /// The delay between the chain pull and the platform moving
     /// </summary>
@@ -28,11 +27,6 @@ public class MovingUp : State
 
     public override void OnUpdate()
     {
-        if (!Input.GetKey(KeyCode.E))
-        {
-            stateMachine.setNewState(normalState);
-            return;
-        }
         if (delayTimer > 0)
         {
             delayTimer -= Time.deltaTime;
@@ -45,8 +39,6 @@ public class MovingUp : State
         // While shaking timer is active, shake the objects
         shakeChains.Shake();
         //shakePlatform.Shake();
-
-
     }
 
     public override void OnLateUpdate()
@@ -56,7 +48,6 @@ public class MovingUp : State
 
     public override void OnExit()
     {
-
         shakeChains.endShake();
         //shakePlatform.EndShake();
     }
