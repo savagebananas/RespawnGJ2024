@@ -38,12 +38,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
 
+    private bool isOneWhoPulls;
+
     void Start()
     {
         health = startHealth;
         originalSpeed = speed;
         won = false;
         anim = GetComponent<Animator>();
+        isOneWhoPulls = false;
     }
 
     // Update is called once per frame
@@ -103,9 +106,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider.CompareTag("UpButton"))
+        if(collider.CompareTag("UpButton") && isOneWhoPulls)
         {
             isOnButton = false;
+            isOneWhoPulls = false;
             platform.setNewState(stationary);
         }
     }
@@ -115,11 +119,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (context.performed && isOnButton)
             {
+                isOneWhoPulls = true;
                 platform.setNewState(mvUp);
             }
 
             if (context.canceled)
             {
+                isOneWhoPulls = false;
                 platform.setNewState(stationary);
             }
         }
