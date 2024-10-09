@@ -20,6 +20,8 @@ public class Player2Movement : MonoBehaviour
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
     public bool canBeHurt = true;
+    
+    [HideInInspector]
     public int health;
 
     [SerializeField]
@@ -34,9 +36,12 @@ public class Player2Movement : MonoBehaviour
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
 
+    public int startHealth;
+
 
     void Start()
     {
+        health = startHealth;
         originalSpeed = speed;
         anim = GetComponent<Animator>();
         won = false;
