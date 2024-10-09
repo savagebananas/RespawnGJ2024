@@ -12,7 +12,7 @@ public class GoblinSwordChase : State
     private Transform target;
     [SerializeField] private float speed;
     private float distance;
-    [SerializeField] private GoblinSwordJump goblinAttackState; // state
+    [SerializeField] private GoblinSwordAttack goblinAttackState; // state
 
     public override void OnStart()
     {
@@ -23,7 +23,7 @@ public class GoblinSwordChase : State
     public override void OnUpdate()
     {
         distance = Vector2.Distance(transform.position, target.position);
-        if(enemyBase.isHitObject)
+        if(enemyBase.isHitObject && !enemyBase.isHitPlayer)
         {
             stateMachine.setNewState(goblinJumpState);
         }
