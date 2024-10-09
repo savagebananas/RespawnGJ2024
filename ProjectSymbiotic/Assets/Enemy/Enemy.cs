@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -16,6 +17,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private StateMachineManager stateMachine;
     [SerializeField] State hurtState;
     [SerializeField] State deathState;
+
+    public bool isHitPlayer = false;
+    public bool isHitObject = false;
+    public bool isHitByRock = false;
 
     private void Start()
     {
@@ -59,5 +64,40 @@ public class Enemy : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             aimLeft = false;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        //Debug.Log("collision");
+        //Crate or rock hit
+        if (col.gameObject.layer == 7)
+        {
+            isHitObject = true;
+        }
+
+        //Player hit
+        if (col.gameObject.layer == 3)
+        {
+            isHitPlayer = true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.layer == 9)
+        {
+            isHitByRock = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        isHitObject = false;
+        isHitPlayer = false;
+    }
+
+    void OnTriggerExit2D()
+    {
+        isHitByRock = false;
     }
 }

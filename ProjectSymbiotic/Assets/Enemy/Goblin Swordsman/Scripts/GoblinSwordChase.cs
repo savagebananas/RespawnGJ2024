@@ -8,11 +8,13 @@ public class GoblinSwordChase : State
 {
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinSwordJump goblinJumpState; // state
+    [SerializeField] private GoblinSwordStun stunState; // state
+
 
     private Transform target;
     [SerializeField] private float speed;
-
-    [SerializeField] private GoblinSwordJump goblinAttackState; // state
+    private float distance;
+    [SerializeField] private GoblinSwordAttack goblinAttackState; // state
 
     public override void OnStart()
     {
@@ -22,32 +24,27 @@ public class GoblinSwordChase : State
 
     public override void OnUpdate()
     {
-        target = enemyBase.target;
+        distance = Vector2.Distance(transform.position, target.position);
+        if(enemyBase.isHitObject && !enemyBase.isHitPlayer)
+        {
+            stateMachine.setNewState(goblinJumpState);
+        }
+        if(enemyBase.isHitPlayer)
+        {
+            stateMachine.setNewState(goblinAttackState);
+        }
 
-        float distance = Vector2.Distance(transform.position, target.position);
-
-        
+        if(enemyBase.isHitByRock)
+        {
+            stateMachine.setNewState(stunState);
+        }
     }
 
     public override void OnLateUpdate()
     {
+        if(distance > 0.1f)
         enemyBase.transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
     public override void OnExit(){}
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        //Crate or rock hit
-        if(col.gameObject.layer == 7)
-        {
-            stateMachine.setNewState(goblinJumpState);
-        }
-        
-        //Player hit
-        if(col.gameObject.layer == 3)
-        {
-            stateMachine.setNewState(goblinAttackState);
-        }
-    }
 }

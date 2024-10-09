@@ -207,7 +207,7 @@
                 {
                     "name": "",
                     "id": "6cf54cd0-bab0-4ab0-b746-9821692107b0",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

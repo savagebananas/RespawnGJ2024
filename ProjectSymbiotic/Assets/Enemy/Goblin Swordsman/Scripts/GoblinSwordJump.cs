@@ -7,6 +7,7 @@ public class GoblinSwordJump : State
 {
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinSwordChase swordChaseState; // state
+    [SerializeField] private GoblinSwordStun stunState; // state
     public Rigidbody2D rb;
     public override void OnStart()
     {
@@ -19,7 +20,13 @@ public class GoblinSwordJump : State
         
     }
 
-    public override void OnUpdate(){}
+    public override void OnUpdate()
+    {
+        if(enemyBase.isHitByRock)
+        {
+            stateMachine.setNewState(stunState);
+        }
+    }
 
     public override void OnLateUpdate(){}
 

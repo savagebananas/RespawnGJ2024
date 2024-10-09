@@ -38,6 +38,7 @@ public class Player2Movement : MonoBehaviour
 
     public int startHealth;
 
+    private bool isOneWhoPulls;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class Player2Movement : MonoBehaviour
         originalSpeed = speed;
         anim = GetComponent<Animator>();
         won = false;
+        isOneWhoPulls = false;
     }
 
     // Update is called once per frame
@@ -104,9 +106,10 @@ public class Player2Movement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider.CompareTag("UpButton"))
+        if(collider.CompareTag("UpButton") && isOneWhoPulls)
         {
             isOnButton = false;
+            isOneWhoPulls = false;
             platform.setNewState(stationary);
         }
     }
@@ -117,17 +120,19 @@ public class Player2Movement : MonoBehaviour
         {
             if (context.performed && isOnButton)
             {
+                isOneWhoPulls = true;
                 platform.setNewState(mvUp);
             }
 
             if (context.canceled)
             {
+                isOneWhoPulls = false;
                 platform.setNewState(stationary);
             }
         }
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, .1f);
     }

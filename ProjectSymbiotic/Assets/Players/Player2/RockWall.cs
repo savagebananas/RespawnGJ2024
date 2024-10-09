@@ -5,18 +5,36 @@ using UnityEngine;
 public class RockWall : MonoBehaviour
 {
     public int health;
+    public float lifeTime = 15f;
+    private float timer;
 
-    // Update is called once per frame
+    void Start()
+    {
+        timer = lifeTime;
+    }
+
     void Update()
     {
-        if (health == 0)
+        if (timer > 0)
         {
-            Destroy(this);
+            timer -= Time.deltaTime;
+        }
+
+        if(timer <= 0)
+        {
+            Destroy(this.gameObject);
+            Player2Attack.numWalls -= 1;
+        }
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+            Player2Attack.numWalls -= 1;
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        health -= 1;
+        health -= damage;
     }
 }

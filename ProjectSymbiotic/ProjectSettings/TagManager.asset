@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - CrateStick
   - UpButton
+  - SwordUser
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Ground
   - Damagable
   - Falling Objects
-  - 
+  - Player2 Throwable
   - 
   - 
   - 
