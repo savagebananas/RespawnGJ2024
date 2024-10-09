@@ -20,6 +20,7 @@ public class DialogManager : MonoBehaviour
     private int WordCount=0;
     private string CompleteText;
     public bool talking = false;
+    public Canvas canvas;
     private double TimeTillNextWord = 0;
     [SerializeField] double VanishTime = 1.0;
     [SerializeField] double cps = 6; //cps=character per second, so 6 characters are coming in 1 second
@@ -42,7 +43,18 @@ public class DialogManager : MonoBehaviour
     }
     private void DialogRelocate()
     {
-        dialogRect.anchoredPosition = Player.transform.position;//Player.transform.position;
+        Camera cam = Camera.main; // Get the main camera
+        // Calculate the height and width of the camera's view
+        float cameraHeight = 2 * cam.orthographicSize;
+        float cameraWidth = cameraHeight * cam.aspect;
+        Debug.Log("Orthographic Camera Scope - Width: " + cameraWidth + ", Height: " + cameraHeight);
+        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(null, Player.transform.position);
+        float width = canvas.GetComponent<RectTransform>().anchoredPosition.x;
+        float height = canvas.GetComponent<RectTransform>().anchoredPosition.y;
+        // Step 2: Convert the screen position to anchored position
+        dialogRect.anchoredPosition = new Vector2(screenPoint.x * width*2 /cameraWidth, screenPoint.y * height*2 /cameraHeight);
+        // Optional Debug: Output the positions
+        Debug.Log("Player Screen Position: " + screenPoint + " | Dialog Anchored Position: " + dialogRect.anchoredPosition);
     }
     private void InitDialog()
     {
