@@ -53,13 +53,13 @@ public class Difficulty : MonoBehaviour
     [SerializeField] DifficultyModifier Medium;
     [SerializeField] DifficultyModifier Hard;
     private static DifficultyModifier easy, medium, hard;
-    private static DifficultyModifier peaceful = new DifficultyModifier(0, 0, 0, 0, 0, 0);
+    private static DifficultyModifier peaceful = new DifficultyModifier(10000, 0, 0, 0, 10000, 0);
     private static DifficultyModifier difficulty;
     private static DifficultyLevel difficultyLevel;
     private static FallingObjectSpawner spawner;
     private static bool initialized = false;
 
-    void Start()
+    void Awake()
     {
         if (!initialized)
         {
