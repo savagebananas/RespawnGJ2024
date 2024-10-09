@@ -98,6 +98,7 @@ public class DialogManager : MonoBehaviour
                 WordCount++;
                 TimeTillNextWord = 1 / cps;
                 dialogtext.text = CompleteText.Substring(0, WordCount);
+                dialogUGUI.color = new Color(255, 255, 255, 1);
             }
         }
         else if (TextDisplaying)
