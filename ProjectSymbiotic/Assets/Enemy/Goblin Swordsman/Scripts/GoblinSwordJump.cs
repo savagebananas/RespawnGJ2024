@@ -12,7 +12,7 @@ public class GoblinSwordJump : State
     {
         Debug.Log("Jump Start");
         //Jump into the air
-        rb.AddForce(this.transform.up * 5, ForceMode2D.Impulse); 
+        rb.AddForce(this.transform.up * 10, ForceMode2D.Impulse); 
 
         //Wait 1 second or so and move towards the player using swordChaseState
         StartCoroutine(WaitAndChase());
@@ -27,7 +27,7 @@ public class GoblinSwordJump : State
 
     IEnumerator WaitAndChase()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         stateMachine.setNewState(swordChaseState);
     }
 }
