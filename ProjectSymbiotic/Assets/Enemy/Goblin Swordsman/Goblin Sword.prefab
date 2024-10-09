@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7154e65feb1bfd41b9f44e882c11eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 8220170995244207214}
+  enemyBase: {fileID: 2693679515728160863}
+  goblinJumpState: {fileID: 5633103510204942752}
 --- !u!1 &383471863228102277
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +142,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641c59ee0f2b3654ca34911ec0614af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 8220170995244207214}
+  enemyBase: {fileID: 2693679515728160863}
+  swordChaseState: {fileID: 1253231912765666598}
+  stunTimer: 3
+--- !u!1 &5887264857072392852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2519624603185144094}
+  m_Layer: 7
+  m_Name: Attack Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2519624603185144094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887264857072392852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.43, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3903525619305129400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6447287865653635643
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 6447287865653635643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3261304, y: -1.8277874, z: 0}
+  m_LocalPosition: {x: 6.76, y: 6.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -256,7 +292,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3648016586630001981
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -310,6 +346,9 @@ MonoBehaviour:
   stateMachine: {fileID: 8220170995244207214}
   hurtState: {fileID: 0}
   deathState: {fileID: 1810537432057924419}
+  isHitPlayer: 0
+  isHitObject: 0
+  isHitByRock: 0
 --- !u!95 &4717252305989269364
 Animator:
   serializedVersion: 5
@@ -360,7 +399,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2519624603185144094}
   m_Father: {fileID: 4918091349254408109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &710847983872427821
@@ -375,7 +415,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629dac70c73a03044925d4a49f6b12e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 8220170995244207214}
+  enemyBase: {fileID: 2693679515728160863}
+  swordChaseState: {fileID: 1253231912765666598}
+  stunState: {fileID: 3416924009374024853}
+  waitTime: 1
+  readyToSwing: 1
+  attackPos: {fileID: 2519624603185144094}
+  attackRange: 1
+  damageableLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  damage: 1
 --- !u!1 &8221458853164326479
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +471,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f9235e5291ed2409ba3ce1f7520c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 8220170995244207214}
+  enemyBase: {fileID: 2693679515728160863}
+  swordChaseState: {fileID: 1253231912765666598}
+  stunState: {fileID: 3416924009374024853}
+  rb: {fileID: 9099232602014218019}
 --- !u!1 &8548054297397939473
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 8220170995244207214}
 --- !u!1 &8999221917657435326
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,4 +565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f0d0ef9cdcfcd4aa9416e3edfca4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 8220170995244207214}
+  enemyBase: {fileID: 2693679515728160863}
+  goblinJumpState: {fileID: 5633103510204942752}
+  stunState: {fileID: 3416924009374024853}
+  speed: 1
+  goblinAttackState: {fileID: 710847983872427821}

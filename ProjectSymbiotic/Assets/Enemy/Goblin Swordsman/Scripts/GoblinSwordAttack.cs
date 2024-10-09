@@ -6,6 +6,8 @@ public class GoblinSwordAttack : State
 {
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinSwordChase swordChaseState; // state
+    [SerializeField] private GoblinSwordStun stunState; // state
+
     [SerializeField] private float waitTime;
     [SerializeField] private bool readyToSwing = true;
     private Transform target;
@@ -49,6 +51,11 @@ public class GoblinSwordAttack : State
             }
 
             StartCoroutine(WaitToSwing());
+        }
+
+        if(enemyBase.isHitByRock)
+        {
+            stateMachine.setNewState(stunState);
         }
     }
 

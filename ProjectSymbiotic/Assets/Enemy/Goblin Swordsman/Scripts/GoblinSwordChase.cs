@@ -8,6 +8,8 @@ public class GoblinSwordChase : State
 {
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinSwordJump goblinJumpState; // state
+    [SerializeField] private GoblinSwordStun stunState; // state
+
 
     private Transform target;
     [SerializeField] private float speed;
@@ -30,6 +32,11 @@ public class GoblinSwordChase : State
         if(enemyBase.isHitPlayer)
         {
             stateMachine.setNewState(goblinAttackState);
+        }
+
+        if(enemyBase.isHitByRock)
+        {
+            stateMachine.setNewState(stunState);
         }
     }
 
