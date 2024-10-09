@@ -65,8 +65,6 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void NormalReset()
     {
-        if ((name == "Help") || (name == "Settings"))
-            SetChildrenActive(gameObject, false);
         FinalPosition = initPlace;
         velocity = 0;
         myButton.interactable = true;
