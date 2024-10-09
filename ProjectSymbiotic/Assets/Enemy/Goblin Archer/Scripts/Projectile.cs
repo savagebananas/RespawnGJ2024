@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
         }
         if (collision.gameObject.tag == "Wall" && targetTag == "Player")
         {
-            collision.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
+            collision.gameObject.GetComponent<RockWall>().TakeDamage(1);
         }
     }
 
