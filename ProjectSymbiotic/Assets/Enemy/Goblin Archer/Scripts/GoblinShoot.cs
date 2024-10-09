@@ -6,7 +6,7 @@ public class GoblinShoot : State
 {
     public Enemy enemyBase;
 
-    public Transform target;
+    private Transform target;
     public GameObject arrowPrefab;
 
     private float timeToHit;
@@ -14,7 +14,7 @@ public class GoblinShoot : State
     private float arrowMass;
     public GameObject arrow;
 
-    public State idleState; // Timer cooldown for shooting is in goblin idle state
+    public State cooldownState; // Timer cooldown for shooting is in goblin idle state
 
     private void Awake()
     {
@@ -23,8 +23,9 @@ public class GoblinShoot : State
 
     public override void OnStart()
     {
+        target = enemyBase.target;
         ShootArrow();
-        stateMachine.setNewState(idleState);
+        stateMachine.setNewState(cooldownState);
     }
 
     /// <summary>

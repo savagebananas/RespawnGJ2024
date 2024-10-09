@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 
     private Transform p1;
     private Transform p2;
-    public Transform target;
+    [HideInInspector] public Transform target;
     public bool aimLeft;
 
     [SerializeField] private float health = 1;
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     {
         p1 = GameObject.Find("Player1").transform;
         p2 = GameObject.Find("Player2").transform;
+        SetClosestTarget();
     }
 
     private void Update()

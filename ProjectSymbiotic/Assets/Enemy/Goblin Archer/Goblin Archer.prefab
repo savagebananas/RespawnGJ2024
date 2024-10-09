@@ -49,7 +49,7 @@ MonoBehaviour:
   target: {fileID: 0}
   arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
   arrow: {fileID: 0}
-  idleState: {fileID: 3581101959624659410}
+  cooldownState: {fileID: 3581101959624659410}
 --- !u!1 &2863375929462097633
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +379,6 @@ GameObject:
   - component: {fileID: 7448263343536061921}
   - component: {fileID: 6560092443652271561}
   - component: {fileID: 2173266760849731595}
-  - component: {fileID: 1685001979076202339}
   m_Layer: 7
   m_Name: Goblin Archer
   m_TagString: Enemy
@@ -558,18 +557,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1685001979076202339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5833820254625128653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21b7abebdac65644958741113656612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6689503780403976270
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +568,7 @@ GameObject:
   - component: {fileID: 4366143299727481150}
   - component: {fileID: 3581101959624659410}
   m_Layer: 7
-  m_Name: GoblinArcherCooldownn
+  m_Name: GoblinArcherCooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

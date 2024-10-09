@@ -13,8 +13,6 @@ public class GoblinArcherPrepareShot : State
     [SerializeField] private GoblinShoot goblinShootState; // state
 
     [SerializeField] private GameObject arrowPrefab;
-    private GameObject arrow;
-
 
     private Transform target;
     [SerializeField] private float chargeTime; // time till arrow is shot
@@ -25,10 +23,10 @@ public class GoblinArcherPrepareShot : State
         target = enemyBase.target;
         timer = chargeTime;
 
-        arrow = Instantiate(arrowPrefab, bow.position, Quaternion.identity);
-        if (enemyBase.aimLeft) arrow.GetComponent<SpriteRenderer>().flipX = false;
-        else arrow.GetComponent<SpriteRenderer>().flipX = true;
-
+        var projectile = Instantiate(arrowPrefab, bow.position, Quaternion.identity);
+        if (enemyBase.aimLeft) projectile.GetComponent<SpriteRenderer>().flipX = false;
+        else projectile.GetComponent<SpriteRenderer>().flipX = true;
+        goblinShootState.arrow = projectile;
         Invoke(nameof(ShootState), chargeTime);
     }
 
@@ -36,7 +34,6 @@ public class GoblinArcherPrepareShot : State
 
     private void ShootState()
     {
-        goblinShootState.arrow = this.arrow;
         stateMachine.setNewState(goblinShootState);
     }
 

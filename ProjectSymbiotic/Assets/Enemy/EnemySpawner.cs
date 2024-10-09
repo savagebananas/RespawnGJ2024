@@ -7,8 +7,15 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private GameObject enemy;
 
+    private void Start()
+    {
+        SpawnEnemy();
+    }
+
     public void SpawnEnemy()
     {
-        Instantiate(enemy);
+        var e = Instantiate(enemy, transform.position, Quaternion.identity);
+        e.transform.parent = transform;
+
     }
 }
