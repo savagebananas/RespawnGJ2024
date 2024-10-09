@@ -45,7 +45,7 @@ public class PlayerScripts : MonoBehaviour
         SetScript(31, "You know it¡¯s very important to keep balance?", 1, 1f,1f);
         SetScript(32, "Alright. Trust me.", 2, -1);
         shawn[3] = false;
-        SetScript(34, "¡­¡­", 1, 0);
+        SetScript(34, "¡­¡­", 1, 0.1f);
         SetScript(35, "No worries. Try again!", 2, -1);
 
         /*41~43 First Goblin Spawned 46~51 First Player's health below 60%
