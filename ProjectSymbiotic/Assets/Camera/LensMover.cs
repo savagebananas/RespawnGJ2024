@@ -10,10 +10,18 @@ public class LensMover : MonoBehaviour
     public static float MoveSpeed = 2.0f;
     private static float tgt;
     private static Vector3 dest;
+    /// <summary>
+    /// Change the size of lens
+    /// </summary>
+    /// <param name="target"></param>
     public static void ChangeLens(float target)
     {
         tgt = target;
     }
+    /// <summary>
+    /// Change the position of lens
+    /// </summary>
+    /// <param name="target"></param>
     public static void MoveLens(Vector2 target)
     {
         dest = target;
