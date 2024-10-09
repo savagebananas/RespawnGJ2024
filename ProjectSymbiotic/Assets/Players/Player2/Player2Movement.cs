@@ -20,7 +20,7 @@ public class Player2Movement : MonoBehaviour
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
     public bool canBeHurt = true;
-    
+
     [HideInInspector]
     public int health;
 
@@ -129,7 +129,7 @@ public class Player2Movement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, .1f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, .1f);
     }
 
     private void Flip()
