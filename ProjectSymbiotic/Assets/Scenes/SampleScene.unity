@@ -19281,6 +19281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 9099232602014218019, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
