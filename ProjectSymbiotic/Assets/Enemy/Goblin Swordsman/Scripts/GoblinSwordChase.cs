@@ -11,7 +11,7 @@ public class GoblinSwordChase : State
 
     private Transform target;
     [SerializeField] private float speed;
-
+    private float distance;
     [SerializeField] private GoblinSwordJump goblinAttackState; // state
 
     public override void OnStart()
@@ -22,32 +22,22 @@ public class GoblinSwordChase : State
 
     public override void OnUpdate()
     {
-        target = enemyBase.target;
-
-        float distance = Vector2.Distance(transform.position, target.position);
-
-        
-    }
-
-    public override void OnLateUpdate()
-    {
-        enemyBase.transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
-
-    public override void OnExit(){}
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        //Crate or rock hit
-        if(col.gameObject.layer == 7)
+        distance = Vector2.Distance(transform.position, target.position);
+        if(enemyBase.isHitObject)
         {
             stateMachine.setNewState(goblinJumpState);
         }
-        
-        //Player hit
-        if(col.gameObject.layer == 3)
+        if(enemyBase.isHitPlayer)
         {
             stateMachine.setNewState(goblinAttackState);
         }
     }
+
+    public override void OnLateUpdate()
+    {
+        if(distance > 0.1f)
+        enemyBase.transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+    }
+
+    public override void OnExit(){}
 }
