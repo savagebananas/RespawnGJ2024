@@ -14010,11 +14010,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1513704582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 231.4, y: 154.7}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 201, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &875049016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14035,10 +14035,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Raised height: 0m'
+  m_text: 100m
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 21d88a7ed5017b141a8ad49bcc8f63a1, type: 2}
+  m_sharedMaterial: {fileID: 1056425263571733366, guid: 21d88a7ed5017b141a8ad49bcc8f63a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14069,8 +14069,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -14098,7 +14098,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -230.8443, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.9093628, y: 0, z: 0, w: -38.77356}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -19052,6 +19052,10 @@ PrefabInstance:
     - target: {fileID: 5833820254625128653, guid: f9217e7cc3b98af4ab519cda8ad5f799, type: 3}
       propertyPath: m_Name
       value: Goblin Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833820254625128653, guid: f9217e7cc3b98af4ab519cda8ad5f799, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

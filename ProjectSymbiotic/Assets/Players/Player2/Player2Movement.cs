@@ -32,6 +32,7 @@ public class Player2Movement : MonoBehaviour
     public Animator anim;
 
     [SerializeField] private ParticleSystem dust;
+    [SerializeField] private ParticleSystem jumpDust;
 
 
     void Start()
@@ -78,6 +79,7 @@ public class Player2Movement : MonoBehaviour
                 // Jump Animation
                 anim.SetTrigger("jump");
                 dust.Stop();
+                jumpDust.Play();
             }
 
             if (context.canceled && rb.velocity.y > 0f)

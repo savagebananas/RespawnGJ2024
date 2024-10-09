@@ -5,21 +5,17 @@ using TMPro;
 
 public class MeterCounter : MonoBehaviour
 {
-    public TMP_Text txmp;
+    [SerializeField] TMP_Text txmp;
     public static float x;
-
-    void Start()
-    {
-        
-    }
 
 
     public static void UpdateUI(float n)
     {
         x = n;
     }
+
     private void Update()
     {
-        txmp.text = "Raised height: "+ x.ToString("F2") + "m";
+        txmp.text = x.ToString("F2") + "m";
     }
 }
