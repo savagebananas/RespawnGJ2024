@@ -25,6 +25,7 @@ public class PlayerScripts : MonoBehaviour
     void Awake()
     {
         // 0~4: Starting theme
+        //Current call at: DialogSystem
         shawn[0] = false;
         SetScript(0, "Ouch! Where are we? Are we still in the States? (Press wasd to move and jump)", 1, 1);
         SetScript(1, "I don¡¯t know either! Oh¡­ What¡¯s under our feet? It¡¯s a seesaw! (Press ijkl to move and jump)", 2, 1);
@@ -33,11 +34,13 @@ public class PlayerScripts : MonoBehaviour
         SetScript(4, "Just in the center of the seesaw. Let¡¯s try it! (Press E to interact)", 1, -1);
 
         //11~14: First press button
+        //Current call at: MovingUp
         shawn[1] = false;
         SetScript(11, "Wow, it does go up! Let me have a try (Press U to interact)", 2, 2);
         SetScript(12, "Sure! Notice that it will not go up unless you press long enough!", 2, -1);
 
         //31~32: P1 dies; 34~35: P2 dies
+        //Current call at: DestroyOnCollision//Player(2)Movement
         shawn[2] = false;
         SetScript(31, "You know it¡¯s very important to keep balance?", 1, 1f,1f);
         SetScript(32, "Alright. Trust me.", 2, -1);

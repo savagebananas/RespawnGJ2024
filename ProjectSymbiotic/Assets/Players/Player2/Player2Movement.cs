@@ -185,6 +185,11 @@ public class Player2Movement : MonoBehaviour
 
     public void Die()
     {
+        if (!PlayerScripts.shawn[3])
+        {
+            //PlayerScripts.shawn[2] = true;
+            DialogSystem.Playfrom(34);
+        }
         PlayerDiedHandle.Reseter();
         //destroy player spout blood play willhelm
     }
