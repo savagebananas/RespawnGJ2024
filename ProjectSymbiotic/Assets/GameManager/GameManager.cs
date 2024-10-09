@@ -9,9 +9,6 @@ public class GameManager : StateMachineManager
     static int mediumThreshold = 50;
     static int hardThreshold = 100;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         difficulty = gameObject.GetComponent<Difficulty>();
