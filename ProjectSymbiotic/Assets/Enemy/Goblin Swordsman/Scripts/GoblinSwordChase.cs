@@ -11,6 +11,8 @@ public class GoblinSwordChase : State
     private Transform target;
     [SerializeField] private float speed;
 
+    [SerializeField] private GoblinSwordJump goblinAttackState; // state
+
     public override void OnStart()
     {
         Debug.Log("Chase Start");
@@ -31,4 +33,19 @@ public class GoblinSwordChase : State
     public override void OnLateUpdate(){}
 
     public override void OnExit(){}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        //Crate or rock hit
+        if(col.gameObject.layer == 7)
+        {
+            stateMachine.setNewState(goblinJumpState);
+        }
+        
+        //Player hit
+        if(col.gameObject.layer == 3)
+        {
+            stateMachine.setNewState(goblinAttackState);
+        }
+    }
 }

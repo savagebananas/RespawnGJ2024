@@ -7,11 +7,10 @@ public class GoblinSwordWait : State
 {
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinSwordJump goblinJumpState; // state
-    [SerializeField] private GoblinSwordJump goblinAttackState; // state
+    
 
     public override void OnUpdate()
     {
-        Debug.Log("Wait Start");
         // When player is within distance, start shooting again
         var height = transform.position.y;
         var targetHeight = enemyBase.target.position.y;
@@ -21,22 +20,12 @@ public class GoblinSwordWait : State
         }
     }
 
-    public override void OnStart(){}
+    public override void OnStart()
+    {
+        Debug.Log("Wait Start");
+    }
     public override void OnLateUpdate(){}
     public override void OnExit(){}
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        //Crate or rock hit
-        if(col.gameObject.layer == 7)
-        {
-            stateMachine.setNewState(goblinJumpState);
-        }
-        
-        //Player hit
-        if(col.gameObject.layer == 3)
-        {
-            stateMachine.setNewState(goblinAttackState);
-        }
-    }
+    
 }
