@@ -68,15 +68,15 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("collision");
+        //Debug.Log("collision");
         //Crate or rock hit
-        if(col.gameObject.layer == 7)
+        if (col.gameObject.layer == 7)
         {
             isHitObject = true;
         }
-        
+
         //Player hit
-        if(col.gameObject.layer == 3)
+        if (col.gameObject.layer == 3)
         {
             isHitPlayer = true;
         }

@@ -9,9 +9,9 @@ public enum DifficultyLevel
     Medium,
     Hard
 }
-public class Difficulty : State
+public class Difficulty : MonoBehaviour
 {
-    [SerializeField] FallingObjectSpawner spawner;
+    [SerializeField] FallingObjectSpawner Spawner;
 
     [Serializable]
     public struct DifficultyModifier
@@ -49,15 +49,34 @@ public class Difficulty : State
             shootingCooldown = shootCooldown; arrowSpeed = arrSpd;
         }
     }
-    [SerializeField] DifficultyModifier easy;
-    [SerializeField] DifficultyModifier medium;
-    [SerializeField] DifficultyModifier hard;
-    static DifficultyModifier peaceful = new DifficultyModifier(0, 0, 0, 0, 0, 0);
+    [SerializeField] DifficultyModifier Easy;
+    [SerializeField] DifficultyModifier Medium;
+    [SerializeField] DifficultyModifier Hard;
+    private static DifficultyModifier easy, medium, hard;
+    private static DifficultyModifier peaceful = new DifficultyModifier(0, 0, 0, 0, 0, 0);
     private static DifficultyModifier difficulty;
     private static DifficultyLevel difficultyLevel;
-    public void SetDifficulty(DifficultyLevel level)
+    private static FallingObjectSpawner spawner;
+    private static bool initialized = false;
+
+    void Start()
     {
-        switch (level)
+        if (!initialized)
+        {
+            easy = Easy;
+            medium = Medium;
+            hard = Hard;
+            spawner = Spawner;
+            initialized = true;
+        }
+    }
+
+    /// <summary>
+    /// Sets the Difficulty Modifier according to level
+    /// </summary>
+    public static void SetDifficultyLevel(DifficultyLevel difficultyLevel)
+    {
+        switch (difficultyLevel)
         {
             case DifficultyLevel.Peaceful:
                 difficulty = peaceful;
@@ -72,23 +91,9 @@ public class Difficulty : State
                 difficulty = hard;
                 break;
         }
-        stateMachine.setNewState(this);
-    }
-
-    /// <summary>
-    /// Use this to stop enemy attacks without changing the state. Intended ONLY for cutscenes.
-    /// Save the old difficulty before calling this and then switch back to it.
-    /// </summary>
-    public void Peaceful()
-    {
-        difficulty = peaceful;
         SetModifiers();
     }
-    public override void OnStart()
-    {
-        SetModifiers();
-    }
-    public void SetModifiers()
+    public static void SetModifiers()
     {
         spawner.timePerSpawn = difficulty.objectSpawnTime;
         spawner.minPerSpawn = difficulty.minPerSpawn;
@@ -102,16 +107,4 @@ public class Difficulty : State
         return difficultyLevel;
     }
 
-
-    public override void OnUpdate()
-    {
-    }
-
-    public override void OnLateUpdate()
-    {
-    }
-
-    public override void OnExit()
-    {
-    }
 }
