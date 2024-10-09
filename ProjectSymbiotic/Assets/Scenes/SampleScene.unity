@@ -19263,6 +19263,10 @@ PrefabInstance:
       value: Goblin Sword
       objectReference: {fileID: 0}
     - target: {fileID: 6447287865653635643, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447287865653635643, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
       propertyPath: m_TagString
       value: SwordUser
       objectReference: {fileID: 0}
@@ -19325,7 +19329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7181817513176865030, guid: bfb40d0d5e6f22546814a08f770b5739, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8354979843754602290, guid: bfb40d0d5e6f22546814a08f770b5739, type: 3}
