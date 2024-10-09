@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2205077706731899836}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: -0.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5453,6 +5453,7 @@ MonoBehaviour:
   stationary: {fileID: 0}
   isOnButton: 0
   anim: {fileID: 8515539388567678552}
+  startHealth: 3
   dust: {fileID: 8125711158638056882}
   jumpDust: {fileID: 8361475337291232786}
 --- !u!114 &3964401585139293395
@@ -5493,8 +5494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 0}
   Player: {fileID: 6305908748048937470}
+  talking: 0
   VanishTime: 1
-  cps: 6
+  cps: 18
 --- !u!70 &2135074427482366672
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10406,7 +10408,7 @@ Transform:
   m_GameObject: {fileID: 8199950105464165954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.08, z: 0}
+  m_LocalPosition: {x: 0, y: -0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

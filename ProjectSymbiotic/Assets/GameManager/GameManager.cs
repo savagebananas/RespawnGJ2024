@@ -9,9 +9,6 @@ public class GameManager : StateMachineManager
     static int mediumThreshold = 50;
     static int hardThreshold = 100;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         difficulty = gameObject.GetComponent<Difficulty>();
@@ -20,7 +17,7 @@ public class GameManager : StateMachineManager
         {
             CurrentState.OnStart();
         }
-        difficulty.SetDifficulty(Level.Easy);
+        difficulty.SetDifficulty(DifficultyLevel.Easy);
 
     }
 
@@ -40,18 +37,18 @@ public class GameManager : StateMachineManager
         MeterCounter.UpdateUI(score);
         if (score > hardThreshold)
         {
-            difficulty.SetDifficulty(Level.Hard);
+            difficulty.SetDifficulty(DifficultyLevel.Hard);
         }
         else if (score > mediumThreshold)
         {
-            difficulty.SetDifficulty(Level.Medium);
+            difficulty.SetDifficulty(DifficultyLevel.Medium);
         }
     }
     public static float GetHeight()
     {
         return score;
     }
-    public static void ChangeDifficulty(Level level)
+    public static void ChangeDifficulty(DifficultyLevel level)
     {
         difficulty.SetDifficulty(level);
     }
