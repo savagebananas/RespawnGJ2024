@@ -40,6 +40,10 @@ public class Projectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
         }
+        if (collision.gameObject.tag == "Wall" && targetTag == "Player")
+        {
+            collision.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
+        }
     }
 
 }

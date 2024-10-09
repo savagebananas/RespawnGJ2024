@@ -67,6 +67,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     damageables[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
+                else if(damageables[i].GetComponent<RockWall>() != null)
+                {
+                    damageables[i].GetComponent<RockWall>().TakeDamage(damage);
+                }
                 
             }
         }

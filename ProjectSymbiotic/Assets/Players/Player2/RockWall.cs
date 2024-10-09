@@ -11,12 +11,12 @@ public class RockWall : MonoBehaviour
     {
         if (health == 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        health -= 1;
+        health -= damage;
     }
 }

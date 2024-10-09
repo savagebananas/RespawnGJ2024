@@ -10,6 +10,7 @@ TagManager:
   - CrateStick
   - UpButton
   - SwordUser
+  - Wall
   layers:
   - Default
   - TransparentFX
