@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinSwordDeath : State
+public class GoblinSwordStun : State
 {
-    public override void OnStart()
-    {
-        Debug.Log("Goblin Dead");
-        GameObject.Destroy(transform.parent.parent.gameObject);
-    }
+    [SerializeField] Enemy enemyBase;
+    
+    public override void OnStart(){}
 
     public override void OnUpdate(){}
 

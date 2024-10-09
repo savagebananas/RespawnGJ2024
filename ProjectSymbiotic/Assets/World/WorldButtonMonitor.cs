@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class WorldButtonMonitor : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Play, Settings, Help, Credits;
-    public Button play, settings, help, credits;
+    public GameObject Play, Credits,Quit;
+    public Button play, credits,quit;
     float countdown = 0;
     //1. After 1s all button go left
     //2. When 
@@ -26,29 +26,17 @@ public class WorldButtonMonitor : MonoBehaviour
         switch (name)
         {
             case "Play":
-                settings.interactable = false; help.interactable = false; credits.interactable = false;
-                settings.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                help.GetComponent<ButtonMover>().FinalPosition = -961.0f;
+                quit.interactable = false; credits.interactable = false;
+                quit.GetComponent<ButtonMover>().FinalPosition = -961.0f;
                 credits.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                break;
-            case "Settings":
-                play.interactable = false; help.interactable = false; credits.interactable = false;
-                play.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                help.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                credits.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                SetChildrenActive(Settings,true);
-                break;
-            case "Help":
-                play.interactable = false; settings.interactable = false; credits.interactable = false;
-                settings.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                play.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                credits.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                SetChildrenActive(Help, true); 
                 break;
             case "Credits":
-                play.interactable = false; settings.interactable = false; help.interactable = false;
-                settings.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                help.GetComponent<ButtonMover>().FinalPosition = -961.0f;
+                play.interactable = false; quit.interactable= false;
+                quit.GetComponent<ButtonMover>().FinalPosition = -961.0f;
+                play.GetComponent<ButtonMover>().FinalPosition = -961.0f; break;
+            case "Quit":
+                play.interactable = false; credits.interactable = false;
+                credits.GetComponent<ButtonMover>().FinalPosition = -961.0f;
                 play.GetComponent<ButtonMover>().FinalPosition = -961.0f; break;
             default: break;
         }
@@ -59,6 +47,7 @@ public class WorldButtonMonitor : MonoBehaviour
         {
             case "Play": countdown = 1.50f; break;
             case "Credits": SceneManager.LoadScene("Credits"); break;
+            case "Quit": break;
             default: break;
         }
     }

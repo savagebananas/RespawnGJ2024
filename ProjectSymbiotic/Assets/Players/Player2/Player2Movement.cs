@@ -13,12 +13,15 @@ public class Player2Movement : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask playerLayer;
 
-    private float horizontal;
+    public bool won = false;
+    public float horizontal;
     public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
     public bool canBeHurt = true;
+
+    [HideInInspector]
     public int health;
 
     [SerializeField]
@@ -30,10 +33,18 @@ public class Player2Movement : MonoBehaviour
     public bool isOnButton = false;
     public Animator anim;
 
+    [SerializeField] private ParticleSystem dust;
+    [SerializeField] private ParticleSystem jumpDust;
+
+    public int startHealth;
+
+
     void Start()
     {
+        health = startHealth;
         originalSpeed = speed;
         anim = GetComponent<Animator>();
+        won = false;
     }
 
     // Update is called once per frame
@@ -64,23 +75,28 @@ public class Player2Movement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && IsGrounded())
+       // if (!won)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            if (context.performed && IsGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
-            // Jump Animation
-            anim.SetTrigger("jump");
-        }
+                // Jump Animation
+                anim.SetTrigger("jump");
+                dust.Stop();
+                jumpDust.Play();
+            }
 
-        if(context.canceled && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            if (context.canceled && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "UpButton")
+        if(collider.CompareTag("UpButton"))
         {
             isOnButton = true;
         }
@@ -88,22 +104,26 @@ public class Player2Movement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider.tag == "UpButton")
+        if(collider.CompareTag("UpButton"))
         {
             isOnButton = false;
             platform.setNewState(stationary);
         }
     }
 
-    public void PullChain(InputAction.CallbackContext context){ 
-        if(context.performed && isOnButton)
+    public void PullChain(InputAction.CallbackContext context)
+    {
+        if (!won)
         {
-            platform.setNewState(mvUp);
-        }
+            if (context.performed && isOnButton)
+            {
+                platform.setNewState(mvUp);
+            }
 
-        if(context.canceled)
-        {
-            platform.setNewState(stationary);
+            if (context.canceled)
+            {
+                platform.setNewState(stationary);
+            }
         }
     }
 
@@ -122,16 +142,29 @@ public class Player2Movement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
+        //if (!won)
+        {
+            horizontal = context.ReadValue<Vector2>().x;
 
-        if(context.started)
-        {
-            anim.SetBool("isWalking", true);
+            if (context.started)
+            {
+                anim.SetBool("isWalking", true);
+                if (IsGrounded()) dust.Play();
+                else dust.Stop();
+            }
+            else if (context.canceled)
+            {
+                anim.SetBool("isWalking", false);
+                dust.Stop();
+            }
         }
-        else if(context.canceled)
-        {
-            anim.SetBool("isWalking", false);
-        }
+    }
+
+    public void WinningTheGame()
+    {
+        Debug.Log("P2 is winning");
+        canBeHurt = false;
+        won = true;
     }
 
     public void GetStunned()
@@ -146,8 +179,12 @@ public class Player2Movement : MonoBehaviour
         if(canBeHurt)
         {
             anim.SetTrigger("hurt");
-
             health -= damage;
+            if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
+            {
+                PlayerScripts.shawn[5] = true;
+                DialogSystem.Playfrom(46);
+            }
             if (health <= 0) 
             {
                 Die();
@@ -157,6 +194,11 @@ public class Player2Movement : MonoBehaviour
 
     public void Die()
     {
+        if (!PlayerScripts.shawn[3])
+        {
+            //PlayerScripts.shawn[2] = true;
+            DialogSystem.Playfrom(34);
+        }
         PlayerDiedHandle.Reseter();
         //destroy player spout blood play willhelm
     }

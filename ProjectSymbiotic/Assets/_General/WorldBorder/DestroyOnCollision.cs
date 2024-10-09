@@ -10,6 +10,16 @@ public class DestroyOnCollision : MonoBehaviour
         if ((collision.gameObject.GetComponent<PlayerMovement>() != null) ||
             (collision.gameObject.GetComponent<Player2Movement>() != null))
         {
+            if (collision.gameObject.GetComponent<PlayerMovement>()!=null && !PlayerScripts.shawn[3])
+            {
+                //PlayerScripts.shawn[3] = true;
+                DialogSystem.Playfrom(34);
+            }
+            if (collision.gameObject.GetComponent<Player2Movement>() != null && !PlayerScripts.shawn[2])
+            {
+                //PlayerScripts.shawn[2] = true;
+                DialogSystem.Playfrom(31);
+            }
             PlayerDiedHandle.Reseter();
         }
         else if (collision.gameObject.tag == "Level") return;

@@ -10,6 +10,9 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public float FinalPosition;
     private float velocity=0;
     public float IOgravity=500;
+    private float initPlace = 231f;
+    private float initSelect = 256f;
+    private float press = -529f;
     private bool b1,b2;
     RectTransform rectTransform;
     public WorldButtonMonitor WorldButtonMonitor;
@@ -26,25 +29,25 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         // Add listener for button press
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         rectTransform = GetComponent<RectTransform>();
-        FinalPosition = -200f;
+        FinalPosition = initPlace;
         myButton.onClick.AddListener(OnButtonPressed);
     }
 
     // Called when the button is clicked
     void OnButtonPressed()
     {
-        FinalPosition = -960;
+        FinalPosition = press;
         velocity = 30;
         WorldButtonMonitor.PressEvent(buttonName);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!myButton.interactable) return;
-        if (FinalPosition > -960)
+        if (FinalPosition > press)
         {
-            FinalPosition = -175;
+            FinalPosition = initSelect;
             velocity = 30;
         }
     }
@@ -53,18 +56,16 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!myButton.interactable) return;
-        if (FinalPosition > -960)
+        if (FinalPosition > press)
         {
-            FinalPosition = -200;
+            FinalPosition = initPlace;
             velocity = 0;
         }
     }
 
     public void NormalReset()
     {
-        if ((name == "Help") || (name == "Settings"))
-            SetChildrenActive(gameObject, false);
-        FinalPosition = -200;
+        FinalPosition = initPlace;
         velocity = 0;
         myButton.interactable = true;
     }
@@ -88,7 +89,7 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 rectTransform.anchoredPosition = new Vector2(FinalPosition, rectTransform.anchoredPosition.y);
                 velocity = 0;
-                if (rectTransform.anchoredPosition.x == -960)
+                if (rectTransform.anchoredPosition.x == press)
                 {
                     WorldButtonMonitor.WorldActivate(buttonName);
                 }

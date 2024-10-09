@@ -24,8 +24,8 @@ public class DialogUsageExample : MonoBehaviour
     {
         switch (x)
         {
-            case 0: P1.CreateANewText("Litang Dingzhen",5.0f); break;
-            case 1:  P2.CreateANewText("ZhishiXuebao", 5.0f); break;
+            case 0: P1.SetText("Litang Dingzhen",5.0f); break;
+            case 1:  P2.SetText("ZhishiXuebao", 5.0f); break;
             default: break;
         }
     }
