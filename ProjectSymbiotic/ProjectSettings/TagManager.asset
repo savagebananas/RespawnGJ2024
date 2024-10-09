@@ -11,6 +11,7 @@ TagManager:
   - UpButton
   - SwordUser
   - Wall
+  - Rock
   layers:
   - Default
   - TransparentFX

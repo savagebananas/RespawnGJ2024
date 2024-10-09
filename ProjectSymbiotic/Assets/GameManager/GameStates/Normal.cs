@@ -44,6 +44,7 @@ public class Normal : State
                 difficultyLevel = DifficultyLevel.Medium;
                 Difficulty.SetDifficultyLevel(difficultyLevel);
             }
+
         }
         else if (difficultyLevel != DifficultyLevel.Easy)
         {

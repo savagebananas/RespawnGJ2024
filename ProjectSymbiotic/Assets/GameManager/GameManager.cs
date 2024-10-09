@@ -27,6 +27,7 @@ public class GameManager : StateMachineManager
         {
             CurrentState.OnUpdate();
         }
+
     }
     public static void AddScore(float height)
     {

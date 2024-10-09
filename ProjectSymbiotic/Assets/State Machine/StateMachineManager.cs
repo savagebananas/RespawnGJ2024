@@ -35,12 +35,12 @@ public class StateMachineManager : MonoBehaviour
 
     public void setNewState(State state)
     {
+        if (CurrentState != null)
+        {
+            CurrentState.OnExit();
+        }
         if (state != null)
         {
-            if (CurrentState != null)
-            {
-                CurrentState.OnExit();
-            }
             CurrentState = state;
             CurrentState.OnStart();
         }
