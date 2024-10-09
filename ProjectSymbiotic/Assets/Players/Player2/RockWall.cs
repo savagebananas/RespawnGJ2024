@@ -5,7 +5,7 @@ using UnityEngine;
 public class RockWall : MonoBehaviour
 {
     public int health;
-    public float lifeTime = 10f;
+    public float lifeTime = 15f;
     private float timer;
 
     void Start()

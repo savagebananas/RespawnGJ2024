@@ -31,18 +31,22 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Player1" && targetTag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.tag == "Player2" && targetTag == "Player")
         {
             collision.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.tag == "Enemy" && targetTag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.tag == "Wall" && targetTag == "Player")
         {
             collision.gameObject.GetComponent<RockWall>().TakeDamage(1);
+            Destroy(this.gameObject);
         }
     }
 
