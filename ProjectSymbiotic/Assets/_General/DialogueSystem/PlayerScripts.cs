@@ -48,7 +48,10 @@ public class PlayerScripts : MonoBehaviour
         SetScript(34, "¡­¡­", 1, 0);
         SetScript(35, "No worries. Try again!", 2, -1);
 
-        //41~43 First Goblin Spawned 46~51 First Player's health below 60%
+        /*41~43 First Goblin Spawned 46~51 First Player's health below 60%
+        *41~43 Current call at:
+        *46~51 Current call at: Player(2)Movement
+        */
         shawn[4] = false;
         SetScript(41, "Look at those green guys! It¡¯s insane!", 1, 1);
         SetScript(42, "Ah¡­ No! they are attacking us!", 1, 1);

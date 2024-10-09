@@ -179,8 +179,12 @@ public class Player2Movement : MonoBehaviour
         if(canBeHurt)
         {
             anim.SetTrigger("hurt");
-
             health -= damage;
+            if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
+            {
+                PlayerScripts.shawn[5] = true;
+                DialogSystem.Playfrom(46);
+            }
             if (health <= 0) 
             {
                 Die();
