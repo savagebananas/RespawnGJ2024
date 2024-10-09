@@ -18,7 +18,7 @@ public class DestroyOnCollision : MonoBehaviour
             if (collision.gameObject.GetComponent<Player2Movement>() != null && !PlayerScripts.shawn[2])
             {
                 //PlayerScripts.shawn[2] = true;
-                DialogSystem.Playfrom(34);
+                DialogSystem.Playfrom(31);
             }
             PlayerDiedHandle.Reseter();
         }
