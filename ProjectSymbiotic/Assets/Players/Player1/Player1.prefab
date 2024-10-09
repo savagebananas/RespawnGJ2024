@@ -5441,7 +5441,7 @@ MonoBehaviour:
     m_Bits: 64
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   won: 0
   horizontal: 0
   speed: 8
@@ -5495,6 +5495,7 @@ MonoBehaviour:
   dialog: {fileID: 0}
   Player: {fileID: 6305908748048937470}
   talking: 0
+  canvas: {fileID: 0}
   VanishTime: 1
   cps: 18
 --- !u!70 &2135074427482366672

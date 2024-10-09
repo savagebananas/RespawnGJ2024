@@ -48,20 +48,18 @@ public class Player2Movement : MonoBehaviour
         won = false;
         isOneWhoPulls = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
-        if(!isFacingRight && horizontal > 0f)
+        if(horizontal > 0f)
         {
-            Flip();
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
-        else if(isFacingRight && horizontal < 0f)
+        else if(horizontal < 0f)
         {
-            Flip();
+            transform.localScale = new Vector3(-1, 1, 1);
         }
 
         float platformAngle = seesaw.GetAngle(); 
@@ -134,7 +132,7 @@ public class Player2Movement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, .1f);
+        return Physics2D.OverlapCircle(groundCheck.position, .1f, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, .1f, playerLayer);
     }
 
     private void Flip()
