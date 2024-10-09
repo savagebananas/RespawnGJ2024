@@ -11,6 +11,7 @@ public class WorldButtonMonitor : MonoBehaviour
     public GameObject Play, Credits,Quit;
     public Button play, credits,quit;
     float countdown = 0;
+    float Std = -529.0f;
     //1. After 1s all button go left
     //2. When 
     public void SetChildrenActive(GameObject gameobject, bool isActive)
@@ -27,17 +28,17 @@ public class WorldButtonMonitor : MonoBehaviour
         {
             case "Play":
                 quit.interactable = false; credits.interactable = false;
-                quit.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                credits.GetComponent<ButtonMover>().FinalPosition = -961.0f;
+                quit.GetComponent<ButtonMover>().FinalPosition = Std-1;
+                credits.GetComponent<ButtonMover>().FinalPosition = Std - 1;
                 break;
             case "Credits":
                 play.interactable = false; quit.interactable= false;
-                quit.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                play.GetComponent<ButtonMover>().FinalPosition = -961.0f; break;
+                quit.GetComponent<ButtonMover>().FinalPosition = Std - 1;
+                play.GetComponent<ButtonMover>().FinalPosition = Std - 1; break;
             case "Quit":
                 play.interactable = false; credits.interactable = false;
-                credits.GetComponent<ButtonMover>().FinalPosition = -961.0f;
-                play.GetComponent<ButtonMover>().FinalPosition = -961.0f; break;
+                credits.GetComponent<ButtonMover>().FinalPosition = Std - 1;
+                play.GetComponent<ButtonMover>().FinalPosition = Std - 1; break;
             default: break;
         }
     }
