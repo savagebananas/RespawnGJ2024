@@ -31,11 +31,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnButton = false;
     public Animator anim;
 
+    public int startHealth;
+
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
 
     void Start()
     {
+        health = startHealth;
         originalSpeed = speed;
         won = false;
         anim = GetComponent<Animator>();
