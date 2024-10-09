@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GoblinSwordStun : State
 {
+    [SerializeField] Enemy enemyBase;
+    
     public override void OnStart(){}
 
     public override void OnUpdate(){}
