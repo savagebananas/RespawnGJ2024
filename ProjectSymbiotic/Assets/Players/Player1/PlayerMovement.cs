@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
     public bool canBeHurt = true;
+
+    [HideInInspector]
     public int health;
 
     [SerializeField]

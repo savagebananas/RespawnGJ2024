@@ -18200,6 +18200,10 @@ PrefabInstance:
       propertyPath: stationary
       value: 
       objectReference: {fileID: 1228053958}
+    - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+      propertyPath: startHealth
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18529,6 +18533,10 @@ PrefabInstance:
       propertyPath: stationary
       value: 
       objectReference: {fileID: 1228053958}
+    - target: {fileID: 733705605373540884, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
+      propertyPath: startHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5865699059415379348, guid: 9409f241c74842d4581d9dd86ce3fe64, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
