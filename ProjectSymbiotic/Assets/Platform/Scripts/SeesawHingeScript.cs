@@ -72,7 +72,7 @@ public class SeesawHingeScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (collisions.Count == 0 && Mathf.Abs(rb.rotation) > 0.4)
         {
