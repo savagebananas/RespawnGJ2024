@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinSwordAttack : State
+public class GoblinSwordStun : State
 {
     public override void OnStart(){}
 

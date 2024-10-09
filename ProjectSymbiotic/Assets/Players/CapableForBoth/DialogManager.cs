@@ -19,6 +19,7 @@ public class DialogManager : MonoBehaviour
     private bool TextDisplaying = false;
     private int WordCount=0;
     private string CompleteText;
+    public bool talking = false;
     private double TimeTillNextWord = 0;
     [SerializeField] double VanishTime = 1.0;
     [SerializeField] double cps = 6; //cps=character per second, so 6 characters are coming in 1 second
@@ -75,6 +76,7 @@ public class DialogManager : MonoBehaviour
         CompleteText = newtext;
         TextDisplaying = true;
         WordCount = 0;
+        talking = true;
     }
     private void DialogStateCheck()
     {
@@ -98,6 +100,7 @@ public class DialogManager : MonoBehaviour
                 {
                     TextDisplayTime = 0;
                     RectVanishCoolDown = VanishTime;
+                    talking = false;
                 }
             }
             else 

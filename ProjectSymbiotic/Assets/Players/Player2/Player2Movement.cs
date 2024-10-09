@@ -20,6 +20,8 @@ public class Player2Movement : MonoBehaviour
     private float jumpingPower = 15f;
     public bool isFacingRight = true;
     public bool canBeHurt = true;
+    
+    [HideInInspector]
     public int health;
 
     [SerializeField]
@@ -34,9 +36,12 @@ public class Player2Movement : MonoBehaviour
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
 
+    public int startHealth;
+
 
     void Start()
     {
+        health = startHealth;
         originalSpeed = speed;
         anim = GetComponent<Animator>();
         won = false;
@@ -174,8 +179,12 @@ public class Player2Movement : MonoBehaviour
         if(canBeHurt)
         {
             anim.SetTrigger("hurt");
-
             health -= damage;
+            if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
+            {
+                PlayerScripts.shawn[5] = true;
+                DialogSystem.Playfrom(46);
+            }
             if (health <= 0) 
             {
                 Die();
@@ -185,6 +194,11 @@ public class Player2Movement : MonoBehaviour
 
     public void Die()
     {
+        if (!PlayerScripts.shawn[3])
+        {
+            //PlayerScripts.shawn[2] = true;
+            DialogSystem.Playfrom(34);
+        }
         PlayerDiedHandle.Reseter();
         //destroy player spout blood play willhelm
     }

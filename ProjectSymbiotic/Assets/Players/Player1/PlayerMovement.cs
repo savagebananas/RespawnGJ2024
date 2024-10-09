@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 15f;
     private bool isFacingRight = true;
     public bool canBeHurt = true;
+
+    [HideInInspector]
     public int health;
 
     [SerializeField]
@@ -31,11 +33,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnButton = false;
     public Animator anim;
 
+    public int startHealth;
+
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
 
     void Start()
     {
+        health = startHealth;
         originalSpeed = speed;
         won = false;
         anim = GetComponent<Animator>();
@@ -172,8 +177,12 @@ public class PlayerMovement : MonoBehaviour
         if(canBeHurt)
         {
             anim.SetTrigger("hurt");
-
             health -= damage;
+            if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
+            {
+                PlayerScripts.shawn[5] = true;
+                DialogSystem.Playfrom(49);
+            }
             if (health <= 0) 
             {
                 Die();
@@ -183,6 +192,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        if (!PlayerScripts.shawn[2])
+        {
+            //PlayerScripts.shawn[2] = true;
+            DialogSystem.Playfrom(31);
+        }
         PlayerDiedHandle.Reseter();
         //destroy player spout blood play willhelm
     }
