@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "UpButton")
+        if(collider.CompareTag("UpButton"))
         {
             isOnButton = true;
         }
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider.tag == "UpButton")
+        if(collider.CompareTag("UpButton"))
         {
             isOnButton = false;
             platform.setNewState(stationary);
