@@ -9,20 +9,26 @@ public class DialogSystem : MonoBehaviour
     public static bool dialogPlaying = false;
     private static double PlayNextDialog = 0;
     private static int scriptDisplay = 0;
-    public static int defaultPlayTime = 1;
     private static GameObject p1, p2;
     private static DialogManager dm1,dm2;
+    private static int TalkingState=0;
     private static void ShowScript(int x)
     {
         if (PlayerScripts.player[x]==1)
         {
-            dm1.SetText(PlayerScripts.playerScripts[x], defaultPlayTime);
+            dm1.SetText(PlayerScripts.playerScripts[x], PlayerScripts.hold[x]);
+            TalkingState = 1;
         }
         else
         {
-            dm2.SetText(PlayerScripts.playerScripts[x], defaultPlayTime);
+            dm2.SetText(PlayerScripts.playerScripts[x], PlayerScripts.hold[x]);
+            TalkingState = 2;
         }
     }
+    /// <summary>
+    /// Play the dialog from the starting index
+    /// </summary>
+    /// <param name="x"></param>
     public static void Playfrom(int x)
     {
         dialogPlaying = true;
@@ -40,11 +46,17 @@ public class DialogSystem : MonoBehaviour
         Playfrom(0);
     }
 
+    private bool CheckTalking()
+    {
+        if (TalkingState == 1) return dm1.talking;
+        if (TalkingState==2) return dm2.talking;
+        return false;
+    }
     // Update is called once per frame
     void Update()
     {
         Totaltime+= Time.deltaTime;
-        if (PlayNextDialog > 0) 
+        if ((PlayNextDialog > 0) && (!CheckTalking()))
         { 
             PlayNextDialog -= Time.deltaTime; 
             if (PlayNextDialog <= 0 )
