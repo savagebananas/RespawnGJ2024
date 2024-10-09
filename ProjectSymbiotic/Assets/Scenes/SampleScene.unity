@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273506379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 484536ae7a7acd64489ed97f756a4699, type: 3}
   m_Name: 
@@ -13630,9 +13630,8 @@ GameObject:
   m_Component:
   - component: {fileID: 842570297}
   - component: {fileID: 842570296}
-  - component: {fileID: 842570295}
-  - component: {fileID: 842570294}
   - component: {fileID: 842570298}
+  - component: {fileID: 842570299}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13640,38 +13639,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &842570294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842570293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41153969d86a4b02a8ef386ecf85972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: 842570296}
-  moveDelay: 0.6
-  velocity: 1
-  chain: {fileID: 10262279}
-  plat: {fileID: 966940562}
-  normalState: {fileID: 0}
-  chainAnimater: {fileID: 0}
---- !u!114 &842570295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842570293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7d5e566aa7f24121a19a1febb1e2472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: 842570296}
 --- !u!114 &842570296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13684,7 +13651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ac83ababcd145f1b2b6053c035bfac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: {fileID: 0}
+  CurrentState: {fileID: 842570299}
 --- !u!4 &842570297
 Transform:
   m_ObjectHideFlags: 0
@@ -13712,29 +13679,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2498f99b7124714bfcccf29de09e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 842570296}
-  spawner: {fileID: 1864515848}
-  easy:
+  Spawner: {fileID: 1864515848}
+  Easy:
     objectSpawnTime: 7
     minPerSpawn: 1
-    maxPerSpawn: 2
-    fallingForce: 5
-    shootingCooldown: 4
+    maxPerSpawn: 3
+    fallingForce: 3
+    shootingCooldown: 7
     arrowSpeed: 1
-  medium:
+  Medium:
     objectSpawnTime: 5
     minPerSpawn: 1
-    maxPerSpawn: 3
-    fallingForce: 10
-    shootingCooldown: 3
+    maxPerSpawn: 2
+    fallingForce: 2
+    shootingCooldown: 5
     arrowSpeed: 1
-  hard:
+  Hard:
     objectSpawnTime: 3
     minPerSpawn: 1
     maxPerSpawn: 3
-    fallingForce: 20
-    shootingCooldown: 2
+    fallingForce: 3
+    shootingCooldown: 3
     arrowSpeed: 2
+--- !u!114 &842570299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842570293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d5e566aa7f24121a19a1febb1e2472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  mediumThreshold: 50
+  hardThreshold: 100
 --- !u!1 &857949136
 GameObject:
   m_ObjectHideFlags: 0
@@ -17368,7 +17349,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864515847}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6a510b6e06ef11458fdd910f0b700b7, type: 3}
   m_Name: 
