@@ -47,14 +47,11 @@ public class DialogManager : MonoBehaviour
         // Calculate the height and width of the camera's view
         float cameraHeight = 2 * cam.orthographicSize;
         float cameraWidth = cameraHeight * cam.aspect;
-        Debug.Log("Orthographic Camera Scope - Width: " + cameraWidth + ", Height: " + cameraHeight);
         Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(null, Player.transform.position);
         float width = canvas.GetComponent<RectTransform>().anchoredPosition.x;
         float height = canvas.GetComponent<RectTransform>().anchoredPosition.y;
         // Step 2: Convert the screen position to anchored position
         dialogRect.anchoredPosition = new Vector2(screenPoint.x * width*2 /cameraWidth, screenPoint.y * height*2 /cameraHeight);
-        // Optional Debug: Output the positions
-        Debug.Log("Player Screen Position: " + screenPoint + " | Dialog Anchored Position: " + dialogRect.anchoredPosition);
     }
     private void InitDialog()
     {
