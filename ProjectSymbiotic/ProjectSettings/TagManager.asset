@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - CrateStick
   - UpButton
+  - SwordUser
   layers:
   - Default
   - TransparentFX

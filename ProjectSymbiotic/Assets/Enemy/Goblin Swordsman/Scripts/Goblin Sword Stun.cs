@@ -22,7 +22,7 @@ public class GoblinSwordStun : State
 
     IEnumerator Stunned()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(stunTimer);
         stateMachine.setNewState(swordChaseState);
     }
 }

@@ -80,7 +80,10 @@ public class Enemy : MonoBehaviour
         {
             isHitPlayer = true;
         }
+    }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
         if (col.gameObject.layer == 9)
         {
             isHitByRock = true;
@@ -91,6 +94,10 @@ public class Enemy : MonoBehaviour
     {
         isHitObject = false;
         isHitPlayer = false;
+    }
+
+    void OnTriggerExit2D()
+    {
         isHitByRock = false;
     }
 }
