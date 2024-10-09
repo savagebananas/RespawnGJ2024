@@ -24,6 +24,12 @@ public class Player2Attack : MonoBehaviour
     public int projectileSpeed;
 
     public SeesawHingeScript seesaw;
+    private Player2Movement player2Movement;
+
+    void Start()
+    {
+        player2Movement = GetComponent<Player2Movement>();
+    }
 
     void Update()
     {
@@ -73,7 +79,7 @@ public class Player2Attack : MonoBehaviour
 
     public void SpecialAttack(InputAction.CallbackContext context)
     {
-        if(isReadyToSpecial)
+        if(isReadyToSpecial && player2Movement.IsGrounded())
         {
             Debug.Log("Special Start");
             isReadyToSpecial = false;
