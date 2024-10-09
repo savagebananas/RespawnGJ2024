@@ -7673,6 +7673,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &579787163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8220170995244207214, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+  m_PrefabInstance: {fileID: 3302592768284853853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &598080602
 GameObject:
   m_ObjectHideFlags: 0
@@ -8124,6 +8135,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &710691537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5633103510204942752, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+  m_PrefabInstance: {fileID: 3302592768284853853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f9235e5291ed2409ba3ce1f7520c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736463905
 GameObject:
   m_ObjectHideFlags: 0
@@ -15037,6 +15059,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1031300270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1253231912765666598, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+  m_PrefabInstance: {fileID: 3302592768284853853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f0d0ef9cdcfcd4aa9416e3edfca4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090965424
 GameObject:
   m_ObjectHideFlags: 0
@@ -16210,6 +16243,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!114 &1410079522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2693679515728160863, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+  m_PrefabInstance: {fileID: 3302592768284853853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286fc5e1314e922479706406e41a51d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1410079524 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 9099232602014218019, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+  m_PrefabInstance: {fileID: 3302592768284853853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1513704578
 GameObject:
   m_ObjectHideFlags: 0
@@ -19124,13 +19173,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 710847983872427821, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 579787163}
     - target: {fileID: 1224394062954025413, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3261304
+      value: 6.76
       objectReference: {fileID: 0}
     - target: {fileID: 1224394062954025413, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8277874
+      value: 6.41
       objectReference: {fileID: 0}
     - target: {fileID: 1224394062954025413, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19164,6 +19217,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1253231912765666598, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253231912765666598, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: enemyBase
+      value: 
+      objectReference: {fileID: 1410079522}
+    - target: {fileID: 1253231912765666598, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 579787163}
+    - target: {fileID: 1253231912765666598, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: goblinJumpState
+      value: 
+      objectReference: {fileID: 710691537}
+    - target: {fileID: 1253231912765666598, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: goblinAttackState
+      value: 
+      objectReference: {fileID: 710691537}
+    - target: {fileID: 1664228442539464773, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: enemyBase
+      value: 
+      objectReference: {fileID: 1410079522}
+    - target: {fileID: 1664228442539464773, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 579787163}
+    - target: {fileID: 1664228442539464773, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: goblinJumpState
+      value: 
+      objectReference: {fileID: 710691537}
+    - target: {fileID: 1810537432057924419, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 579787163}
+    - target: {fileID: 3416924009374024853, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: enemyBase
+      value: 
+      objectReference: {fileID: 1410079522}
+    - target: {fileID: 3416924009374024853, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 579787163}
+    - target: {fileID: 5633103510204942752, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1410079524}
+    - target: {fileID: 5633103510204942752, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: enemyBase
+      value: 
+      objectReference: {fileID: 1410079522}
+    - target: {fileID: 5633103510204942752, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 579787163}
+    - target: {fileID: 5633103510204942752, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
+      propertyPath: swordChaseState
+      value: 
+      objectReference: {fileID: 1031300270}
     - target: {fileID: 6447287865653635643, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
       propertyPath: m_Name
       value: Goblin Sword
@@ -19187,7 +19300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432923260347342764, guid: bfb40d0d5e6f22546814a08f770b5739, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 4432923260347342764, guid: bfb40d0d5e6f22546814a08f770b5739, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19232,6 +19345,10 @@ PrefabInstance:
     - target: {fileID: 7181817513176865030, guid: bfb40d0d5e6f22546814a08f770b5739, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181817513176865030, guid: bfb40d0d5e6f22546814a08f770b5739, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -19341,7 +19458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
