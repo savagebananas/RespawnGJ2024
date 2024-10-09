@@ -10,8 +10,8 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public float FinalPosition;
     private float velocity=0;
     public float IOgravity=500;
-    private float initPlace = 231f;
-    private float initSelect = 256f;
+    private float initPlace = 129f;
+    private float initSelect = 154f;
     private float press = -529f;
     private bool b1,b2;
     RectTransform rectTransform;
@@ -65,8 +65,6 @@ public class ButtonMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void NormalReset()
     {
-        if ((name == "Help") || (name == "Settings"))
-            SetChildrenActive(gameObject, false);
         FinalPosition = initPlace;
         velocity = 0;
         myButton.interactable = true;

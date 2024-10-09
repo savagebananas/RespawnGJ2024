@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e102f6500d3d4e4a8c7507bff36c434
+guid: 3d887ac8f13c6e2459128b262101c1c8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Builder Health_0
+      name: Quit Button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 5
-        height: 1
+        width: 117
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbfdeaea52e06284a96da4e67a20ed91
-      internalID: -1656390065
+      spriteID: a180765aefeeaeb4c8c373555da3d31b
+      internalID: -774562651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Builder Health_1
+      name: Quit Button_1
       rect:
         serializedVersion: 2
-        x: 5
+        x: 117
         y: 0
-        width: 5
-        height: 1
+        width: 117
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,29 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b55dd5911a08ac469973e1a07374133
-      internalID: -330038588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Builder Health_2
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 0
-        width: 5
-        height: 1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8d17aa3a05efcb4a96e9a8aa7454598
-      internalID: 15369369
+      spriteID: f2d8f5b3180510045994304bb8ed9093
+      internalID: -1018426456
       vertices: []
       indices: 
       edges: []
@@ -183,9 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Builder Health_0: -1656390065
-      Builder Health_1: -330038588
-      Builder Health_2: 15369369
+      Quit Button_0: -774562651
+      Quit Button_1: -1018426456
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
