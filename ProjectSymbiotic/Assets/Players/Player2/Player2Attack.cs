@@ -26,9 +26,12 @@ public class Player2Attack : MonoBehaviour
     public SeesawHingeScript seesaw;
     private Player2Movement player2Movement;
 
+    public static int numWalls;
+
     void Start()
     {
         player2Movement = GetComponent<Player2Movement>();
+        numWalls = 0;
     }
 
     void Update()
@@ -79,7 +82,7 @@ public class Player2Attack : MonoBehaviour
 
     public void SpecialAttack(InputAction.CallbackContext context)
     {
-        if(isReadyToSpecial && player2Movement.IsGrounded())
+        if(isReadyToSpecial && player2Movement.IsGrounded() && numWalls <3)
         {
             Debug.Log("Special Start");
             isReadyToSpecial = false;
@@ -87,6 +90,7 @@ public class Player2Attack : MonoBehaviour
             GameObject rockWall = Instantiate(rockShield, attackPos.position, Quaternion.identity) as GameObject;
             //rockWall.transform.rotation = seesaw.GetAngle();
             rockWall.transform.parent = seesaw.gameObject.transform;
+            numWalls +=1;
         }
     }
 

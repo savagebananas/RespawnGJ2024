@@ -23,11 +23,13 @@ public class RockWall : MonoBehaviour
         if(timer <= 0)
         {
             Destroy(this.gameObject);
+            Player2Attack.numWalls -= 1;
         }
 
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(this.gameObject);
+            Player2Attack.numWalls -= 1;
         }
     }
 
