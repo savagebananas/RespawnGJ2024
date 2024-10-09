@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class GoblinSwordChase : State
 {
-    public override void OnStart(){}
+    [SerializeField] private Enemy enemyBase;
+    [SerializeField] private GoblinSwordJump goblinJumpState; // state
+    
+    public override void OnStart()
+    {
+        Debug.Log("Chase Start");
 
-    public override void OnUpdate(){}
+    }
+
+    public override void OnUpdate()
+    {
+
+    }
 
     public override void OnLateUpdate(){}
 
