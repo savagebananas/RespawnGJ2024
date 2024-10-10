@@ -33,11 +33,6 @@ public class GoblinSwordChase : State
         {
             stateMachine.setNewState(goblinAttackState);
         }
-
-        if(enemyBase.isHitByRock)
-        {
-            stateMachine.setNewState(stunState);
-        }
     }
 
     public override void OnLateUpdate()

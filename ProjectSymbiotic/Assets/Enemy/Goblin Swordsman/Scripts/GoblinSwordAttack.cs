@@ -54,11 +54,6 @@ public class GoblinSwordAttack : State
 
             StartCoroutine(WaitToSwing());
         }
-
-        if(enemyBase.isHitByRock)
-        {
-            stateMachine.setNewState(stunState);
-        }
     }
 
     public override void OnLateUpdate(){}

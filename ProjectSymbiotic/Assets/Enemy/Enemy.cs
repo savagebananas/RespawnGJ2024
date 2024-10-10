@@ -21,7 +21,6 @@ public class Enemy : MonoBehaviour
 
     public bool isHitPlayer = false;
     public bool isHitObject = false;
-    public bool isHitByRock = false;
 
     private Animator animator;
 
@@ -92,22 +91,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.layer == 9)
-        {
-            isHitByRock = true;
-        }
-    }
-
     void OnCollisionExit2D(Collision2D col)
     {
         isHitObject = false;
         isHitPlayer = false;
     }
 
-    void OnTriggerExit2D()
-    {
-        isHitByRock = false;
-    }
 }

@@ -22,10 +22,7 @@ public class GoblinSwordJump : State
 
     public override void OnUpdate()
     {
-        if(enemyBase.isHitByRock)
-        {
-            stateMachine.setNewState(stunState);
-        }
+
     }
 
     public override void OnLateUpdate(){}
