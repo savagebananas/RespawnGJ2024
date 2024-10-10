@@ -43,6 +43,22 @@ public class FallingObjectSpawner : MonoBehaviour
         NormalizeWeights();
     }
 
+    /// <summary>
+    /// Make sure you know the order of the stored spawning objects.
+    /// </summary>
+    /// <param name="weights">The new spawning weight of each object</param>
+    public void ChangeWeights(List<float> weights)
+    {
+        if (spawnedObjects.Count != weights.Count) throw new System.Exception("Invalid list size");
+        
+        for (int i = 0; i < spawnedObjects.Count; i++)
+        {
+            SpawnedObject obj = spawnedObjects[i];
+            obj.weight = weights[i];
+            spawnedObjects[i] = obj;
+        }
+    }
+
     public static void InitializeSpawnedObjects(List<GameObject> objects, List<float> weights, List<SpawnedObject> spawnedObjects)
     {
         if (objects == null || weights == null || spawnedObjects == null) return;
@@ -83,7 +99,7 @@ public class FallingObjectSpawner : MonoBehaviour
         spawnedObjects.Clear();
     }
 
-    public void NormalizeWeights()
+    private void NormalizeWeights()
     {
         float totalWeight = 0;
         rngMap.Clear();
@@ -92,6 +108,7 @@ public class FallingObjectSpawner : MonoBehaviour
         {
             totalWeight += obj.weight;
         }
+        if (totalWeight == 0) totalWeight++;
         for (int i = 0; i < spawnedObjects.Count; i++)
         {
             SpawnedObject obj = spawnedObjects[i];
@@ -124,8 +141,10 @@ public class FallingObjectSpawner : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        Debug.Log("Checking");
         if (timer <= 0 && spawnedObjects.Count > 0)
         {
+            Debug.Log("Spawning");
             SpawnObjects();
             timer = timePerSpawn;
         }
