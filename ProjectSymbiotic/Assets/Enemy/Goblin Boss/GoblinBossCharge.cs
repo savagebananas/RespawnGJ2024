@@ -7,12 +7,14 @@ public class GoblinBossCharge : State
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinBossShoot goblinShootState; // state
     [SerializeField] private GoblinBossStun goblinStunState; // state
+    [SerializeField] private GoblinBossEnraged goblinEnragedState; // state
     private Transform target;
     [SerializeField] private float speed;
     private float distance;
     private float height;
     private float targetHeight;
     [SerializeField] private GameObject player1;
+    private int numStags;
 
     public override void OnStart()
     {
@@ -27,6 +29,12 @@ public class GoblinBossCharge : State
 
         height = transform.position.y;
         targetHeight = enemyBase.target.position.y;
+
+        //numStags = stags.getnum
+        if(numStags == 0)
+        {
+            stateMachine.setNewState(goblinEnragedState);
+        }
     }
 
     public override void OnLateUpdate()

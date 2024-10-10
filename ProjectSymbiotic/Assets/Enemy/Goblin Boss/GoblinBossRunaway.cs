@@ -7,11 +7,20 @@ public class GoblinBossRunaway : State
 {
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinBossCharge goblinChargeState; // state
+    [SerializeField] private GoblinBossEnraged goblinEnragedState; // state
     [SerializeField] private float speed;
     private Transform target;
     [SerializeField] private GameObject player1;
+    private int numStags;
 
-    public override void OnUpdate(){}
+    public override void OnUpdate()
+    {
+        //numStags = stags.getnum
+        if(numStags == 0)
+        {
+            stateMachine.setNewState(goblinEnragedState);
+        }
+    }
 
     public override void OnStart()
     {

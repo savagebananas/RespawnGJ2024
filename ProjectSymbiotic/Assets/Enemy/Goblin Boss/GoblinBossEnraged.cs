@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinBossEnraged : MonoBehaviour
+public class GoblinBossEnraged : State
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Enemy enemyBase;
+    [SerializeField] private GoblinBossCharge goblinChargeState; // state
+    
+     public override void OnUpdate(){}
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStart()
     {
-        
+       
     }
+    public override void OnLateUpdate()
+    {
+
+    }
+    public override void OnExit(){}
 }

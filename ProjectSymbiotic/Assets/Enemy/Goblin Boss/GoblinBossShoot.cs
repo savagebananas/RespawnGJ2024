@@ -12,6 +12,8 @@ public class GoblinBossShoot : State
     [SerializeField] private GameObject player2;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject chainShot;
+    [SerializeField] private GoblinBossEnraged goblinEnragedState; // state
+    private int numStags;
 
     public override void OnUpdate()
     {
@@ -20,6 +22,12 @@ public class GoblinBossShoot : State
             Rigidbody2D p2rb = player2.GetComponent<Rigidbody2D>();
             p2rb.constraints = RigidbodyConstraints2D.None;
             stateMachine.setNewState(goblinChargeState);
+        }
+
+        //numStags = stags.getnum
+        if(numStags == 0)
+        {
+            stateMachine.setNewState(goblinEnragedState);
         }
     }
 
