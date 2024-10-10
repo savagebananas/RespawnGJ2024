@@ -23,16 +23,4 @@ public class BossCutScene : CutScene
     public override void UpdateCutscene()
     {
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        removeGoblins = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
