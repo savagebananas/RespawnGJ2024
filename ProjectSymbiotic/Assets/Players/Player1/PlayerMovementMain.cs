@@ -1,31 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
-using UnityEngine;
-using Unity.VisualScripting;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player2Movement : MonoBehaviour
+public class PlayerMovementMain : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
     public LayerMask playerLayer;
-    public bool won = false;
+    public bool won;
     public float horizontal;
     public float vertical;
     public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
-    public bool isFacingRight = true;
+    private bool isFacingRight = true;
     public bool canBeHurt = true;
 
     [HideInInspector]
     public int health;
 
-    [SerializeField]
-    private SeesawHingeScript seesaw;
 
     public StateMachineManager platform;
     public MovingUp mvUp;
@@ -33,10 +31,10 @@ public class Player2Movement : MonoBehaviour
     public bool isOnButton = false;
     public Animator anim;
 
+    public int startHealth;
+
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
-
-    public int startHealth;
 
     private bool isOneWhoPulls;
 
@@ -44,8 +42,8 @@ public class Player2Movement : MonoBehaviour
     {
         health = startHealth;
         originalSpeed = speed;
-        anim = GetComponent<Animator>();
         won = false;
+        anim = GetComponent<Animator>();
         isOneWhoPulls = false;
     }
 
@@ -53,30 +51,20 @@ public class Player2Movement : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
-        if(horizontal > 0f)
+        if (horizontal > 0f)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        else if(horizontal < 0f)
+        else if (horizontal < 0f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-        float platformAngle = seesaw.GetAngle(); 
-        if(isFacingRight && platformAngle > 0)
-        {
-            speed =  originalSpeed - math.abs(platformAngle) / 10;
-        }
-        else if(!isFacingRight && platformAngle < 0)
-        {
-            speed = originalSpeed - math.abs(platformAngle) / 10;
         }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-       // if (!won)
+        //if (!won)
         {
             if (context.performed && IsGrounded())
             {
@@ -131,7 +119,7 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, .1f, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, .1f, playerLayer);
     }
@@ -164,13 +152,13 @@ public class Player2Movement : MonoBehaviour
             }
         }
     }
-
     public void WinningTheGame()
     {
-        Debug.Log("P2 is winning");
-        canBeHurt = false;
+        Debug.Log("I am winning");
         won = true;
+        canBeHurt = false;
     }
+
 
     public void GetStunned()
     {
@@ -188,21 +176,21 @@ public class Player2Movement : MonoBehaviour
             if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
             {
                 PlayerScripts.shawn[5] = true;
-                DialogSystem.Playfrom(46);
+                DialogSystem.Playfrom(49);
             }
             if (health <= 0) 
             {
                 Die();
             }
-        }   
+        }  
     }
 
     public void Die()
     {
-        if (!PlayerScripts.shawn[3])
+        if (!PlayerScripts.shawn[2])
         {
             //PlayerScripts.shawn[2] = true;
-            DialogSystem.Playfrom(34);
+            DialogSystem.Playfrom(31);
         }
         PlayerDiedHandle.Reseter();
         //destroy player spout blood play willhelm

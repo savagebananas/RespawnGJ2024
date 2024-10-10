@@ -11,7 +11,7 @@ public class GoblinSwordJump : State
     public Rigidbody2D rb;
     public override void OnStart()
     {
-        Debug.Log("Jump Start");
+        //Debug.Log("Jump Start");
         //Jump into the air
         rb.AddForce(this.transform.up * 10, ForceMode2D.Impulse); 
 

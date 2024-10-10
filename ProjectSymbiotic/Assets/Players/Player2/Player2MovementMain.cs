@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using Unity.Mathematics;
 using UnityEngine.InputSystem;
 
-public class Player2Movement : MonoBehaviour
+public class Player2MovementMain : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform groundCheck;
@@ -24,8 +24,6 @@ public class Player2Movement : MonoBehaviour
     [HideInInspector]
     public int health;
 
-    [SerializeField]
-    private SeesawHingeScript seesaw;
 
     public StateMachineManager platform;
     public MovingUp mvUp;
@@ -61,16 +59,6 @@ public class Player2Movement : MonoBehaviour
         else if(horizontal < 0f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-        float platformAngle = seesaw.GetAngle(); 
-        if(isFacingRight && platformAngle > 0)
-        {
-            speed =  originalSpeed - math.abs(platformAngle) / 10;
-        }
-        else if(!isFacingRight && platformAngle < 0)
-        {
-            speed = originalSpeed - math.abs(platformAngle) / 10;
         }
     }
 

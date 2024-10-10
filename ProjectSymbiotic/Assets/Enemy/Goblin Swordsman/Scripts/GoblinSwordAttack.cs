@@ -19,7 +19,7 @@ public class GoblinSwordAttack : State
 
     public override void OnStart()
     {
-        Debug.Log("Attack Start");
+        //Debug.Log("Attack Start");
         target = enemyBase.target;
     }
 

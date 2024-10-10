@@ -22,7 +22,7 @@ public class GoblinSwordWait : State
 
     public override void OnStart()
     {
-        Debug.Log("Wait Start");
+        //Debug.Log("Wait Start");
     }
     public override void OnLateUpdate(){}
     public override void OnExit(){}

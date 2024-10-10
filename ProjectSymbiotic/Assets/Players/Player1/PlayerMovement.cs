@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -15,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask playerLayer;
     public bool won;
     public float horizontal;
+    public float vertical;
     public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         isOneWhoPulls = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -114,7 +113,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void PullChain(InputAction.CallbackContext context){
+    public void PullChain(InputAction.CallbackContext context)
+    {
         if (!won)
         {
             if (context.performed && isOnButton)
@@ -149,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         //if (!won)
         {
             horizontal = context.ReadValue<Vector2>().x;
+            vertical = context.ReadValue<Vector2>().y;
 
             if (context.started)
             {

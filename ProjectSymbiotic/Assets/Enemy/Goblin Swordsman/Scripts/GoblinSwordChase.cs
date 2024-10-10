@@ -18,7 +18,7 @@ public class GoblinSwordChase : State
 
     public override void OnStart()
     {
-        Debug.Log("Chase Start");
+        //Debug.Log("Chase Start");
         target = enemyBase.target;
     }
 
