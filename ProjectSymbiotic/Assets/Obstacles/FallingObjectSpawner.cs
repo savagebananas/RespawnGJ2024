@@ -8,7 +8,7 @@ public class FallingObjectSpawner : MonoBehaviour
     public float spawnerWidth = 10;
     public float spawnerHeight = 20;
 
-    public float timePerSpawn = 5;
+    [SerializeField] private float timePerSpawn = 5;
     public int minPerSpawn = 1;
     public int maxPerSpawn = 3;
 
@@ -35,12 +35,18 @@ public class FallingObjectSpawner : MonoBehaviour
     private static List<SpawnedObject> spawnedObjects = new();
     private List<float> rngMap = new(); // Contains values between 0 and 1, last value is 1.
 
-    private void Start()
+    private void Awake()
     {
         timer = timePerSpawn;
 
         InitializeSpawnedObjects(initialObjects, initialWeights, spawnedObjects);
         NormalizeWeights();
+    }
+
+    public void SetTimePerSpawn(float time)
+    {
+        timePerSpawn = time;
+        timer = timePerSpawn;
     }
 
     /// <summary>
@@ -49,8 +55,7 @@ public class FallingObjectSpawner : MonoBehaviour
     /// <param name="weights">The new spawning weight of each object</param>
     public void ChangeWeights(List<float> weights)
     {
-        if (spawnedObjects.Count != weights.Count) throw new System.Exception("Invalid list size");
-        
+
         for (int i = 0; i < spawnedObjects.Count; i++)
         {
             SpawnedObject obj = spawnedObjects[i];
@@ -143,7 +148,7 @@ public class FallingObjectSpawner : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        Debug.Log("Checking");
+        Debug.Log(timer);
         if (timer <= 0 && spawnedObjects.Count > 0)
         {
             Debug.Log("Spawning");

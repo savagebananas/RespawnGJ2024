@@ -57,7 +57,7 @@ public class Difficulty : MonoBehaviour
     [SerializeField] DifficultyModifier Medium;
     [SerializeField] DifficultyModifier Hard;
     private static DifficultyModifier easy, medium, hard;
-    private static DifficultyModifier peaceful = new DifficultyModifier(10000, 0, 0, 0, new List<float> { 1f, 1f }, 10000, 0);
+    private static DifficultyModifier peaceful = new DifficultyModifier(1, 0, 0, 0, new List<float> { 1f, 1f }, 10000, 0);
     private static DifficultyModifier difficulty;
     private static DifficultyLevel difficultyLevel;
     private static FallingObjectSpawner spawner;
@@ -105,7 +105,7 @@ public class Difficulty : MonoBehaviour
     }
     public static void SetModifiers()
     {
-        spawner.timePerSpawn = difficulty.objectSpawnTime;
+        spawner.SetTimePerSpawn(difficulty.objectSpawnTime);
         spawner.minPerSpawn = difficulty.minPerSpawn;
         spawner.maxPerSpawn = difficulty.maxPerSpawn;
         spawner.force = difficulty.fallingForce;
