@@ -18,7 +18,7 @@ public class MainMenuManager : MonoBehaviour
 
     public PlayerInput player1Input;
     public PlayerInput player2Input;
-
+    [SerializeField] public GameObject black;
     public static bool KeyChange=false;
     public GameObject control, volume, brightness;
     public Animator Settingani;
@@ -44,6 +44,13 @@ public class MainMenuManager : MonoBehaviour
         // Settings buttons and stuff
     }
 
+    public void InitCutScene()
+    {
+        BlackMask.set = 2f;
+        BlackMask.shield = 0.8f;
+        black.SetActive(true);
+        ChangeCollider.flip();
+    }
     public void CloseSettingsMenu()
     {
         SwitchToMainMenu();

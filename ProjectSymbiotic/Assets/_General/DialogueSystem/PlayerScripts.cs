@@ -27,8 +27,8 @@ public class PlayerScripts : MonoBehaviour
         // 0~4: Starting theme
         //Current call at: DialogSystem
         shawn[0] = false;
-        SetScript(0, "Ouch! Where are we? Are we still in the States? (Press wasd to move and jump)", 1, 1);
-        SetScript(1, "I don¡¯t know either! Oh¡­ What¡¯s under our feet? It¡¯s a seesaw! (Press ijkl to move and jump)", 2, 1);
+        SetScript(0, "Ouch! Where are we? Are we still in the States?", 1, 1);
+        SetScript(1, "I don¡¯t know either! Oh¡­ What¡¯s under our feet? It¡¯s a seesaw!", 2, 1);
         SetScript(2, "Keep balance please don¡¯t fall¡­ Wait, what does that button do?", 1, 1);
         SetScript(3, "Where", 2, 1);
         SetScript(4, "Just in the center of the seesaw. Let¡¯s try it! (Press E to interact)", 1, -1);
@@ -58,11 +58,11 @@ public class PlayerScripts : MonoBehaviour
         SetScript(43, "Watch out these arrows!", 2, -1);
         shawn[5] = false; //For both events
         SetScript(46, "Ouch! That hurts! Can¡¯t we attack the Goblin?", 1,1);
-        SetScript(47, "Why not? Press q to attack them!", 2, 1);
-        SetScript(48, "Alright! You can do that by pressing o too!", 1, -1);
+        SetScript(47, "Why not? Press Q to attack them!", 2, 1);
+        SetScript(48, "Alright! You can do that by pressing O too!", 1, -1);
         SetScript(49, "Ouch! That hurts! Can¡¯t we attack the Goblin?", 2, 1);
-        SetScript(50, "Why not? Press o to attack them!", 1, 1);
-        SetScript(51, "Alright! You can do that by pressing q too!", 2, -1);
+        SetScript(50, "Why not? Press O to attack them!", 1, 1);
+        SetScript(51, "Alright! You can do that by pressing Q too!", 2, -1);
     }
 
     // Update is called once per frame

@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -62,15 +63,17 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        float platformAngle = seesaw.GetAngle(); 
-        if(isFacingRight && platformAngle > 0)
+        if (seesaw != null)
         {
-            speed =  originalSpeed - math.abs(platformAngle) / 10;
-        }
-        else if(!isFacingRight && platformAngle < 0)
-        {
-            speed = originalSpeed - math.abs(platformAngle) / 10;
+            float platformAngle = seesaw.GetAngle();
+            if (isFacingRight && platformAngle > 0)
+            {
+                speed = originalSpeed - math.abs(platformAngle) / 10;
+            }
+            else if (!isFacingRight && platformAngle < 0)
+            {
+                speed = originalSpeed - math.abs(platformAngle) / 10;
+            }
         }
     }
 
@@ -115,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PullChain(InputAction.CallbackContext context)
     {
-        if (!won)
+        if ((!won) && (SceneManager.GetActiveScene().name=="SampleScene"))
         {
             if (context.performed && isOnButton)
             {

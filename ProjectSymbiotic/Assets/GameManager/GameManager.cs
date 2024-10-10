@@ -7,7 +7,7 @@ using UnityEngine.Rendering.UI;
 public class GameManager : StateMachineManager
 {
     private static float score;
-
+    public static GameObject black;
     bool inEvent;
 
     [SerializeField] State gameWinState;
@@ -23,6 +23,7 @@ public class GameManager : StateMachineManager
         }
     }
 
+    
     // Update is called once per frame
     void Update()
     {
