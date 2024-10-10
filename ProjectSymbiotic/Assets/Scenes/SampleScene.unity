@@ -20519,6 +20519,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+--- !u!50 &1966365005 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 29735240525306886, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+  m_PrefabInstance: {fileID: 1966365004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1968468586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1977545274
 GameObject:
   m_ObjectHideFlags: 0
