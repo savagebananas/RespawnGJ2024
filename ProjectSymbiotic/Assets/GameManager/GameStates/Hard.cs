@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boulders : State
+public class Hard : State
 {
-    static Difficulty.DifficultyModifier modifier = new Difficulty.DifficultyModifier(6, 1, 1, 1, new List<float> { 0, 1 }, 6, 1);
     public override void OnExit()
     {
     }
 
     public override void OnLateUpdate()
     {
-
     }
 
     public override void OnStart()
     {
-        Difficulty.SetCustomDifficulty(modifier);
+        Difficulty.SetDifficultyLevel(DifficultyLevel.Hard);
     }
 
     public override void OnUpdate()

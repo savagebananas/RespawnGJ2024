@@ -8177,6 +8177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536324897}
+  - component: {fileID: 536324898}
   m_Layer: 0
   m_Name: BoxesAndBoulder
   m_TagString: Untagged
@@ -8199,6 +8200,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 842570297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &536324898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536324896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5ba3b779ec7497fa19566b8220e023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
 --- !u!1 &555985843
 GameObject:
   m_ObjectHideFlags: 0
@@ -14618,6 +14632,7 @@ Transform:
   - {fileID: 536324897}
   - {fileID: 978158126}
   - {fileID: 1888657363}
+  - {fileID: 1170242783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &842570298
@@ -15698,16 +15713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 842570296}
-  modifier:
-    objectSpawnTime: 6
-    minPerSpawn: 1
-    maxPerSpawn: 1
-    fallingForce: 1
-    objectWeights:
-    - 0
-    - 1
-    shootingCooldown: 6
-    arrowSpeed: 1
 --- !u!1 &978956739
 GameObject:
   m_ObjectHideFlags: 0
@@ -16537,6 +16542,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1170242782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170242783}
+  - component: {fileID: 1170242784}
+  m_Layer: 0
+  m_Name: Hard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170242783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170242782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842570297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170242784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170242782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c47b99056e5f4806a4f74ed0daf546c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
 --- !u!1 &1203384940
 GameObject:
   m_ObjectHideFlags: 0
