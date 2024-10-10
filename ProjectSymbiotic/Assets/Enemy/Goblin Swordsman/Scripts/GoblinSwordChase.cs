@@ -43,7 +43,10 @@ public class GoblinSwordChase : State
     public override void OnLateUpdate()
     {
         if(distance > 0.1f)
-        enemyBase.transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        {
+            enemyBase.transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+        
     }
 
     public override void OnExit(){}

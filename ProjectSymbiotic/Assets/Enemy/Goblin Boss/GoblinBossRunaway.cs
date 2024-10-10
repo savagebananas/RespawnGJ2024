@@ -11,6 +11,7 @@ public class GoblinBossRunaway : State
 
     public override void OnStart()
     {
+        enemyBase.canBeHurt = false;
         Debug.Log("Boss is running");
     }
     public override void OnLateUpdate(){}

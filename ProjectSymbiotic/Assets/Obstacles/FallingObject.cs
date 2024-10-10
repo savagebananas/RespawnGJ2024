@@ -10,11 +10,20 @@ public class FallingObject : MonoBehaviour
     {
         if(health <= 0)
         {
-            Destroy(this.gameObject);
+            StartCoroutine(DestroyObject());
         }
     }
     public void TakeDamage(int damage)
     {
         health -= damage;
+    }
+
+    public IEnumerator DestroyObject()
+    {
+        // Animation and particles
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(this.gameObject);
     }
 }

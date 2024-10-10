@@ -4,62 +4,78 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
 
-public class CutScene : State
+public abstract class CutScene : State
 {
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
     [SerializeField] SeesawHingeScript seesaw;
     [SerializeField] State nextState;
-    private Enemy[] enemies;
     private EnemySpawner[] spawners;
-    private GameObject[] rocks;
-    private GameObject[] crates;
-    const string rockTag = "Rock";
-    const string crateTag = "CrateStick";
+    private List<Collision2D> onPlatform;
     [SerializeField] float duration = 10f;
+
+    /// <summary>
+    /// If true will kill all goblins on the platform before cutscene starts
+    /// </summary>
+    [SerializeField] bool removeGoblins = false;
     private float timer;
+
+    public void ShakeCamera()
+    {
+        //TODO : implement
+    }
+    public abstract void StartCutscene();
+    public abstract void EndCutscene();
 
     public void PauseActivity()
     {
-        enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
-        rocks = GameObject.FindGameObjectsWithTag(rockTag);
-        crates = GameObject.FindGameObjectsWithTag(crateTag);
+
         Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
 
+        // will change
         seesaw.FreezeAtAngle(0);
+
+        // Disable input
         player1.GetComponent<PlayerInput>().enabled = false;
         player2.GetComponent<PlayerInput>().enabled = false;
-        foreach (Enemy enemy in enemies)
-        {
-            enemy.gameObject.SetActive(false);
-        }
+
+        // Players dont rotate platform
+        player1.GetComponent<Rigidbody2D>().mass = 0; 
+        player2.GetComponent<Rigidbody2D>().mass = 0;
+
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.enabled = false;
         }
-        foreach (GameObject rock in rocks)
+
+        // DESTROY ALL BLOCKS
+        //TODO :
+        // If destroyGoblin = true
+        // Everything falls through platform
+        foreach (Collision2D collision in onPlatform)
         {
-            Destroy(rock);
+            if (collision.gameObject.tag.StartsWith("Player")) continue;
+            collision.gameObject.GetComponent<Collider2D>().enabled = false;
         }
-        foreach (GameObject crate in crates)
-        {
-            Destroy(crate);
-        }
+        //TODO :
+        //if destroyGoblin = false - deactivate all goblins
+        //Difficulty Peaceful already stops goblin archer from shooting so all you have to do is deactivate the melee goblins
+
     }
     public void ResumeActivity()
     {
-        seesaw.Unfreeze();
         player1.GetComponent<PlayerInput>().enabled = true;
         player2.GetComponent<PlayerInput>().enabled = true;
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.enabled = true;
         }
-        foreach (Enemy enemy in enemies)
-        {
-            enemy.gameObject.SetActive(true);
-        }
+        player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
+        player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
+        seesaw.Unfreeze(); //will change
+        //TODO : if destroyGoblin = false - reactivate all the goblins on the platform
+        
     }
     public override void OnExit()
     {
@@ -69,9 +85,10 @@ public class CutScene : State
     public override void OnStart()
     {
         timer = duration;
-
-
+        ShakeCamera();
         PauseActivity();
+
+        StartCutscene();
     }
 
 

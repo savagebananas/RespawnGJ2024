@@ -11,7 +11,7 @@ public class GoblinBossIdle : State
     {
         
         // When player is within distance, start shooting again
-        var distance = transform.position.y;
+        var distance = transform.position.x;
         var targetdistance = enemyBase.target.position.x;
         if (distance - targetdistance <= 5 && distance >= -2)
         {
@@ -23,6 +23,7 @@ public class GoblinBossIdle : State
 
     public override void OnStart()
     {
+        enemyBase.canBeHurt = false;
         Debug.Log("Boss is idle");
     }
     public override void OnLateUpdate(){}
