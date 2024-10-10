@@ -607,6 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 884516150208047731}
   enemyBase: {fileID: 6560092443652271561}
+  target: {fileID: 0}
   goblinPrepareShot: {fileID: 5484237577306641521}
   goblinIdle: {fileID: 1154866225624932202}
 --- !u!1 &6893769762841191822
@@ -709,7 +710,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0, y: -1, z: 0}
+  m_DefaultVelocity: {x: 0, y: -0.8, z: 0}
 --- !u!1 &8229460445042346421
 GameObject:
   m_ObjectHideFlags: 0
