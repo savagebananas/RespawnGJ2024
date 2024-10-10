@@ -8,58 +8,57 @@ public class CutScene : State
 {
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
+    [SerializeField] GameObject platform;
     [SerializeField] SeesawHingeScript seesaw;
     [SerializeField] State nextState;
-    private Enemy[] enemies;
     private EnemySpawner[] spawners;
-    private GameObject[] rocks;
-    private GameObject[] crates;
-    const string rockTag = "Rock";
-    const string crateTag = "CrateStick";
+    private List<Collision2D> onPlatform;
     [SerializeField] float duration = 10f;
+
+    /// <summary>
+    /// If true will kill all obstacles on the platform before cutscene starts
+    /// </summary>
+    [SerializeField] bool killOnPlatform;
     private float timer;
 
+    public void ShakeCamera()
+    {
+
+    }
     public void PauseActivity()
     {
-        enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
-        rocks = GameObject.FindGameObjectsWithTag(rockTag);
-        crates = GameObject.FindGameObjectsWithTag(crateTag);
-        Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
 
+        Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
         seesaw.FreezeAtAngle(0);
+
         player1.GetComponent<PlayerInput>().enabled = false;
         player2.GetComponent<PlayerInput>().enabled = false;
-        foreach (Enemy enemy in enemies)
+        player1.GetComponent<Rigidbody2D>().mass = 0;
+        player2.GetComponent<Rigidbody2D>().mass = 0;
+
+        foreach (Collision2D collision in onPlatform)
         {
-            enemy.gameObject.SetActive(false);
+            if (collision.gameObject.tag.StartsWith("Player")) continue;
+            collision.gameObject.GetComponent<Collider2D>().enabled = false;
         }
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.enabled = false;
         }
-        foreach (GameObject rock in rocks)
-        {
-            Destroy(rock);
-        }
-        foreach (GameObject crate in crates)
-        {
-            Destroy(crate);
-        }
+
     }
     public void ResumeActivity()
     {
-        seesaw.Unfreeze();
         player1.GetComponent<PlayerInput>().enabled = true;
         player2.GetComponent<PlayerInput>().enabled = true;
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.enabled = true;
         }
-        foreach (Enemy enemy in enemies)
-        {
-            enemy.gameObject.SetActive(true);
-        }
+        player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
+        player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
+        seesaw.Unfreeze();
     }
     public override void OnExit()
     {
@@ -69,9 +68,9 @@ public class CutScene : State
     public override void OnStart()
     {
         timer = duration;
-
-
+        ShakeCamera();
         PauseActivity();
+
     }
 
 
