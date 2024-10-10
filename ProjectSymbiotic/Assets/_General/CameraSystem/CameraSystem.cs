@@ -18,7 +18,7 @@ public class CameraSystem : MonoBehaviour
 
     private void Awake()
     {
-       animator = GetComponentInParent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public void SetCameraNormal()
@@ -39,10 +39,24 @@ public class CameraSystem : MonoBehaviour
         ChangeCamBounds("boss");
         animator.SetTrigger("boss");
     }
-
     private void ChangeCamRef(Transform transform)
     {
         vcam.Follow = transform;
+    }
+    public void ChangeCamRef(string cam)
+    {
+        switch (cam)
+        {
+            case "normal":
+                vcam.Follow = normalCamRef;
+                break;
+            case "avg":
+                vcam.Follow = averageCamRef;
+                break;
+            case "boss":
+                vcam.Follow = bossRoomCamRef;
+                break;
+        }
     }
 
     private void ChangeCamBounds(string s)

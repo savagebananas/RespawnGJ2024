@@ -148,10 +148,8 @@ public class FallingObjectSpawner : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        Debug.Log(timer);
         if (timer <= 0 && spawnedObjects.Count > 0)
         {
-            Debug.Log("Spawning");
             SpawnObjects();
             timer = timePerSpawn;
         }

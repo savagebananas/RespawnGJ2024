@@ -15,12 +15,12 @@ public abstract class CutScene : GameState
     private EnemySpawner[] spawners;
     private List<Collision2D> onPlatform;
 
-    [SerializeField] float duration = 5f;
+    [SerializeField] protected float duration = 5f;
 
     /// <summary>
     /// If true will kill all goblins on the platform before cutscene starts
     /// </summary>
-    [SerializeField] bool removeGoblins = false;
+    [SerializeField] protected bool removeGoblins = false;
     private float timer;
 
     public abstract void CameraShake();

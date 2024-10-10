@@ -8,7 +8,7 @@ public class BridgeEvent : GameState
     [SerializeField] GameState medium;
     public override void OnStart()
     {
-
+        GameManager.inEvent = true;
     }
 
     // Update is called once per frame
@@ -24,6 +24,7 @@ public class BridgeEvent : GameState
 
     public override void OnExit()
     {
+        GameManager.inEvent = false;
         nextState.nextState = medium;
     }
 

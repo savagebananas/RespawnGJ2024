@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossEvent : GameState
 {
-
+    [SerializeField] CameraSystem cameraSystem;
 
 
     public override void OnExit()
@@ -20,10 +20,12 @@ public class BossEvent : GameState
     public override void OnStart()
     {
         GameManager.inEvent = true;
+        cameraSystem.ChangeCamRef("avg");
     }
 
     public override void OnUpdate()
     {
+
     }
 
     public override bool StateEnd()
