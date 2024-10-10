@@ -17,7 +17,7 @@ public class GoblinSwordChase : State
 
     public override void OnStart()
     {
-        //Debug.Log("Chase Start");
+        Debug.Log("Chase Start");
         stateMachine.animator.SetBool("isWalking", true);
         target = enemyBase.target;
     }
@@ -49,5 +49,8 @@ public class GoblinSwordChase : State
         
     }
 
-    public override void OnExit(){}
+    public override void OnExit()
+    {
+        stateMachine.animator.SetBool("isWalking", false);
+    }
 }
