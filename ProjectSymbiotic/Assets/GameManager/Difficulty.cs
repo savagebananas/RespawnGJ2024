@@ -109,8 +109,7 @@ public class Difficulty : MonoBehaviour
         spawner.minPerSpawn = difficulty.minPerSpawn;
         spawner.maxPerSpawn = difficulty.maxPerSpawn;
         spawner.force = difficulty.fallingForce;
-        spawner.initialWeights = difficulty.objectWeights;
-        spawner.NormalizeWeights();
+        spawner.ChangeWeights(difficulty.objectWeights);
         GoblinArcherCooldown.shootingCooldown = difficulty.shootingCooldown;
         Enemy.difficulty = difficulty.arrowSpeed;
     }
