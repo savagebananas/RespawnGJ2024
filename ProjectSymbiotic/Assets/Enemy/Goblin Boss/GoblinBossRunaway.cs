@@ -5,11 +5,14 @@ using UnityEngine;
 public class GoblinBossRunaway : State
 {
     [SerializeField] private Enemy enemyBase;
-    [SerializeField] private GoblinBossCharge goblinState; // state
+    [SerializeField] private GoblinBossCharge goblinChargeState; // state
 
     public override void OnUpdate(){}
 
-    public override void OnStart(){}
+    public override void OnStart()
+    {
+        Debug.Log("Boss is running");
+    }
     public override void OnLateUpdate(){}
     public override void OnExit(){}
 }

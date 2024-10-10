@@ -10,7 +10,10 @@ public class GoblinBossCharge : State
 
     public override void OnUpdate(){}
 
-    public override void OnStart(){}
+    public override void OnStart()
+    {
+        Debug.Log("Boss is charging");
+    }
     public override void OnLateUpdate(){}
     public override void OnExit(){}
 }
