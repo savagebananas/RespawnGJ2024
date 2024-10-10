@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Lightlighter : MonoBehaviour
+public class FLickerLight : MonoBehaviour
 {
     int phase = 0;
     float initInt = 0;
