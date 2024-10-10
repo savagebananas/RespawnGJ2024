@@ -20458,6 +20458,7 @@ MonoBehaviour:
   velocity: 5
   chain: {fileID: 10262279}
   plat: {fileID: 966940562}
+  stationary: {fileID: 0}
   normalState: {fileID: 1228053958}
   chainAnimater: {fileID: 10262283}
 --- !u!114 &1228053960
@@ -29253,6 +29254,74 @@ PrefabInstance:
       propertyPath: Spawner
       value: 
       objectReference: {fileID: 1864515848}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Easy.maxPerSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Hard.maxPerSpawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Hard.fallingForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Medium.fallingForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Easy.objectSpawnTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Hard.objectSpawnTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Easy.shootingCooldown
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Medium.shootingCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Easy.objectWeights.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Hard.objectWeights.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Medium.objectWeights.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Easy.objectWeights.Array.data[0]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Easy.objectWeights.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Hard.objectWeights.Array.data[0]
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Hard.objectWeights.Array.data[1]
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Medium.objectWeights.Array.data[0]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: Medium.objectWeights.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

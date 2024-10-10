@@ -141,8 +141,6 @@ public class FallingObjectSpawner : MonoBehaviour
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
             if (rb != null) rb.AddForce(-rb.mass * force * obj.transform.position.normalized, ForceMode2D.Impulse);
 
-            obj.transform.parent = transform;
-
         }
     }
 
