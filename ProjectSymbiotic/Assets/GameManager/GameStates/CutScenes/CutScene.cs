@@ -16,9 +16,9 @@ public abstract class CutScene : State
     [SerializeField] float duration = 10f;
 
     /// <summary>
-    /// If true will kill all obstacles on the platform before cutscene starts
+    /// If true will kill all goblins on the platform before cutscene starts
     /// </summary>
-    [SerializeField] bool killOnPlatform;
+    [SerializeField] bool removeGoblins = false;
     private float timer;
 
     public void ShakeCamera()
@@ -33,13 +33,19 @@ public abstract class CutScene : State
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
 
         Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
+
+        // will change
         seesaw.FreezeAtAngle(0);
 
+        // Disable input
         player1.GetComponent<PlayerInput>().enabled = false;
         player2.GetComponent<PlayerInput>().enabled = false;
-        player1.GetComponent<Rigidbody2D>().mass = 0;
+
+        // Players dont rotate platform
+        player1.GetComponent<Rigidbody2D>().mass = 0; 
         player2.GetComponent<Rigidbody2D>().mass = 0;
 
+        // Everything falls through platform
         foreach (Collision2D collision in onPlatform)
         {
             if (collision.gameObject.tag.StartsWith("Player")) continue;
@@ -49,6 +55,8 @@ public abstract class CutScene : State
         {
             spawner.enabled = false;
         }
+
+        // DESTROY ALL BLOCKS
 
     }
     public void ResumeActivity()
