@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class GameManager : StateMachineManager
 {
     private static float score;
 
     bool inEvent;
+
+    [SerializeField] State gameWinState;
+    [SerializeField] State gameOverState;
 
 
     void Start()
@@ -34,10 +39,26 @@ public class GameManager : StateMachineManager
         score += height;
         MeterCounter.UpdateUI(score);
 
+        if (score >= 1050)
+        {
+            // win state
+        }
+
     }
     public static float GetHeight()
     {
         return score;
+    }
+
+    public void GameWin()
+    {
+        setNewState(gameWinState);
+
+    }
+
+    public void GameOver()
+    {
+        setNewState(gameOverState);
     }
 
 }
