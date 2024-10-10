@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hard : State
+public class Hard : GameState
 {
     public override void OnExit()
     {
@@ -19,6 +19,11 @@ public class Hard : State
 
     public override void OnUpdate()
     {
+    }
+
+    public override bool StateEnd()
+    {
+        return false;
     }
 
     // Start is called before the first frame update

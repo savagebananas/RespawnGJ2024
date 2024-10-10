@@ -8,11 +8,11 @@ public class GameManager : StateMachineManager
 {
     private static float score;
     public static GameObject black;
-    bool inEvent;
-
-    [SerializeField] State gameWinState;
-    [SerializeField] State gameOverState;
-
+    public static bool inEvent;
+    public static bool inCutscene;
+    [SerializeField] GameState gameWinState;
+    [SerializeField] GameState gameOverState;
+    [SerializeField] new GameState CurrentState;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class GameManager : StateMachineManager
         }
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -33,7 +33,10 @@ public class GameManager : StateMachineManager
         {
             CurrentState.OnUpdate();
         }
-
+        if (CurrentState.StateEnd())
+        {
+            setNewState(CurrentState.nextState);
+        }
     }
     public static void AddScore(float height)
     {
@@ -54,7 +57,6 @@ public class GameManager : StateMachineManager
     public void GameWin()
     {
         setNewState(gameWinState);
-
     }
 
     public void GameOver()

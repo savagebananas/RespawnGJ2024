@@ -2233,7 +2233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Everything
+  m_text: Bridge Event
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21d88a7ed5017b141a8ad49bcc8f63a1, type: 2}
   m_sharedMaterial: {fileID: 1056425263571733366, guid: 21d88a7ed5017b141a8ad49bcc8f63a1, type: 2}
@@ -2793,6 +2793,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &340004397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340004398}
+  - component: {fileID: 340004399}
+  m_Layer: 0
+  m_Name: BridgeEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340004398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340004397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842570297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340004399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340004397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10ee5db5f3af454397f0c93be37f4e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  nextState: {fileID: 536324898}
+  medium: {fileID: 388092453}
 --- !u!1 &347087725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,6 +3730,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &388092451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388092452}
+  - component: {fileID: 388092453}
+  m_Layer: 0
+  m_Name: Medium
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388092452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388092451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842570297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &388092453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388092451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdf04b90386c4681b79ce158374e95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  nextState: {fileID: 1610587621}
 --- !u!1 &391094736
 GameObject:
   m_ObjectHideFlags: 0
@@ -9433,7 +9526,7 @@ GameObject:
   - component: {fileID: 536324897}
   - component: {fileID: 536324898}
   m_Layer: 0
-  m_Name: BoxesAndBoulder
+  m_Name: Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9467,6 +9560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 842570296}
+  nextState: {fileID: 1042897389}
 --- !u!1 &555985843
 GameObject:
   m_ObjectHideFlags: 0
@@ -16443,15 +16537,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 842570296}
+  nextState: {fileID: 0}
   player1: {fileID: 71793394}
   player2: {fileID: 656206078}
   seesaw: {fileID: 966940567}
   fallingObjSpawner: {fileID: 1864515848}
   duration: 10
-  nextState: {fileID: 0}
   removeGoblins: 0
   p1: {fileID: 2024224279}
-  p2: {fileID: 1966365005}
+  p2: {fileID: 1966365006}
   screenShake: {fileID: 826576759}
 --- !u!114 &826576759
 MonoBehaviour:
@@ -16624,6 +16718,7 @@ MonoBehaviour:
   CurrentState: {fileID: 0}
   gameWinState: {fileID: 0}
   gameOverState: {fileID: 0}
+  CurrentState: {fileID: 0}
 --- !u!4 &842570297
 Transform:
   m_ObjectHideFlags: 0
@@ -16637,11 +16732,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1888657363}
+  - {fileID: 978158126}
+  - {fileID: 536324897}
+  - {fileID: 1042897390}
+  - {fileID: 340004398}
+  - {fileID: 388092452}
+  - {fileID: 1610587620}
   - {fileID: 826576757}
   - {fileID: 1348298040}
-  - {fileID: 536324897}
-  - {fileID: 978158126}
-  - {fileID: 1888657363}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &842570298
@@ -18010,6 +18109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 842570296}
+  nextState: {fileID: 536324898}
 --- !u!1 &978956739
 GameObject:
   m_ObjectHideFlags: 0
@@ -18564,6 +18664,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1042897388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042897390}
+  - component: {fileID: 1042897389}
+  m_Layer: 0
+  m_Name: BridgeCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1042897389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042897388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e93cec4bc8c94e828f3843f68afd014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  nextState: {fileID: 340004399}
+  player1: {fileID: 71793394}
+  player2: {fileID: 656206078}
+  seesaw: {fileID: 966940567}
+  fallingObjSpawner: {fileID: 1864515848}
+  duration: 10
+  removeGoblins: 1
+--- !u!4 &1042897390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042897388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842570297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059313510
 GameObject:
   m_ObjectHideFlags: 0
@@ -22530,6 +22682,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1610587619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610587620}
+  - component: {fileID: 1610587621}
+  m_Layer: 0
+  m_Name: Hard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1610587620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610587619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 842570297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610587621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610587619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c47b99056e5f4806a4f74ed0daf546c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  nextState: {fileID: 0}
 --- !u!1 &1614973749
 GameObject:
   m_ObjectHideFlags: 0
@@ -24811,6 +25009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888657363}
+  - component: {fileID: 1888657364}
   m_Layer: 0
   m_Name: StartingCutscene
   m_TagString: Untagged
@@ -24833,6 +25032,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 842570297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888657364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888657362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7c0b0a2f5b343a99bc9bed09e615c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 842570296}
+  nextState: {fileID: 978158127}
+  player1: {fileID: 71793394}
+  player2: {fileID: 656206078}
+  seesaw: {fileID: 966940567}
+  fallingObjSpawner: {fileID: 1864515848}
+  duration: 10
+  removeGoblins: 0
 --- !u!1 &1892059002
 GameObject:
   m_ObjectHideFlags: 0
@@ -25778,6 +25997,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 29735240525306886, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
   m_PrefabInstance: {fileID: 1966365004}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966365006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4050783396621662473, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+  m_PrefabInstance: {fileID: 1966365004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656206078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1977545274
 GameObject:
   m_ObjectHideFlags: 0
@@ -26051,7 +26281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Melee Enemies / Bridge
+  m_text: 'Melee Enemies '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21d88a7ed5017b141a8ad49bcc8f63a1, type: 2}
   m_sharedMaterial: {fileID: 1056425263571733366, guid: 21d88a7ed5017b141a8ad49bcc8f63a1, type: 2}

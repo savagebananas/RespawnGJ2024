@@ -5,18 +5,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
 
-public abstract class CutScene : State
+public abstract class CutScene : GameState
 {
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
     [SerializeField] SeesawHingeScript seesaw;
-    
+
     [SerializeField] FallingObjectSpawner fallingObjSpawner;
     private EnemySpawner[] spawners;
     private List<Collision2D> onPlatform;
 
     [SerializeField] float duration = 10f;
-    [SerializeField] State nextState;
 
     /// <summary>
     /// If true will kill all goblins on the platform before cutscene starts
@@ -27,6 +26,7 @@ public abstract class CutScene : State
     public abstract void CameraShake();
     public abstract void StartCutscene();
     public abstract void EndCutscene();
+    public abstract void UpdateCutscene();
 
     public void PauseActivity()
     {
@@ -35,14 +35,14 @@ public abstract class CutScene : State
         Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
 
         // will change
-        seesaw.FreezeAtAngle(0);
+        //seesaw.FreezeAtAngle(0);
 
         // Disable input
         player1.GetComponent<PlayerInput>().enabled = false;
         player2.GetComponent<PlayerInput>().enabled = false;
 
         // Players dont rotate platform
-        player1.GetComponent<Rigidbody2D>().mass = 0; 
+        player1.GetComponent<Rigidbody2D>().mass = 0;
         player2.GetComponent<Rigidbody2D>().mass = 0;
 
         foreach (EnemySpawner spawner in spawners)
@@ -65,13 +65,6 @@ public abstract class CutScene : State
                 collision.gameObject.GetComponent<Collider2D>().enabled = false;
             }
         }
-        else
-        {
-            //TODO :
-            //if destroyGoblin = false - deactivate all goblins
-            //Difficulty Peaceful already stops goblin archer from shooting so all you have to do is deactivate the melee goblins
-
-        }
 
 
 
@@ -88,18 +81,21 @@ public abstract class CutScene : State
         }
         player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
-        seesaw.Unfreeze(); //will change
-        //TODO : if destroyGoblin = false - change gameManger to not in cutscene
-        
+        //seesaw.Unfreeze(); //will change
+
     }
     public override void OnExit()
     {
+        EndCutscene();
         ResumeActivity();
+        GameManager.inCutscene = false;
     }
 
     public override void OnStart()
     {
+        GameManager.inCutscene = true;
         timer = duration;
+        CameraShake();
         PauseActivity();
         StartCutscene();
     }
@@ -107,13 +103,14 @@ public abstract class CutScene : State
     public override void OnUpdate()
     {
         timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            stateMachine.setNewState(nextState);
-        }
+        UpdateCutscene();
     }
 
     public override void OnLateUpdate()
     {
+    }
+    public override bool StateEnd()
+    {
+        return timer < 0;
     }
 }

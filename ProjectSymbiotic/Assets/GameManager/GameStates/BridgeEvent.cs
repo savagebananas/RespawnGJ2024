@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeEvent : State
+public class BridgeEvent : GameState
 {
     // Start is called before the first frame update
+    [SerializeField] GameState medium;
     public override void OnStart()
     {
 
@@ -23,5 +24,11 @@ public class BridgeEvent : State
 
     public override void OnExit()
     {
+        nextState.nextState = medium;
+    }
+
+    public override bool StateEnd()
+    {
+        return false;
     }
 }

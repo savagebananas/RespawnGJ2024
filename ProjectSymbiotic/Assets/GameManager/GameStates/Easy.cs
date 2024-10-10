@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CratesAndBoulders : State
+public class Easy : GameState
 {
-    static Difficulty.DifficultyModifier modifier = new Difficulty.DifficultyModifier(6, 1, 1, 1, new List<float> { 0.5f, 0.5f }, 6, 1);
+    public static bool bridgeDone;
     public override void OnExit()
     {
     }
@@ -16,11 +16,23 @@ public class CratesAndBoulders : State
 
     public override void OnStart()
     {
-        Difficulty.SetCustomDifficulty(modifier);
+        Difficulty.SetDifficultyLevel(DifficultyLevel.Easy);
     }
 
     public override void OnUpdate()
     {
+    }
+
+    public override bool StateEnd()
+    {
+        if (bridgeDone)
+            return GameManager.GetHeight() >= 600;
+        else if (GameManager.GetHeight() >= 450)
+        {
+            bridgeDone = true;
+            return true;
+        }
+        return false;
     }
 
     // Start is called before the first frame update

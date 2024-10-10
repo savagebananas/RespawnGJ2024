@@ -26,5 +26,12 @@ public class GameOver : CutScene
         screenShake.GenerateImpulse();
     }
 
-
+    public override void UpdateCutscene()
+    {
+        throw new System.NotImplementedException();
+    }
+    public override bool StateEnd()
+    {
+        return false;
+    }
 }

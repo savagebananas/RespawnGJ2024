@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private StateMachineManager stateMachine;
     [SerializeField] State hurtState;
     [SerializeField] State deathState;
+    [SerializeField] State idle;
 
     public bool canBeHurt;
 
@@ -36,18 +37,22 @@ public class Enemy : MonoBehaviour
     {
         SetClosestTarget();
         Visuals();
+        if (GameManager.inCutscene && stateMachine.CurrentState != idle)
+        {
+            stateMachine.setNewState(idle);
+        }
     }
 
     public void TakeDamage(float dmg)
     {
-        if(canBeHurt)
+        if (canBeHurt)
         {
             Debug.Log("Take DMG");
             health -= dmg;
             if (health <= 0 && deathState != null) stateMachine.setNewState(deathState);
             else stateMachine.setNewState(hurtState);
         }
-        
+
     }
 
 
