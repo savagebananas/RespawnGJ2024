@@ -62,7 +62,7 @@ public class MovingUp : State
             }
             if (!WinningTheGame.Won)
             {
-                GameManager.AddScore(velocity * Time.deltaTime * 50);
+                GameManager.AddScore(velocity * Time.deltaTime);
                 if (!PlayerScripts.shawn[1])
                 {
                     PlayerScripts.shawn[1] = true;

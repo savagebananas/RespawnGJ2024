@@ -28,7 +28,7 @@ public class Hard : GameState
 
     public override bool StateEnd()
     {
-        return false;
+        return GameManager.GetHeight() >= 950;
     }
 
     // Start is called before the first frame update

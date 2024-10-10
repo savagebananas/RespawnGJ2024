@@ -1,7 +1,9 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
 
@@ -29,7 +31,8 @@ public abstract class CutScene : GameState
 
     public void PauseActivity()
     {
-        
+        spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
+
 
         Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
 
@@ -39,6 +42,10 @@ public abstract class CutScene : GameState
         // Disable input
         player1.GetComponent<PlayerInput>().enabled = false;
         player2.GetComponent<PlayerInput>().enabled = false;
+
+        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+
 
         // Players dont rotate platform
         player1.GetComponent<Rigidbody2D>().mass = 0;
@@ -73,6 +80,9 @@ public abstract class CutScene : GameState
         }
         player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
+        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
         //seesaw.Unfreeze(); //will change
 
     }

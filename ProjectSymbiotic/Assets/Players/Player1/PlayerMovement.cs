@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(!IsOnButton())
+        if (!IsOnButton())
         {
             //isOneWhoPulls = false;
         }
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.CompareTag("UpButton"))
+        if (collider.CompareTag("UpButton"))
         {
             collider.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider.CompareTag("UpButton") && isOneWhoPulls)
+        if (collider.CompareTag("UpButton") && isOneWhoPulls)
         {
             isOneWhoPulls = false;
             platform.setNewState(stationary);
@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PullChain(InputAction.CallbackContext context)
     {
+        if (GameManager.inEvent) return;
         if ((!won) && (SceneManager.GetActiveScene().name == "SampleScene"))
         {
             if (context.performed && IsOnButton())
@@ -133,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
                 Player2Movement.isOneWhoPulls = false;
                 platform.setNewState(mvUp);
             }
-            
+
             if (context.canceled && isOneWhoPulls)
             {
                 isOneWhoPulls = false;
@@ -184,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(canBeHurt)
+        if (canBeHurt)
         {
             canBeHurt = false;
             StartCoroutine(IFrames());
@@ -195,11 +196,11 @@ public class PlayerMovement : MonoBehaviour
                 PlayerScripts.shawn[5] = true;
                 DialogSystem.Playfrom(49);
             }
-            if (health <= 0) 
+            if (health <= 0)
             {
                 Die();
             }
-        }  
+        }
     }
 
     public void Die()
@@ -217,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
-        
+
         rb.constraints = RigidbodyConstraints2D.None;
     }
 
