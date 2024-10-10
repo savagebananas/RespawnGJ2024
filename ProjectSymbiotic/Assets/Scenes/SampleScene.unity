@@ -29403,50 +29403,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.61194
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49471685
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.044377133
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 98225441865769082, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035141305771200019, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
     - target: {fileID: 356989859329421909, guid: 97c9b9069cefd4b298179b1d61f61c0f, type: 3}
       propertyPath: seesaw
       value: 
@@ -29555,10 +29511,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 574217872598914048, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: seesaw
+      value: 
+      objectReference: {fileID: 966940567}
+    - target: {fileID: 574217872598914048, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 71793394}
+    - target: {fileID: 574217872598914048, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 656206078}
+    - target: {fileID: 574217872598914048, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: fallingObjSpawner
+      value: 
+      objectReference: {fileID: 1864515848}
+    - target: {fileID: 1317731584003170844, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: p1
+      value: 
+      objectReference: {fileID: 2024224279}
+    - target: {fileID: 1317731584003170844, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: p2
+      value: 
+      objectReference: {fileID: 1966365012}
+    - target: {fileID: 1317731584003170844, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: seesaw
+      value: 
+      objectReference: {fileID: 966940567}
+    - target: {fileID: 1317731584003170844, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 71793394}
+    - target: {fileID: 1317731584003170844, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 656206078}
+    - target: {fileID: 1317731584003170844, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: fallingObjSpawner
+      value: 
+      objectReference: {fileID: 1864515848}
     - target: {fileID: 2035141305771200019, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4212036062011768394, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: seesaw
+      value: 
+      objectReference: {fileID: 966940567}
+    - target: {fileID: 4212036062011768394, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 71793394}
+    - target: {fileID: 4212036062011768394, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 656206078}
+    - target: {fileID: 4212036062011768394, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+      propertyPath: fallingObjSpawner
+      value: 
+      objectReference: {fileID: 1864515848}
     - target: {fileID: 5254125884786761136, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
       propertyPath: Spawner
       value: 
