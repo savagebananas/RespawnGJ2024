@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 8220170995244207214}
+  deathEffect: {fileID: 6737654024787689703, guid: 4db7c2d6d4a750d48b15a1f064da6e7c, type: 3}
 --- !u!1 &8999221917657435326
 GameObject:
   m_ObjectHideFlags: 0

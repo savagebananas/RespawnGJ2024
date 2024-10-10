@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GoblinArcherDeath : State
 {
+    public GameObject deathEffect;
     public override void OnStart()
     {
         Debug.Log("Goblin Dead");
-        GameObject.Destroy(transform.parent.parent.gameObject);
+        Destroy(transform.parent.parent.gameObject);
+        var d = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        d.GetComponent
     }
 
     public override void OnUpdate(){}

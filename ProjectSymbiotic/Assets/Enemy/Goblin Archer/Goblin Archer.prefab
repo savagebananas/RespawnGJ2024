@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 3035294615785544228}
   enemyBase: {fileID: 6560092443652271561}
-  target: {fileID: 0}
   arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
   arrow: {fileID: 0}
   cooldownState: {fileID: 3581101959624659410}
@@ -536,6 +535,10 @@ MonoBehaviour:
   stateMachine: {fileID: 3035294615785544228}
   hurtState: {fileID: 0}
   deathState: {fileID: 1929664782564580134}
+  canBeHurt: 0
+  isHitPlayer: 0
+  isHitObject: 0
+  isHitByRock: 0
 --- !u!95 &2173266760849731595
 Animator:
   serializedVersion: 5
@@ -650,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 3035294615785544228}
+  deathEffect: {fileID: 6737654024787689703, guid: 4db7c2d6d4a750d48b15a1f064da6e7c, type: 3}
 --- !u!1 &8229460445042346421
 GameObject:
   m_ObjectHideFlags: 0
