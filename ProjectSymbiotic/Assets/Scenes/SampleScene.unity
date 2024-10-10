@@ -27534,7 +27534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4050783396621662473, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: Gamepad
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7223455994396394507, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
       propertyPath: mvUp
