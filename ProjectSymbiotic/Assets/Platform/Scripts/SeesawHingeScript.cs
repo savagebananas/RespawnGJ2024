@@ -11,6 +11,8 @@ public class SeesawHingeScript : MonoBehaviour
     private Rigidbody2D rb;
     private bool frozen = false;
     List<Collision2D> collisions = new();
+    [SerializeField] GameObject level;
+
 
     /// <summary>
     /// Gets the platform's rotation.
@@ -92,6 +94,11 @@ public class SeesawHingeScript : MonoBehaviour
     {
         collisions.Add(collision);
 
+        if (collision.gameObject.GetComponent<Enemy>() != null)
+        {
+            collision.gameObject.transform.SetParent(transform, true);
+        }
+
         if (!frozen)
         {
             rb.freezeRotation = false;
@@ -103,6 +110,10 @@ public class SeesawHingeScript : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         collisions.Remove(collision);
+        if (collision.gameObject.GetComponent<Enemy>() != null)
+        {
+            collision.gameObject?.transform.SetParent(level.transform, true);
+        }
     }
     public List<Collision2D> GetCollisions()
     {
