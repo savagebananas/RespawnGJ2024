@@ -5521,7 +5521,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1367823631}
   - component: {fileID: 1367823630}
-  - component: {fileID: 1367823632}
   m_Layer: 0
   m_Name: Global Light
   m_TagString: Untagged
@@ -5594,18 +5593,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 517796469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1367823632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367823629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c74ee98538c864cb5057c3c8b554dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1376590214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,6 +6980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775906398}
   - component: {fileID: 1775906397}
+  - component: {fileID: 1775906399}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -7065,6 +7053,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 517796469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775906399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775906396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c74ee98538c864cb5057c3c8b554dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1815694542
 GameObject:
   m_ObjectHideFlags: 0
