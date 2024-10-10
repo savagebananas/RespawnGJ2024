@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
 {
+    private Animator animator;
     [SerializeField] CinemachineVirtualCamera vcam;
 
     [SerializeField] Transform normalCamRef;
@@ -14,14 +15,28 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] Collider2D normalBounds;
     [SerializeField] Collider2D bossBounds;
 
+    private void Awake()
+    {
+       animator = GetComponentInParent<Animator>();
+    }
+
     public void SetCameraNormal()
     {
         ChangeCamRef(normalCamRef);
+        animator.SetTrigger("normal");
+        ChangeCamBounds(normalBounds);
+    }
+
+    public void SetCameraUp()
+    {
+        animator.SetTrigger("up");
         ChangeCamBounds(normalBounds);
     }
 
     public void SetCameraBossFight()
     {
+        animator.SetTrigger("boss");
+        // wait
         ChangeCamRef(bossRoomCamRef);
         ChangeCamBounds(bossBounds);
     }

@@ -41,6 +41,8 @@ public class Player2Movement : MonoBehaviour
 
     private bool isOneWhoPulls;
 
+    [SerializeField] Animator camera;
+
     void Start()
     {
         health = startHealth;
@@ -124,12 +126,14 @@ public class Player2Movement : MonoBehaviour
             {
                 isOneWhoPulls = true;
                 platform.setNewState(mvUp);
+                camera.SetTrigger("up");
             }
 
             if (context.canceled)
             {
                 isOneWhoPulls = false;
                 platform.setNewState(stationary);
+                camera.SetTrigger("normal");
             }
         }
     }
