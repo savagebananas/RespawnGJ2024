@@ -47,7 +47,7 @@ public class GoblinBossShoot : State
 
     private void Shoot()
     {
-        Instantiate(chainShot, this.transform.position, this.transform.rotation);
+        //Instantiate(chainShot, this.transform.position, this.transform.rotation);
     }
 
     public override void OnLateUpdate(){}
