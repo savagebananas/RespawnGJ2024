@@ -31,7 +31,7 @@ public class FallingObjectSpawner : MonoBehaviour
 
     // List of prefabs with weights
     [SerializeField] private List<GameObject> initialObjects = new();
-    [SerializeField] private List<float> initialWeights = new();
+    [SerializeField] public List<float> initialWeights = new();
     private static List<SpawnedObject> spawnedObjects = new();
     private List<float> rngMap = new(); // Contains values between 0 and 1, last value is 1.
 
@@ -52,7 +52,8 @@ public class FallingObjectSpawner : MonoBehaviour
             if (i >= weights.Count)
             {
                 spawnedObjects.Add(new SpawnedObject(objects[i], 1));
-            } else
+            }
+            else
             {
                 spawnedObjects.Add(new SpawnedObject(objects[i], weights[i]));
             }
@@ -82,7 +83,7 @@ public class FallingObjectSpawner : MonoBehaviour
         spawnedObjects.Clear();
     }
 
-    private void NormalizeWeights()
+    public void NormalizeWeights()
     {
         float totalWeight = 0;
         rngMap.Clear();
@@ -133,9 +134,9 @@ public class FallingObjectSpawner : MonoBehaviour
     private void SpawnObjects()
     {
         int numOfObjects = Random.Range(minPerSpawn, maxPerSpawn + 1);
-        for(int i = 0; i < numOfObjects; i++)
+        for (int i = 0; i < numOfObjects; i++)
         {
-            var obj = Instantiate(ChooseObject(), new Vector2(transform.position.x + Random.Range(-spawnerWidth / 2, spawnerWidth / 2), 
+            var obj = Instantiate(ChooseObject(), new Vector2(transform.position.x + Random.Range(-spawnerWidth / 2, spawnerWidth / 2),
                 transform.position.y + Random.Range(-spawnerHeight / 2, spawnerHeight / 2)), Quaternion.identity);
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
             if (rb != null) rb.AddForce(-rb.mass * force * obj.transform.position.normalized, ForceMode2D.Impulse);
