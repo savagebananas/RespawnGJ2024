@@ -36,6 +36,7 @@ public class GoblinSwordAttack : State
             readyToSwing = false;
             //Swing at the player
             Collider2D[] damageables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, damageableLayer);
+            Debug.Log("attacking");
             stateMachine.animator.SetTrigger("attack");
             //if hit do damage to player
             for (int i = 0; i < damageables.Length; i++)
