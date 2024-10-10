@@ -1,29 +1,30 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameOver : State
+public class GameOver : CutScene
 {
     [SerializeField] PlayerInput p1;
     [SerializeField] PlayerInput p2;
 
-    [SerializeField] State restartMenu; // show UI
+    [SerializeField] CinemachineImpulseSource screenShake;
 
-    public override void OnStart()
+    public override void StartCutscene()
     {
-        p1.enabled = false;
-        p2.enabled = false;
-
-        // 
+        CameraShake();
     }
 
-    public override void OnUpdate()
+    public override void EndCutscene()
     {
-        
+        throw new System.NotImplementedException();
     }
-    public override void OnExit(){}
 
-    public override void OnLateUpdate(){}
+    public override void CameraShake()
+    {
+        screenShake.GenerateImpulse();
+    }
+
 
 }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,13 @@ public abstract class CutScene : State
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
     [SerializeField] SeesawHingeScript seesaw;
-    [SerializeField] State nextState;
+    
+    [SerializeField] FallingObjectSpawner fallingObjSpawner;
     private EnemySpawner[] spawners;
     private List<Collision2D> onPlatform;
+
     [SerializeField] float duration = 10f;
+    [SerializeField] State nextState;
 
     /// <summary>
     /// If true will kill all goblins on the platform before cutscene starts
@@ -20,10 +24,7 @@ public abstract class CutScene : State
     [SerializeField] bool removeGoblins = false;
     private float timer;
 
-    public void ShakeCamera()
-    {
-        //TODO : implement
-    }
+    public abstract void CameraShake();
     public abstract void StartCutscene();
     public abstract void EndCutscene();
 
@@ -49,9 +50,16 @@ public abstract class CutScene : State
             spawner.enabled = false;
         }
 
-        // DESTROY ALL BLOCKS
+        List<FallingObject> fallingObjects = new List<FallingObject>(fallingObjSpawner.GetComponentsInChildren<FallingObject>());
+        foreach (FallingObject obj in fallingObjects)
+        {
+            obj.DestroyObject();
+        }
+
         //TODO :
         // If destroyGoblin = true
+
+
         // Everything falls through platform
         foreach (Collision2D collision in onPlatform)
         {
@@ -85,22 +93,8 @@ public abstract class CutScene : State
     public override void OnStart()
     {
         timer = duration;
-        ShakeCamera();
         PauseActivity();
-
         StartCutscene();
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public override void OnUpdate()
