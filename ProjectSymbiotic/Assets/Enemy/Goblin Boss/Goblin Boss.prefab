@@ -246,7 +246,7 @@ MonoBehaviour:
   goblinChargeState: {fileID: 2696959084412850569}
   goblinStunState: {fileID: 8766092181605050443}
   player2: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 8946239012922793609}
   chainShot: {fileID: 740634087480658334}
   goblinEnragedState: {fileID: 0}
 --- !u!1 &3551783859665548430
@@ -396,7 +396,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946342932037368186}
-  - component: {fileID: 7996129365530445942}
+  - component: {fileID: 9172152915541863364}
+  - component: {fileID: 2389356764805875672}
   m_Layer: 7
   m_Name: Goblin Boss Die
   m_TagString: Untagged
@@ -419,7 +420,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2956484450950384852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7996129365530445942
+--- !u!114 &9172152915541863364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,12 +429,67 @@ MonoBehaviour:
   m_GameObject: {fileID: 5396859154326552690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
+  m_Script: {fileID: 11500000, guid: 187a47ca93a494840a2411f10439a46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 943600359326743566}
-  deathEffect: {fileID: 0}
-  screenShake: {fileID: 0}
+  deathEffect: {fileID: 6737654024787689703, guid: 4db7c2d6d4a750d48b15a1f064da6e7c, type: 3}
+  screenShake: {fileID: 2389356764805875672}
+  gameManager: {fileID: 0}
+  bossBeatState: {fileID: 0}
+--- !u!114 &2389356764805875672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396859154326552690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &5656017902576161487
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8175619250946596584
 Transform:
   m_ObjectHideFlags: 0
@@ -681,8 +737,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.7, y: 1.25}
+  m_Offset: {x: -0.045555115, y: -0.18980408}
+  m_Size: {x: 1.0037041, y: 2.0851746}
   m_Direction: 0
 --- !u!114 &4275463027458955853
 MonoBehaviour:
@@ -701,11 +757,10 @@ MonoBehaviour:
   health: 3
   stateMachine: {fileID: 0}
   hurtState: {fileID: 0}
-  deathState: {fileID: 7996129365530445942}
+  deathState: {fileID: 0}
   canBeHurt: 0
   isHitPlayer: 0
   isHitObject: 0
-  isHitByRock: 0
 --- !u!95 &3627846124964622927
 Animator:
   serializedVersion: 5

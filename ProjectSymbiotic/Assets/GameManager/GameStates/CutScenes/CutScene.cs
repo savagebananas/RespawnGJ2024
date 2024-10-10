@@ -13,7 +13,6 @@ public abstract class CutScene : GameState
 
     [SerializeField] FallingObjectSpawner fallingObjSpawner;
     private EnemySpawner[] spawners;
-    private List<Collision2D> onPlatform;
 
     [SerializeField] protected float duration = 5f;
 

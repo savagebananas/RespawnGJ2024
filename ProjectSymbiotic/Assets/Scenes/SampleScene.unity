@@ -4755,6 +4755,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.185215, y: 0.65914917}
   m_EdgeRadius: 0
+--- !u!114 &477427226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3760807685972055337, guid: aee0c3e63730941cc86e20d341acba45, type: 3}
+  m_PrefabInstance: {fileID: 8431312677623714534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ac83ababcd145f1b2b6053c035bfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &479661633
 GameObject:
   m_ObjectHideFlags: 0
@@ -16839,9 +16850,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &788418843 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8946239012922793609, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+--- !u!4 &789654544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
   m_PrefabInstance: {fileID: 6345379806026018103}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &790770202
@@ -18660,6 +18671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 789654544}
   - {fileID: 1159451143}
   - {fileID: 476545637}
   - {fileID: 2123837026}
@@ -29695,12 +29707,8 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 972602842}
     m_Modifications:
-    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 788418843}
     - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: player2
       value: 
@@ -29713,21 +29721,21 @@ PrefabInstance:
       propertyPath: player1
       value: 
       objectReference: {fileID: 71793394}
+    - target: {fileID: 4275463027458955853, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: deathState
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8154992575411059855, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_Name
       value: Goblin Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 8154992575411059855, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.669996
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.220001
+      value: -7.25
       objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29739,15 +29747,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29765,6 +29773,10 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 656206078}
+    - target: {fileID: 9172152915541863364, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 477427226}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29946,4 +29958,3 @@ SceneRoots:
   - {fileID: 618653609}
   - {fileID: 697419644}
   - {fileID: 1530276216}
-  - {fileID: 6345379806026018103}
