@@ -10,6 +10,9 @@ public class Projectile : MonoBehaviour
     public SpriteRenderer rend;
     private CircleCollider2D circleCollider;
 
+    public bool pointTowardsTarget = true;
+    private float angle = 0;
+
     public bool isFired = false;
 
     public string targetTag; // tag of objects the projectile will hit
@@ -25,7 +28,12 @@ public class Projectile : MonoBehaviour
     {
         if (!isFired) return;
 
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x)*Mathf.Rad2Deg);
+        if (pointTowardsTarget) transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg);
+        else
+        {
+            angle += 1000 * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -20,6 +21,9 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public LayerMask damageableLayer;
     public int damage;
+
+    [SerializeField] Animator animator;
+    [SerializeField] CinemachineImpulseSource screenShake;
 
     void Update()
     {
@@ -53,8 +57,9 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("Start");
         if (context.performed && isReadyToAttack)
         {
-            Debug.Log("Swing");
+            animator.SetTrigger("attack");
             isReadyToAttack = false;
+
             Collider2D[] damageables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, damageableLayer);
             for (int i = 0; i < damageables.Length; i++)
             {
@@ -62,6 +67,7 @@ public class PlayerAttack : MonoBehaviour
                 if(damageables[i].GetComponent<FallingObject>() != null)
                 {
                     damageables[i].GetComponent<FallingObject>().TakeDamage(damage);
+                    screenShake.GenerateImpulse();
                 }
                 else if(damageables[i].GetComponent<Enemy>() != null)
                 {
@@ -70,6 +76,7 @@ public class PlayerAttack : MonoBehaviour
                 else if(damageables[i].GetComponent<RockWall>() != null)
                 {
                     damageables[i].GetComponent<RockWall>().TakeDamage(damage);
+                    screenShake.GenerateImpulse();
                 }
                 
             }
