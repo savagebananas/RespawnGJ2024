@@ -30,6 +30,6 @@ public class BridgeEvent : GameState
 
     public override bool StateEnd()
     {
-        return false;
+        return true;
     }
 }
