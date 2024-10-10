@@ -23,22 +23,35 @@ public class MainMenuManager : MonoBehaviour
     public static bool KeyChange=false;
     public GameObject control, volume, brightness;
     public Animator Settingani;
-    private void DeactivateAllChildren(GameObject x, bool deactive = false)
-    {
-        // Loop through all child GameObjects
-        for (int i = 0; i < x.transform.childCount; i++)
-        {
-            // Get the child at index i
-            GameObject child = x.transform.GetChild(i).gameObject;
 
-            // Set the child GameObject inactive
-            child.SetActive(deactive);
-        }
+
+    public void SwitchToMainMenu()
+    {
+        animator.SetTrigger("MainMenu");
     }
+
+    public void SwitchToCredits()
+    {
+        animator.SetTrigger("Credits");
+        // ^ includes button to switch back to main menu
+    }
+
+    /// <summary>
+    /// Triggered when play button is pressed
+    /// Allow players to move around
+    /// Change camera reference point to follow player
+    /// </summary>
+    public void SwitchToPlay()
+    {
+        animator.SetTrigger("Play");
+        camera.Follow = camReference2;
+
+        player1Input.enabled = true;
+        player2Input.enabled = true;
+    }
+
     public void OpenSettingsMenu()
     {
-        // Setrynn
-        SwitchToCredits();
         Settingani.SetBool("Opened", true);
         SettingsOpenControls();
         // Hide Settings button
@@ -77,29 +90,18 @@ public class MainMenuManager : MonoBehaviour
         DeactivateAllChildren(brightness,true);
         DeactivateAllChildren(control);
     }
-    public void SwitchToMainMenu()
-    {
-        animator.SetTrigger("MainMenu");
-    }
 
-    public void SwitchToCredits()
+    private void DeactivateAllChildren(GameObject x, bool deactive = false)
     {
-        animator.SetTrigger("Credits");
-        // ^ includes button to switch back to main menu
-    }
+        // Loop through all child GameObjects
+        for (int i = 0; i < x.transform.childCount; i++)
+        {
+            // Get the child at index i
+            GameObject child = x.transform.GetChild(i).gameObject;
 
-    /// <summary>
-    /// Triggered when play button is pressed
-    /// Allow players to move around
-    /// Change camera reference point to follow player
-    /// </summary>
-    public void SwitchToPlay()
-    {
-        animator.SetTrigger("Play");
-        camera.Follow = camReference2;
-
-        player1Input.enabled = true;
-        player2Input.enabled = true;
+            // Set the child GameObject inactive
+            child.SetActive(deactive);
+        }
     }
 
     public void QuitGame()
