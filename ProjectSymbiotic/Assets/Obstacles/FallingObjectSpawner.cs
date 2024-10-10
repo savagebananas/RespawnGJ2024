@@ -57,6 +57,8 @@ public class FallingObjectSpawner : MonoBehaviour
             obj.weight = weights[i];
             spawnedObjects[i] = obj;
         }
+
+        NormalizeWeights();
     }
 
     public static void InitializeSpawnedObjects(List<GameObject> objects, List<float> weights, List<SpawnedObject> spawnedObjects)
