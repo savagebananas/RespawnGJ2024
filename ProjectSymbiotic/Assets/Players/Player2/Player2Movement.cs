@@ -12,9 +12,9 @@ public class Player2Movement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public LayerMask playerLayer;
-
     public bool won = false;
     public float horizontal;
+    public float vertical;
     public float speed = 8f;
     private float originalSpeed;
     private float jumpingPower = 15f;
@@ -48,6 +48,7 @@ public class Player2Movement : MonoBehaviour
         won = false;
         isOneWhoPulls = false;
     }
+
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -148,6 +149,7 @@ public class Player2Movement : MonoBehaviour
         //if (!won)
         {
             horizontal = context.ReadValue<Vector2>().x;
+            vertical = context.ReadValue<Vector2>().y;
 
             if (context.started)
             {
