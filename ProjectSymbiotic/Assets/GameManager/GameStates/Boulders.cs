@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boulders : GameState
 {
     static Difficulty.DifficultyModifier modifier = new Difficulty.DifficultyModifier(6, 1, 1, 1, new List<float> { 0, 1 }, 6, 1);
+
     public override void OnExit()
     {
     }

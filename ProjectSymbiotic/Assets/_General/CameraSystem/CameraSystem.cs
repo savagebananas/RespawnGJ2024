@@ -7,13 +7,14 @@ public class CameraSystem : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] CinemachineVirtualCamera vcam;
+    [SerializeField] CinemachineConfiner2D cinemachineConfiner;
 
-    [SerializeField] Transform normalCamRef;
-    [SerializeField] Transform bridgeCamRef;
-    [SerializeField] Transform bossRoomCamRef;
+    [SerializeField] Transform normalCamRef; // middle platform
+    [SerializeField] Transform averageCamRef; // avg of two players
+    [SerializeField] Transform bossRoomCamRef; // boss room
 
-    [SerializeField] Collider2D normalBounds;
-    [SerializeField] Collider2D bossBounds;
+    [SerializeField] PolygonCollider2D normalBounds;
+    [SerializeField] PolygonCollider2D bossBounds;
 
     private void Awake()
     {
@@ -24,21 +25,19 @@ public class CameraSystem : MonoBehaviour
     {
         ChangeCamRef(normalCamRef);
         animator.SetTrigger("normal");
-        ChangeCamBounds(normalBounds);
+        ChangeCamBounds("normal");
     }
 
-    public void SetCameraUp()
+    public void CutsceneBridge()
     {
-        animator.SetTrigger("up");
-        ChangeCamBounds(normalBounds);
+        ChangeCamBounds("normal");
+        animator.SetTrigger("bridge");
     }
 
-    public void SetCameraBossFight()
+    public void CutsceneBossFight()
     {
+        ChangeCamBounds("boss");
         animator.SetTrigger("boss");
-        // wait
-        ChangeCamRef(bossRoomCamRef);
-        ChangeCamBounds(bossBounds);
     }
 
     private void ChangeCamRef(Transform transform)
@@ -46,8 +45,16 @@ public class CameraSystem : MonoBehaviour
         vcam.Follow = transform;
     }
 
-    private void ChangeCamBounds(Collider2D collider)
+    private void ChangeCamBounds(string s)
     {
-        vcam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = collider;
+        if (s == "boss")
+        {
+            vcam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = bossBounds;
+        }
+        else
+        {
+            vcam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = normalBounds;
+        }
+
     }
 }
