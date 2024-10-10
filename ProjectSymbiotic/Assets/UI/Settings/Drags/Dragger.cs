@@ -50,7 +50,7 @@ public class Dragger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             mousePosition.y += offset;
 
             float distance = Mathf.Abs(mousePosition.x - rc.anchoredPosition.x);
-            if (distance <= 60) // 25 units threshold
+            if (distance <= 100) // 25 units threshold
             {
                 if (mousePosition.x < lb)
                 {
