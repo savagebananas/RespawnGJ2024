@@ -533,7 +533,7 @@ MonoBehaviour:
   target: {fileID: 0}
   aimLeft: 0
   health: 1
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 884516150208047731}
   hurtState: {fileID: 0}
   deathState: {fileID: 1929664782564580134}
   canBeHurt: 0

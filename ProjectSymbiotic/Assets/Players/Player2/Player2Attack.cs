@@ -61,7 +61,6 @@ public class Player2Attack : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        Debug.Log("Start");
         if (context.performed && isReadyToAttack)
         {
             Debug.Log("Shoot");
@@ -69,7 +68,7 @@ public class Player2Attack : MonoBehaviour
             GameObject bullet = Instantiate(projectile, attackPos.position, Quaternion.identity) as GameObject;
             Rigidbody2D projectileRB = bullet.GetComponent<Rigidbody2D>();
             
-            if(gameObject.GetComponent<Player2Movement>().isFacingRight)
+            if(gameObject.transform.localScale.x == 1)
             {
                 projectileRB.AddForce(new Vector2(projectileSpeed, 0));
             }
