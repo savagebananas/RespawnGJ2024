@@ -12,14 +12,14 @@ public class GameManager : StateMachineManager
     public static bool inCutscene;
     [SerializeField] GameState gameWinState;
     [SerializeField] GameState gameOverState;
-    [SerializeField] new GameState CurrentState;
+    [SerializeField] GameState CurrentGameState;
 
     void Start()
     {
         MeterCounter.UpdateUI(score);
-        if (CurrentState != null)
+        if (CurrentGameState != null)
         {
-            CurrentState.OnStart();
+            CurrentGameState.OnStart();
         }
     }
 
@@ -29,13 +29,13 @@ public class GameManager : StateMachineManager
     {
         //AddScore(Time.deltaTime); //Delete this line after testing!
         //MeterCounter.UpdateUI(score);
-        if (CurrentState != null)
+        if (CurrentGameState != null)
         {
-            CurrentState.OnUpdate();
-        }
-        if (CurrentState.StateEnd())
-        {
-            setNewState(CurrentState.nextState);
+            CurrentGameState.OnUpdate();
+            if (CurrentGameState.StateEnd())
+            {
+                setNewState(CurrentGameState.nextState);
+            }
         }
     }
     public static void AddScore(float height)
@@ -63,5 +63,26 @@ public class GameManager : StateMachineManager
     {
         setNewState(gameOverState);
     }
-
+    private void LateUpdate()
+    {
+        if (CurrentGameState != null)
+        {
+            CurrentGameState.OnLateUpdate();
+        }
+    }
+    public override void setNewState(State state)
+    {
+        if (CurrentGameState != null)
+        {
+            CurrentGameState.OnExit();
+        }
+        if (state != null)
+        {
+            CurrentGameState = (GameState)state;
+            CurrentGameState.OnStart();
+        }
+    }
 }
+
+
+

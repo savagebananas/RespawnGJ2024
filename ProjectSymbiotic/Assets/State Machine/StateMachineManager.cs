@@ -9,7 +9,7 @@ public class StateMachineManager : MonoBehaviour
 {
     public State CurrentState;
 
-    private void Start()
+    void Start()
     {
         if (CurrentState != null)
         {
@@ -17,7 +17,7 @@ public class StateMachineManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (CurrentState != null)
         {
@@ -25,7 +25,7 @@ public class StateMachineManager : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         if (CurrentState != null)
         {
@@ -33,7 +33,7 @@ public class StateMachineManager : MonoBehaviour
         }
     }
 
-    public void setNewState(State state)
+    public virtual void setNewState(State state)
     {
         if (CurrentState != null)
         {
