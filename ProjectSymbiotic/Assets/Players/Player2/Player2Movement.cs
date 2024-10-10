@@ -75,6 +75,11 @@ public class Player2Movement : MonoBehaviour
                 speed = originalSpeed - math.abs(platformAngle) / 10;
             }
         }
+
+        if(!isOnButton)
+        {
+            isOneWhoPulls = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -103,6 +108,7 @@ public class Player2Movement : MonoBehaviour
         if(collider.CompareTag("UpButton"))
         {
             isOnButton = true;
+            collider.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -113,6 +119,7 @@ public class Player2Movement : MonoBehaviour
             isOnButton = false;
             isOneWhoPulls = false;
             platform.setNewState(stationary);
+            collider.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
@@ -128,7 +135,7 @@ public class Player2Movement : MonoBehaviour
 
             if (context.canceled)
             {
-                isOneWhoPulls = false;
+                //isOneWhoPulls = false;
                 platform.setNewState(stationary);
             }
         }
@@ -137,14 +144,6 @@ public class Player2Movement : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, .1f, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, .1f, playerLayer);
-    }
-
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
     }
 
     public void Move(InputAction.CallbackContext context)

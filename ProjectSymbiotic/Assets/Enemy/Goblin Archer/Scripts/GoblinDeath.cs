@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinArcherDeath : State
+public class GoblinDeath : State
 {
     public GameObject deathEffect;
     [SerializeField] CinemachineImpulseSource screenShake;
