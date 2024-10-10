@@ -56,19 +56,26 @@ public abstract class CutScene : State
             obj.DestroyObject();
         }
 
-        //TODO :
-        // If destroyGoblin = true
-
-
-        // Everything falls through platform
-        foreach (Collision2D collision in onPlatform)
+        if (removeGoblins)
         {
-            if (collision.gameObject.tag.StartsWith("Player")) continue;
-            collision.gameObject.GetComponent<Collider2D>().enabled = false;
+            // Everything falls through platform
+            foreach (Collision2D collision in onPlatform)
+            {
+                if (collision.gameObject.tag.StartsWith("Player")) continue;
+                collision.gameObject.GetComponent<Collider2D>().enabled = false;
+            }
         }
-        //TODO :
-        //if destroyGoblin = false - deactivate all goblins
-        //Difficulty Peaceful already stops goblin archer from shooting so all you have to do is deactivate the melee goblins
+        else
+        {
+            //TODO :
+            //if destroyGoblin = false - deactivate all goblins
+            //Difficulty Peaceful already stops goblin archer from shooting so all you have to do is deactivate the melee goblins
+
+        }
+
+
+
+
 
     }
     public void ResumeActivity()
@@ -82,7 +89,7 @@ public abstract class CutScene : State
         player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         seesaw.Unfreeze(); //will change
-        //TODO : if destroyGoblin = false - reactivate all the goblins on the platform
+        //TODO : if destroyGoblin = false - change gameManger to not in cutscene
         
     }
     public override void OnExit()
