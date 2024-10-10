@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     private Transform p1;
     private Transform p2;
-    [HideInInspector] public Transform target;
+    public Transform target;
     public bool aimLeft;
 
     [SerializeField] public float health = 1;

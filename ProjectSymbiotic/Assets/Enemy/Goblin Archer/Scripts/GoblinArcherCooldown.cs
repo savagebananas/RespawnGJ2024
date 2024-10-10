@@ -8,6 +8,7 @@ using UnityEngine;
 public class GoblinArcherCooldown : State
 {
     [SerializeField] Enemy enemyBase;
+    [SerializeField] Transform target;
 
     public static float shootingCooldown = 1.0f;
     private float timer;
@@ -19,7 +20,8 @@ public class GoblinArcherCooldown : State
     {
         timer = shootingCooldown;
         var height = transform.position.y;
-        var targetHeight = enemyBase.target.position.y;
+        target = enemyBase.target;
+        var targetHeight = target.position.y;
         if (height - targetHeight > 8 || height < -2)
         {
             stateMachine.setNewState(goblinIdle);
