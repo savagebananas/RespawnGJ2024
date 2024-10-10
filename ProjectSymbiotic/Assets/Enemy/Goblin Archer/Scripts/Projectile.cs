@@ -45,23 +45,28 @@ public class Projectile : MonoBehaviour
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.CompareTag("Player2") && targetTag == "Player")
+        else if(collision.gameObject.CompareTag("Player2") && targetTag == "Player")
         {
             collision.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.CompareTag("Enemy") && targetTag == "Enemy")
+        else if(collision.gameObject.CompareTag("Enemy") && targetTag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.CompareTag("Wall"))
+        else if (collision.gameObject.CompareTag("SwordUser") && targetTag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(0);
+            Destroy(this.gameObject);
+        }
+        else if(collision.gameObject.CompareTag("Wall"))
         {
             if (targetTag == "Player") collision.gameObject.GetComponent<RockWall>()?.TakeDamage(1);
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Platform"))
+        else if(collision.gameObject.CompareTag("Platform"))
         {
             circleCollider.enabled = false;
             rb.velocity = new Vector3(0, 3, 0);

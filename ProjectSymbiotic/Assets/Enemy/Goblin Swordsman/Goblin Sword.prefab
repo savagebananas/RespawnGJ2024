@@ -146,7 +146,7 @@ MonoBehaviour:
   stateMachine: {fileID: 9121408510326383534}
   enemyBase: {fileID: 2693679515728160863}
   swordChaseState: {fileID: 1253231912765666598}
-  stunTimer: 3
+  stunTimer: 1
 --- !u!1 &5887264857072392852
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,8 +375,8 @@ MonoBehaviour:
   target: {fileID: 0}
   aimLeft: 0
   health: 1
-  stateMachine: {fileID: 0}
-  hurtState: {fileID: 0}
+  stateMachine: {fileID: 9121408510326383534}
+  hurtState: {fileID: 3416924009374024853}
   deathState: {fileID: 1810537432057924419}
   canBeHurt: 0
   isHitPlayer: 0
@@ -603,6 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8042068239068472581}
   - component: {fileID: 1810537432057924419}
+  - component: {fileID: 5153126018581155766}
   m_Layer: 7
   m_Name: Goblin Sword Death
   m_TagString: Untagged
@@ -639,6 +640,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 9121408510326383534}
   deathEffect: {fileID: 6737654024787689703, guid: 4db7c2d6d4a750d48b15a1f064da6e7c, type: 3}
+  screenShake: {fileID: 5153126018581155766}
+--- !u!114 &5153126018581155766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548054297397939473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &8999221917657435326
 GameObject:
   m_ObjectHideFlags: 0
