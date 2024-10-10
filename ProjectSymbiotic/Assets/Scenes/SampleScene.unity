@@ -29777,6 +29777,14 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 656206078}
+    - target: {fileID: 8946239012922793609, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946239012922793609, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9172152915541863364, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: gameManager
       value: 
