@@ -89,7 +89,7 @@ public abstract class CutScene : State
         player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         seesaw.Unfreeze(); //will change
-        //TODO : if destroyGoblin = false - reactivate all the goblins on the platform
+        //TODO : if destroyGoblin = false - change gameManger to not in cutscene
         
     }
     public override void OnExit()
