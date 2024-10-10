@@ -16,7 +16,6 @@ public class Dragger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public float offset;
     public TMP_Text tt;
     public int maxx;
-    public bool mouseholding = false;
     public void OnPointerEnter(PointerEventData eventData)
     {
         isMouseOver = true;
@@ -40,12 +39,10 @@ public class Dragger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0)) { mouseholding = false; Debug.Log("Disattach"); }
         GetBorder();
-        if ((isMouseOver && Input.GetMouseButton(0) && canvas != null)||mouseholding)
+        if (isMouseOver && Input.GetMouseButton(0) && canvas != null)
         {
-            Debug.Log("Holding");
-            mouseholding = true;
+            Debug.Log(lb + "  " + rb);
             Vector2 mousePosition;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, null, out mousePosition);
 
@@ -53,7 +50,7 @@ public class Dragger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             mousePosition.y += offset;
 
             float distance = Mathf.Abs(mousePosition.x - rc.anchoredPosition.x);
-            if ((distance <= 60)||(mouseholding)) // 25 units threshold
+            if (distance <= 100) // 25 units threshold
             {
                 if (mousePosition.x < lb)
                 {
