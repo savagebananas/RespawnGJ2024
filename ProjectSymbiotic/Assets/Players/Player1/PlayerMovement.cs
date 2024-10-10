@@ -28,10 +28,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private SeesawHingeScript seesaw;
 
+    [SerializeField]
+    private GameObject button;
+
     public StateMachineManager platform;
     public MovingUp mvUp;
     public Stationary stationary;
-    public bool isOnButton = false;
     public Animator anim;
 
     public int startHealth;
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
 
-    private bool isOneWhoPulls;
+    public static bool isOneWhoPulls;
 
     void Start()
     {
@@ -76,9 +78,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(!isOnButton)
+        if(!IsOnButton())
         {
-            isOneWhoPulls = false;
+            //isOneWhoPulls = false;
         }
     }
 
@@ -107,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collider.CompareTag("UpButton"))
         {
-            isOnButton = true;
             collider.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
@@ -116,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collider.CompareTag("UpButton") && isOneWhoPulls)
         {
-            isOnButton = false;
             isOneWhoPulls = false;
             platform.setNewState(stationary);
             collider.transform.GetChild(0).gameObject.SetActive(false);
@@ -125,17 +125,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void PullChain(InputAction.CallbackContext context)
     {
-        if ((!won) && (SceneManager.GetActiveScene().name=="SampleScene"))
+        if ((!won) && (SceneManager.GetActiveScene().name == "SampleScene"))
         {
-            if (context.performed && isOnButton)
+            if (context.performed && IsOnButton())
             {
                 isOneWhoPulls = true;
+                Player2Movement.isOneWhoPulls = false;
                 platform.setNewState(mvUp);
             }
             
-            if (context.canceled)
+            if (context.canceled && isOneWhoPulls)
             {
-                //isOneWhoPulls = false;
+                isOneWhoPulls = false;
                 platform.setNewState(stationary);
             }
         }
@@ -224,5 +225,11 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         canBeHurt = true;
+    }
+
+    private bool IsOnButton()
+    {
+        float distance = math.abs(this.transform.position.x - button.transform.position.x);
+        return distance < 0.5;
     }
 }
