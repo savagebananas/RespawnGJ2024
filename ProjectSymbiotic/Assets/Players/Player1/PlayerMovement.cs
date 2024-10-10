@@ -233,7 +233,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsOnButton()
     {
-        //        float distance = math.abs(this.transform.position.x - button.transform.position.x);
-        return false;//distance < 0.5;
+        float distance = math.abs(this.transform.position.x - button.transform.position.x);
+        return distance < 0.5;
     }
 }
