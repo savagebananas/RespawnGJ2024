@@ -42,14 +42,15 @@ public abstract class CutScene : GameState
         // Disable input
         player1.GetComponent<PlayerInput>().enabled = false;
         player2.GetComponent<PlayerInput>().enabled = false;
-
-        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
-        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
-
-
+        Rigidbody2D rb1 = player1.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2 = player2.GetComponent<Rigidbody2D>();
+        rb1.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        rb2.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        rb1.velocity = new Vector2(0, 0);
+        rb2.velocity = new Vector2(0, 0);
         // Players dont rotate platform
-        player1.GetComponent<Rigidbody2D>().mass = 0;
-        player2.GetComponent<Rigidbody2D>().mass = 0;
+        rb1.mass = 0;
+        rb2.mass = 0;
 
         // Destroy all falling objects
         List<FallingObject> fallingObjects = new List<FallingObject>(fallingObjSpawner.GetComponentsInChildren<FallingObject>());
