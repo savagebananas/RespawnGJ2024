@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Wall"))
         {
-            if (targetTag == "Player") collision.gameObject.GetComponent<RockWall>().TakeDamage(1);
+            if (targetTag == "Player") collision.gameObject.GetComponent<RockWall>()?.TakeDamage(1);
             Destroy(this.gameObject);
         }
 

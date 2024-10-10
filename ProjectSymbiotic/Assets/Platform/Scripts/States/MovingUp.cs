@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,13 +14,15 @@ public class MovingUp : State
     /// How fast the platform moves up
     /// </summary>
     public float velocity;
+
     [SerializeField] GameObject chain;
     [SerializeField] GameObject plat;
     [SerializeField] State stationary;
+
     private Shake shakeChains;
-    private Shake shakePlatform;
-    public Stationary normalState;
-    public Animator chainAnimater;
+    [SerializeField] Animator chainAnimater;
+    [SerializeField] CinemachineImpulseSource screenShake;
+
     private bool chainMoving;
 
     public override void OnStart()
@@ -36,13 +39,18 @@ public class MovingUp : State
             stateMachine.setNewState(stationary);
             return;
         }
+
+        // Delay before platform moves up
         if (delayTimer > 0)
         {
             delayTimer -= Time.deltaTime;
             shakeChains.ShakeX();
-            //shakePlatform.ShakeX();
 
+            // Cam shake
+            screenShake.GenerateImpulse();
         }
+
+        // Start moving chain
         else
         {
             if (!chainMoving)

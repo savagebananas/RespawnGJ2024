@@ -107,7 +107,9 @@ public class Player2Movement : MonoBehaviour
     {
         if(collider.CompareTag("UpButton"))
         {
+            Debug.Log("Player 2 on button");
             isOnButton = true;
+            collider.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -115,9 +117,12 @@ public class Player2Movement : MonoBehaviour
     {
         if(collider.CompareTag("UpButton") && isOneWhoPulls)
         {
+            Debug.Log("Player 2 off button");
+
             isOnButton = false;
             isOneWhoPulls = false;
             platform.setNewState(stationary);
+            collider.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
@@ -142,14 +147,6 @@ public class Player2Movement : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, .1f, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, .1f, playerLayer);
-    }
-
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
     }
 
     public void Move(InputAction.CallbackContext context)
