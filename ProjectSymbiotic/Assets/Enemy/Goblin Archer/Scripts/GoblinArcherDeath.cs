@@ -9,8 +9,7 @@ public class GoblinArcherDeath : State
     {
         Debug.Log("Goblin Dead");
         Destroy(transform.parent.parent.gameObject);
-        var d = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        d.GetComponent
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
     }
 
     public override void OnUpdate(){}

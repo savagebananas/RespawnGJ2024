@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     {
         if (canBeHurt)
         {
-            if (animator != null) animator.SetTrigger("hurt");
+            animator?.SetTrigger("hurt");
             Debug.Log("Take DMG");
             health -= dmg;
             if (health <= 0 && deathState != null) stateMachine.setNewState(deathState);

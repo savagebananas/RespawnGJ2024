@@ -10,19 +10,15 @@ public class GoblinSwordChase : State
     [SerializeField] private GoblinSwordJump goblinJumpState; // state
     [SerializeField] private GoblinSwordStun stunState; // state
 
-
     private Transform target;
     [SerializeField] private float speed;
     private float distance;
     [SerializeField] private GoblinSwordAttack goblinAttackState; // state
 
-    private Animator animator;
-
     public override void OnStart()
     {
         //Debug.Log("Chase Start");
-        animator = GetComponent<Animator>();
-        animator.SetBool("isWalking", true);
+        stateMachine.animator.SetBool("isWalking", true);
         target = enemyBase.target;
     }
 
