@@ -185,6 +185,8 @@ public class Player2Movement : MonoBehaviour
     {
         if(canBeHurt)
         {
+            canBeHurt = false;
+            StartCoroutine(IFrames());
             anim.SetTrigger("hurt");
             health -= damage;
             if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
@@ -216,5 +218,11 @@ public class Player2Movement : MonoBehaviour
 
         
         rb.constraints = RigidbodyConstraints2D.None;
+    }
+
+    IEnumerator IFrames()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canBeHurt = true;
     }
 }
