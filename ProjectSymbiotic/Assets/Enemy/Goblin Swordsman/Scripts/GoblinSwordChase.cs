@@ -16,9 +16,13 @@ public class GoblinSwordChase : State
     private float distance;
     [SerializeField] private GoblinSwordAttack goblinAttackState; // state
 
+    private Animator animator;
+
     public override void OnStart()
     {
         //Debug.Log("Chase Start");
+        animator = GetComponent<Animator>();
+        animator.SetBool("isWalking", true);
         target = enemyBase.target;
     }
 

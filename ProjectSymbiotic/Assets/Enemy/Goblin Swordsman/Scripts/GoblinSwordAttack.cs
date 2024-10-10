@@ -17,9 +17,12 @@ public class GoblinSwordAttack : State
     public LayerMask damageableLayer;
     public int damage;
 
+    private Animator animator;
+
     public override void OnStart()
     {
         //Debug.Log("Attack Start");
+        animator = GetComponent<Animator>();
         target = enemyBase.target;
     }
 
@@ -36,6 +39,7 @@ public class GoblinSwordAttack : State
             readyToSwing = false;
             //Swing at the player
             Collider2D[] damageables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, damageableLayer);
+            if (animator != null) animator.SetTrigger("attack");
             //if hit do damage to player
             for (int i = 0; i < damageables.Length; i++)
             {

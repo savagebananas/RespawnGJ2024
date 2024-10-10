@@ -24,12 +24,15 @@ public class Enemy : MonoBehaviour
     public bool isHitObject = false;
     public bool isHitByRock = false;
 
+    private Animator animator;
+
     private void Start()
     {
         canBeHurt = true;
         p1 = GameObject.Find("Player1").transform;
         p2 = GameObject.Find("Player2").transform;
         SetClosestTarget();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,6 +45,7 @@ public class Enemy : MonoBehaviour
     {
         if(canBeHurt)
         {
+            if (animator != null) animator.SetTrigger("hurt");
             Debug.Log("Take DMG");
             health -= dmg;
             if (health <= 0 && deathState != null) stateMachine.setNewState(deathState);

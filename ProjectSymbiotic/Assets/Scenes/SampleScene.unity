@@ -28352,10 +28352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4717252305989269364, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4d2a5a3dfbfd0fa42a23e5ac13a708fc, type: 2}
     - target: {fileID: 6447287865653635643, guid: 00f21f67fe33e80449e38991c4d72fcc, type: 3}
       propertyPath: m_Name
       value: Goblin Sword
