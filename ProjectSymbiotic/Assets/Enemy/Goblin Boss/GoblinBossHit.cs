@@ -11,6 +11,7 @@ public class GoblinBossHit : State
 
     public override void OnStart()
     {
+        enemyBase.canBeHurt = false;
         Debug.Log("Boss is hit");
     }
     public override void OnLateUpdate(){}

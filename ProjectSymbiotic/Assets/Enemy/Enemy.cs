@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Transform target;
     public bool aimLeft;
 
-    [SerializeField] private float health = 1;
+    [SerializeField] public float health = 1;
 
     [SerializeField] private StateMachineManager stateMachine;
     [SerializeField] State hurtState;
     [SerializeField] State deathState;
+
+    public bool canBeHurt;
 
     public bool isHitPlayer = false;
     public bool isHitObject = false;
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        canBeHurt = true;
         p1 = GameObject.Find("Player1").transform;
         p2 = GameObject.Find("Player2").transform;
         SetClosestTarget();
@@ -37,10 +40,14 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        Debug.Log("Take DMG");
-        health -= dmg;
-        if (health <= 0 && deathState != null) stateMachine.setNewState(deathState);
-        else stateMachine.setNewState(hurtState);
+        if(canBeHurt)
+        {
+            Debug.Log("Take DMG");
+            health -= dmg;
+            if (health <= 0 && deathState != null) stateMachine.setNewState(deathState);
+            else stateMachine.setNewState(hurtState);
+        }
+        
     }
 
 
