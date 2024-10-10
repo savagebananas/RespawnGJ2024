@@ -107,7 +107,6 @@ public class Player2Movement : MonoBehaviour
     {
         if(collider.CompareTag("UpButton"))
         {
-            Debug.Log("Player 2 on button");
             isOnButton = true;
             collider.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -117,8 +116,6 @@ public class Player2Movement : MonoBehaviour
     {
         if(collider.CompareTag("UpButton") && isOneWhoPulls)
         {
-            Debug.Log("Player 2 off button");
-
             isOnButton = false;
             isOneWhoPulls = false;
             platform.setNewState(stationary);
@@ -138,7 +135,7 @@ public class Player2Movement : MonoBehaviour
 
             if (context.canceled)
             {
-                isOneWhoPulls = false;
+                //isOneWhoPulls = false;
                 platform.setNewState(stationary);
             }
         }
