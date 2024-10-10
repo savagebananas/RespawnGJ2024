@@ -37,9 +37,11 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
 
     public int startHealth;
+    [SerializeField] HealthUI healthUI;
 
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem jumpDust;
+
 
     public static bool isOneWhoPulls;
 
@@ -191,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(IFrames());
             anim.SetTrigger("hurt");
             health -= damage;
+            healthUI.LoseLife(health);
             if ((health <= startHealth * 0.6f) && (!PlayerScripts.shawn[5]))
             {
                 PlayerScripts.shawn[5] = true;

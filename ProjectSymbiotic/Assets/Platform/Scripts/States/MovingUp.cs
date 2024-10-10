@@ -34,7 +34,7 @@ public class MovingUp : State
 
     public override void OnUpdate()
     {
-        if (GameManager.inEvent)
+        if (GameManager.inEvent && stateMachine.CurrentState != stationary)
         {
             stateMachine.setNewState(stationary);
             return;
