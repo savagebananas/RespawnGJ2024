@@ -5076,6 +5076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1367823631}
   - component: {fileID: 1367823630}
+  - component: {fileID: 1367823632}
   m_Layer: 0
   m_Name: Global Light
   m_TagString: Untagged
@@ -5148,6 +5149,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 517796469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1367823632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367823629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c74ee98538c864cb5057c3c8b554dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1436850261
 GameObject:
   m_ObjectHideFlags: 0
@@ -11865,7 +11878,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5599325597851886429}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player2Movement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -11901,7 +11914,7 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5599325597851886429}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player2Movement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -11973,7 +11986,7 @@ MonoBehaviour:
     m_ActionName: Player/Special Move
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5599325597851886429}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player2Movement, Assembly-CSharp
         m_MethodName: PullChain
         m_Mode: 0
@@ -12001,9 +12014,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1449803015666842803}
+  - component: {fileID: 8250022921384119797}
   - component: {fileID: 6469257301842352458}
   - component: {fileID: 5856562757098612383}
-  - component: {fileID: 5717107806530169651}
   - component: {fileID: 8250022921384119796}
   - component: {fileID: 6402101062119732215}
   - component: {fileID: 3698827393628847999}
@@ -12318,7 +12331,7 @@ GameObject:
   - component: {fileID: 3632344821895498789}
   - component: {fileID: 3018456326613056336}
   - component: {fileID: 1278270279301226079}
-  - component: {fileID: 5599325597851886429}
+  - component: {fileID: 5420942140406488791}
   - component: {fileID: 2737701020987664647}
   - component: {fileID: 3192669235120185241}
   - component: {fileID: 5420942140406488790}
@@ -22368,7 +22381,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5599325597851886429
+--- !u!114 &5420942140406488791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22377,7 +22390,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2777126098007835939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a92e39f5efabf49a705812e0972e53, type: 3}
+  m_Script: {fileID: 11500000, guid: d5161302653f85743a9a5dabcb59212c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3018456326613056336}
@@ -22388,14 +22401,13 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  won: 0
+  won: 1
   horizontal: 0
   vertical: 0
   speed: 8
   isFacingRight: 1
   canBeHurt: 1
-  health: 3
-  seesaw: {fileID: 0}
+  health: 0
   platform: {fileID: 0}
   mvUp: {fileID: 0}
   stationary: {fileID: 0}
@@ -22404,41 +22416,6 @@ MonoBehaviour:
   dust: {fileID: 7526128051240384815}
   jumpDust: {fileID: 1181378774436250840}
   startHealth: 3
---- !u!114 &5717107806530169651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367559946524909785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a702b4dda46404999273bd498cf57b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 6469257301842352458}
-  groundCheck: {fileID: 1271870657852709590}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  won: 0
-  horizontal: 0
-  vertical: 0
-  speed: 8
-  canBeHurt: 1
-  health: 3
-  seesaw: {fileID: 0}
-  platform: {fileID: 0}
-  mvUp: {fileID: 0}
-  stationary: {fileID: 0}
-  isOnButton: 0
-  anim: {fileID: 3698827393628847999}
-  startHealth: 3
-  dust: {fileID: 3872472398227555477}
-  jumpDust: {fileID: 3562478811137812277}
 --- !u!114 &5766176355542922541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22516,7 +22493,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5717107806530169651}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -22548,7 +22525,7 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5717107806530169651}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -22620,7 +22597,7 @@ MonoBehaviour:
     m_ActionName: Player/Special Move
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5717107806530169651}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: PullChain
         m_Mode: 0
@@ -27695,6 +27672,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   damage: 1
+--- !u!114 &8250022921384119797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367559946524909785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd162bc1ea405a47969b067585de130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 6469257301842352458}
+  groundCheck: {fileID: 1271870657852709590}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  won: 0
+  horizontal: 0
+  vertical: 0
+  speed: 8
+  canBeHurt: 1
+  health: 0
+  platform: {fileID: 0}
+  mvUp: {fileID: 0}
+  stationary: {fileID: 0}
+  isOnButton: 0
+  anim: {fileID: 3698827393628847999}
+  startHealth: 3
+  dust: {fileID: 3872472398227555477}
+  jumpDust: {fileID: 3562478811137812277}
 --- !u!1 &8450432664476652672
 GameObject:
   m_ObjectHideFlags: 0
