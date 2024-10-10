@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7154e65feb1bfd41b9f44e882c11eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 2625725868694123098}
+  stateMachine: {fileID: 9121408510326383534}
   enemyBase: {fileID: 2693679515728160863}
   goblinJumpState: {fileID: 5633103510204942752}
 --- !u!1 &383471863228102277
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4918091349254408109}
-  - component: {fileID: 2625725868694123098}
+  - component: {fileID: 9121408510326383534}
   m_Layer: 7
   m_Name: State Machine
   m_TagString: Untagged
@@ -85,7 +85,7 @@ Transform:
   - {fileID: 7776853487683549030}
   m_Father: {fileID: 1224394062954025413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2625725868694123098
+--- !u!114 &9121408510326383534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 383471863228102277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2eef197aa7a498394a5a1059f62c05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 1664228442539464773}
-  animnator: {fileID: 4717252305989269364}
+  animator: {fileID: 4717252305989269364}
 --- !u!1 &2063243426216184554
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641c59ee0f2b3654ca34911ec0614af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 2625725868694123098}
+  stateMachine: {fileID: 9121408510326383534}
   enemyBase: {fileID: 2693679515728160863}
   swordChaseState: {fileID: 1253231912765666598}
   stunTimer: 3
@@ -378,7 +378,6 @@ MonoBehaviour:
   stateMachine: {fileID: 0}
   hurtState: {fileID: 0}
   deathState: {fileID: 1810537432057924419}
-  idle: {fileID: 0}
   canBeHurt: 0
   isHitPlayer: 0
   isHitObject: 0
@@ -449,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629dac70c73a03044925d4a49f6b12e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 2625725868694123098}
+  stateMachine: {fileID: 9121408510326383534}
   enemyBase: {fileID: 2693679515728160863}
   swordChaseState: {fileID: 1253231912765666598}
   stunState: {fileID: 3416924009374024853}
@@ -505,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f9235e5291ed2409ba3ce1f7520c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 2625725868694123098}
+  stateMachine: {fileID: 9121408510326383534}
   enemyBase: {fileID: 2693679515728160863}
   swordChaseState: {fileID: 1253231912765666598}
   stunState: {fileID: 3416924009374024853}
@@ -638,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 2625725868694123098}
+  stateMachine: {fileID: 9121408510326383534}
   deathEffect: {fileID: 6737654024787689703, guid: 4db7c2d6d4a750d48b15a1f064da6e7c, type: 3}
 --- !u!1 &8999221917657435326
 GameObject:
@@ -684,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f0d0ef9cdcfcd4aa9416e3edfca4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 2625725868694123098}
+  stateMachine: {fileID: 9121408510326383534}
   enemyBase: {fileID: 2693679515728160863}
   goblinJumpState: {fileID: 5633103510204942752}
   stunState: {fileID: 3416924009374024853}

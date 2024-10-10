@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b972f4ee6ea8396448e011af35fafbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 4275463027458955853}
   goblinHitState: {fileID: 4146891884227539433}
   goblinChargeState: {fileID: 2696959084412850569}
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a8889bd2282c42834bb1db82060aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 4275463027458955853}
   goblinChargeState: {fileID: 2696959084412850569}
 --- !u!1 &2969542266705548943
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5425ef0a808c23428190b53a4c34a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 4275463027458955853}
   goblinChargeState: {fileID: 2696959084412850569}
   goblinStunState: {fileID: 8766092181605050443}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2956484450950384852}
-  - component: {fileID: 3665966971225580802}
+  - component: {fileID: 943600359326743566}
   m_Layer: 7
   m_Name: State Machine
   m_TagString: Untagged
@@ -289,7 +289,7 @@ Transform:
   - {fileID: 5145130167377166238}
   m_Father: {fileID: 8175619250946596584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3665966971225580802
+--- !u!114 &943600359326743566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,11 +298,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5366361389377936880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2eef197aa7a498394a5a1059f62c05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 3392490239751968200}
-  animnator: {fileID: 0}
+  animator: {fileID: 3627846124964622927}
 --- !u!1 &5396859154326552690
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   deathEffect: {fileID: 0}
 --- !u!1 &5656017902576161487
 GameObject:
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3b8a8916ae11429acef1bd2522183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 4275463027458955853}
   goblinChargeState: {fileID: 2696959084412850569}
   goblinEnragedState: {fileID: 0}
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b972f4ee6ea8396448e011af35fafbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 0}
   goblinHitState: {fileID: 0}
   goblinChargeState: {fileID: 0}
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e675152a8ecee4fb80c7a4fe638ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 4275463027458955853}
   goblinShootState: {fileID: 1225827334039909814}
   goblinStunState: {fileID: 8766092181605050443}
@@ -669,7 +669,6 @@ MonoBehaviour:
   stateMachine: {fileID: 0}
   hurtState: {fileID: 0}
   deathState: {fileID: 7996129365530445942}
-  idle: {fileID: 0}
   canBeHurt: 0
   isHitPlayer: 0
   isHitObject: 0
@@ -739,6 +738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1282b5e50111c88419088c94466bc55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 3665966971225580802}
+  stateMachine: {fileID: 943600359326743566}
   enemyBase: {fileID: 4275463027458955853}
   goblinFleeState: {fileID: 2147638089415787306}

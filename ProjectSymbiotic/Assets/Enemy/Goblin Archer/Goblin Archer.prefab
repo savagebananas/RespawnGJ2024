@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2b325ead07bec45a3a2d4831eaacbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1264204124601308528}
+  stateMachine: {fileID: 884516150208047731}
   enemyBase: {fileID: 6560092443652271561}
   arrowPrefab: {fileID: 3695564044153193337, guid: 32369b51e39686548b6094c86de2c27c, type: 3}
   arrow: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7716831eae13c54cbf3221cf38ce98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1264204124601308528}
+  stateMachine: {fileID: 884516150208047731}
   enemyBase: {fileID: 6560092443652271561}
   goblinChargeShot: {fileID: 5484237577306641521}
 --- !u!1 &4482761839064722037
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207e3da49d430394f83823fc46680bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1264204124601308528}
+  stateMachine: {fileID: 884516150208047731}
   enemyBase: {fileID: 6560092443652271561}
   rend: {fileID: 2550932185797843303}
   bowPivot: {fileID: 8205197946010125305}
@@ -323,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8432816722527688802}
-  - component: {fileID: 1264204124601308528}
+  - component: {fileID: 884516150208047731}
   m_Layer: 7
   m_Name: State Machine
   m_TagString: Untagged
@@ -351,7 +351,7 @@ Transform:
   - {fileID: 2153816515585315761}
   m_Father: {fileID: 2286068051470742879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1264204124601308528
+--- !u!114 &884516150208047731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,11 +360,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5194367514053870869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2eef197aa7a498394a5a1059f62c05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 3581101959624659410}
-  animnator: {fileID: 2173266760849731595}
+  animator: {fileID: 2173266760849731595}
 --- !u!1 &5833820254625128653
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +536,6 @@ MonoBehaviour:
   stateMachine: {fileID: 0}
   hurtState: {fileID: 0}
   deathState: {fileID: 1929664782564580134}
-  idle: {fileID: 0}
   canBeHurt: 0
   isHitPlayer: 0
   isHitObject: 0
@@ -606,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229df43acb74f724c91c1944e273200b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1264204124601308528}
+  stateMachine: {fileID: 884516150208047731}
   enemyBase: {fileID: 6560092443652271561}
   goblinPrepareShot: {fileID: 5484237577306641521}
   goblinIdle: {fileID: 1154866225624932202}
@@ -654,7 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1264204124601308528}
+  stateMachine: {fileID: 884516150208047731}
   deathEffect: {fileID: 6737654024787689703, guid: 4db7c2d6d4a750d48b15a1f064da6e7c, type: 3}
 --- !u!1 &8229460445042346421
 GameObject:

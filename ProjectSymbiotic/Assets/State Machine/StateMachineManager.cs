@@ -8,6 +8,7 @@ using UnityEngine;
 public class StateMachineManager : MonoBehaviour
 {
     public State CurrentState;
+    public Animator animator;
 
     void Start()
     {
