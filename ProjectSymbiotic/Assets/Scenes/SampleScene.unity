@@ -18563,6 +18563,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceFromCamera: 5
   InitHeight: 0
+--- !u!114 &967698418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2696959084412850569, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e675152a8ecee4fb80c7a4fe638ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968501987
 GameObject:
   m_ObjectHideFlags: 0
@@ -21104,6 +21115,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1243998407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4275463027458955853, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286fc5e1314e922479706406e41a51d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1249587890
 GameObject:
   m_ObjectHideFlags: 0
@@ -25036,9 +25058,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a65d655f3bf2d4ebcae7b82ba8ba9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
-  enemyBase: {fileID: 0}
-  goblinChargeState: {fileID: 0}
+  stateMachine: {fileID: 1385417071}
+  enemyBase: {fileID: 1243998407}
+  goblinChargeState: {fileID: 967698418}
+  player1: {fileID: 71793394}
+  player2: {fileID: 656206078}
+  p1distance: 0
+  p2distance: 0
 --- !u!1 &1718793016
 GameObject:
   m_ObjectHideFlags: 0
@@ -29764,9 +29790,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 972602842}
     m_Modifications:
     - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 71793394}
+    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: player2
       value: 
       objectReference: {fileID: 656206078}
+    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: chainShot
+      value: 
+      objectReference: {fileID: 8352373490719535819, guid: 47fd7a1831e5f764a9575715ae2e307e, type: 3}
+    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: goblinEnragedState
+      value: 
+      objectReference: {fileID: 1698694906}
     - target: {fileID: 2147638089415787306, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: player1
       value: 
@@ -29869,7 +29907,8 @@ PrefabInstance:
       objectReference: {fileID: 477427226}
     m_RemovedComponents:
     - {fileID: 8563644588038513372, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 740634087480658334, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7602728197417271510, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
