@@ -15,6 +15,7 @@ public class MovingUp : State
     public float velocity;
     [SerializeField] GameObject chain;
     [SerializeField] GameObject plat;
+    [SerializeField] State stationary;
     private Shake shakeChains;
     private Shake shakePlatform;
     public Stationary normalState;
@@ -30,6 +31,11 @@ public class MovingUp : State
 
     public override void OnUpdate()
     {
+        if (GameManager.inEvent)
+        {
+            stateMachine.setNewState(stationary);
+            return;
+        }
         if (delayTimer > 0)
         {
             delayTimer -= Time.deltaTime;
