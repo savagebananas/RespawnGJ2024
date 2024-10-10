@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
 
-public class CutScene : State
+public abstract class CutScene : State
 {
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
@@ -25,6 +25,9 @@ public class CutScene : State
     {
 
     }
+    public abstract void StartCutscene();
+    public abstract void EndCutscene();
+
     public void PauseActivity()
     {
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
@@ -71,6 +74,7 @@ public class CutScene : State
         ShakeCamera();
         PauseActivity();
 
+        StartCutscene();
     }
 
 

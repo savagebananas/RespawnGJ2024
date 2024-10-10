@@ -21,11 +21,6 @@ public class MovingUp : State
     public Animator chainAnimater;
     private bool chainMoving;
 
-    void Start()
-    {
-
-    }
-
     public override void OnStart()
     {
         delayTimer = moveDelay;
