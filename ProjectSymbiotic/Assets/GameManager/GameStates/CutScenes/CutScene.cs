@@ -8,7 +8,6 @@ public abstract class CutScene : State
 {
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
-    [SerializeField] GameObject platform;
     [SerializeField] SeesawHingeScript seesaw;
     [SerializeField] State nextState;
     private EnemySpawner[] spawners;
@@ -23,7 +22,7 @@ public abstract class CutScene : State
 
     public void ShakeCamera()
     {
-
+        //TODO : implement
     }
     public abstract void StartCutscene();
     public abstract void EndCutscene();
@@ -45,18 +44,23 @@ public abstract class CutScene : State
         player1.GetComponent<Rigidbody2D>().mass = 0; 
         player2.GetComponent<Rigidbody2D>().mass = 0;
 
-        // Everything falls through platform
-        foreach (Collision2D collision in onPlatform)
-        {
-            if (collision.gameObject.tag.StartsWith("Player")) continue;
-            collision.gameObject.GetComponent<Collider2D>().enabled = false;
-        }
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.enabled = false;
         }
 
         // DESTROY ALL BLOCKS
+        //TODO :
+        // If destroyGoblin = true
+        // Everything falls through platform
+        foreach (Collision2D collision in onPlatform)
+        {
+            if (collision.gameObject.tag.StartsWith("Player")) continue;
+            collision.gameObject.GetComponent<Collider2D>().enabled = false;
+        }
+        //TODO :
+        //if destroyGoblin = false - deactivate all goblins
+        //Difficulty Peaceful already stops goblin archer from shooting so all you have to do is deactivate the melee goblins
 
     }
     public void ResumeActivity()
@@ -69,7 +73,9 @@ public abstract class CutScene : State
         }
         player1.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
         player2.GetComponent<Rigidbody2D>().mass = GameConstants.PLAYER_MASS;
-        seesaw.Unfreeze();
+        seesaw.Unfreeze(); //will change
+        //TODO : if destroyGoblin = false - reactivate all the goblins on the platform
+        
     }
     public override void OnExit()
     {
