@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
 
-public class CutScene : State
+public abstract class CutScene : State
 {
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
@@ -18,6 +18,9 @@ public class CutScene : State
     const string crateTag = "CrateStick";
     [SerializeField] float duration = 10f;
     private float timer;
+
+    public abstract void StartCutscene();
+    public abstract void EndCutscene();
 
     public void PauseActivity()
     {
@@ -72,6 +75,7 @@ public class CutScene : State
 
 
         PauseActivity();
+        StartCutscene();
     }
 
 
