@@ -75,6 +75,11 @@ public class Player2Movement : MonoBehaviour
                 speed = originalSpeed - math.abs(platformAngle) / 10;
             }
         }
+
+        if(!isOnButton)
+        {
+            isOneWhoPulls = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)

@@ -75,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
                 speed = originalSpeed - math.abs(platformAngle) / 10;
             }
         }
+
+        if(!isOnButton)
+        {
+            isOneWhoPulls = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -125,10 +130,10 @@ public class PlayerMovement : MonoBehaviour
                 isOneWhoPulls = true;
                 platform.setNewState(mvUp);
             }
-
+            
             if (context.canceled)
             {
-                isOneWhoPulls = false;
+                
                 platform.setNewState(stationary);
             }
         }
