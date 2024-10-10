@@ -14460,7 +14460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ac83ababcd145f1b2b6053c035bfac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: {fileID: 842570299}
+  CurrentState: {fileID: 0}
 --- !u!4 &842570297
 Transform:
   m_ObjectHideFlags: 0
@@ -14494,6 +14494,7 @@ MonoBehaviour:
     minPerSpawn: 1
     maxPerSpawn: 3
     fallingForce: 3
+    objectWeights: []
     shootingCooldown: 7
     arrowSpeed: 1
   Medium:
@@ -14501,6 +14502,7 @@ MonoBehaviour:
     minPerSpawn: 1
     maxPerSpawn: 2
     fallingForce: 2
+    objectWeights: []
     shootingCooldown: 5
     arrowSpeed: 1
   Hard:
@@ -14508,6 +14510,7 @@ MonoBehaviour:
     minPerSpawn: 1
     maxPerSpawn: 3
     fallingForce: 3
+    objectWeights: []
     shootingCooldown: 3
     arrowSpeed: 2
 --- !u!114 &842570299
@@ -16001,6 +16004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083616302}
   - component: {fileID: 1083616303}
+  - component: {fileID: 1083616304}
   m_Layer: 7
   m_Name: Hook Shot
   m_TagString: Untagged
@@ -16075,6 +16079,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1083616304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083616301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2094d98ad76f4fb46d8b0cca424a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player2: {fileID: 656206078}
+  isShotOut: 0
+  isShooting: 0
+  hasReturned: 0
+  speed: 3
 --- !u!1 &1084867342
 GameObject:
   m_ObjectHideFlags: 0
@@ -20464,6 +20485,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+--- !u!50 &1966365005 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 29735240525306886, guid: 25d9c0b6f16e1914bb90b2582d483dc4, type: 3}
+  m_PrefabInstance: {fileID: 1966365004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1968468586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8175619250946596584, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
@@ -21871,6 +21897,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1966365005}
+    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 656206078}
+    - target: {fileID: 1225827334039909814, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: chainShot
+      value: 
+      objectReference: {fileID: 1083616301}
+    - target: {fileID: 2147638089415787306, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147638089415787306, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 71793394}
+    - target: {fileID: 2696959084412850569, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696959084412850569, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 71793394}
+    - target: {fileID: 4275463027458955853, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: deathState
+      value: 
+      objectReference: {fileID: 6345379806026018104}
+    - target: {fileID: 7996129365530445942, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 6345379806026018105}
     - target: {fileID: 8154992575411059855, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_Name
       value: Goblin Boss
@@ -21923,6 +21985,28 @@ PrefabInstance:
       addedObject: {fileID: 1083616302}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+--- !u!114 &6345379806026018104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7996129365530445942, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a05964d6f80d4a4fa0ccb5d79c4a419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6345379806026018105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2994172378183923446, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
