@@ -43,7 +43,7 @@ public class GameManager : StateMachineManager
         score += height;
         MeterCounter.UpdateUI(score);
 
-        if (score >= 1050)
+        if (score >= 1000)
         {
             // win state
         }

@@ -21,9 +21,12 @@ public class CameraSystem : MonoBehaviour
         animator = GetComponentInParent<Animator>();
     }
 
+    /// <summary>
+    /// Reset everything to normal, will be called after the boss fight and exited room
+    /// </summary>
     public void SetCameraNormal()
     {
-        ChangeCamRef(normalCamRef);
+        ChangeCamRef("normal");
         animator.SetTrigger("normal");
         ChangeCamBounds("normal");
     }
@@ -39,10 +42,7 @@ public class CameraSystem : MonoBehaviour
         ChangeCamBounds("boss");
         animator.SetTrigger("boss");
     }
-    private void ChangeCamRef(Transform transform)
-    {
-        vcam.Follow = transform;
-    }
+
     public void ChangeCamRef(string cam)
     {
         switch (cam)
@@ -57,6 +57,21 @@ public class CameraSystem : MonoBehaviour
                 vcam.Follow = bossRoomCamRef;
                 break;
         }
+    }
+
+    public Vector2 GetReferencePos(string cam)
+    {
+        switch (cam)
+        {
+            case "normal":
+                return normalCamRef.position;
+            case "avg":
+                return averageCamRef.position;
+            case "boss":
+                return bossRoomCamRef.position;
+        }
+
+        return Vector2.zero;
     }
 
     private void ChangeCamBounds(string s)

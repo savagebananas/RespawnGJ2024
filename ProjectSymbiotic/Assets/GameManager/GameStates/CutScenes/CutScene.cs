@@ -30,7 +30,7 @@ public abstract class CutScene : GameState
 
     public void PauseActivity()
     {
-        spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
+        
 
         Difficulty.SetDifficultyLevel(DifficultyLevel.Peaceful);
 
@@ -45,24 +45,22 @@ public abstract class CutScene : GameState
         player1.GetComponent<Rigidbody2D>().mass = 0;
         player2.GetComponent<Rigidbody2D>().mass = 0;
 
-        foreach (EnemySpawner spawner in spawners)
-        {
-            spawner.enabled = false;
-        }
-
+        // Destroy all falling objects
         List<FallingObject> fallingObjects = new List<FallingObject>(fallingObjSpawner.GetComponentsInChildren<FallingObject>());
         foreach (FallingObject obj in fallingObjects)
         {
             obj.DestroyObject();
         }
 
-        if (removeGoblins)
+        // Disable spawners and destroy all goblins
+        spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
+        foreach (EnemySpawner spawner in spawners)
         {
-            // Everything falls through platform
-            foreach (Collision2D collision in onPlatform)
+            spawner.enabled = false;
+            if (!removeGoblins) return;
+            foreach (Transform child in spawner.transform)
             {
-                if (collision.gameObject.tag.StartsWith("Player")) continue;
-                collision.gameObject.GetComponent<Collider2D>().enabled = false;
+                GameObject.Destroy(child.gameObject);
             }
         }
     }
