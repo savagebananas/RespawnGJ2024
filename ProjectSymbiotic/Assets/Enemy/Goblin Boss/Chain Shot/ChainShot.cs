@@ -59,8 +59,8 @@ public class ChainShot : MonoBehaviour
         //if hit plaayer disable movement and child the player to the hook
         if(col.GetComponent<Player2Movement>() != null)
         {
-            Rigidbody2D p2rb = col.GetComponent<Rigidbody2D>();
-            p2rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            Player2Movement p2mv = col.GetComponent<Player2Movement>();
+            p2mv.enabled = false;
 
             col.transform.SetParent(this.gameObject.transform);
         }

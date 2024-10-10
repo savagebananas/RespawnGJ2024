@@ -21,8 +21,8 @@ public class GoblinBossShoot : State
 
         if(chainShot.GetComponent<ChainShot>().hasReturned)
         {
-            Rigidbody2D p2rb = player2.GetComponent<Rigidbody2D>();
-            p2rb.constraints = RigidbodyConstraints2D.None;
+            Player2Movement p2mv = player2.GetComponent<Player2Movement>();
+            p2mv.enabled = true;
             stateMachine.setNewState(goblinChargeState);
         }
 
