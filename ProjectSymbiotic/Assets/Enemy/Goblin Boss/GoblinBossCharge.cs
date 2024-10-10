@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GoblinBossCharge : State
@@ -14,7 +15,11 @@ public class GoblinBossCharge : State
     private float height;
     private float targetHeight;
     [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
     private int numStags;
+
+    [SerializeField] float p1distance;
+    [SerializeField] float p2distance;
 
     public override void OnStart()
     {
@@ -41,6 +46,24 @@ public class GoblinBossCharge : State
         {
             stateMachine.setNewState(goblinStunState);
         }
+
+        //Acting as on collide
+        float p1Xdistance = math.abs(enemyBase.transform.position.x - player1.transform.position.x);
+        float p1Ydistance = math.abs(enemyBase.transform.position.y - player1.transform.position.y);
+        p1distance = p1Xdistance + p1Ydistance;
+        if(p1distance < 2)
+        {
+            player1.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
+            stateMachine.setNewState(goblinShootState);
+        }
+        float p2Xdistance = math.abs(enemyBase.transform.position.x - player2.transform.position.x);
+        float p2Ydistance = math.abs(enemyBase.transform.position.y - player2.transform.position.y);
+        p2distance = p2Xdistance + p2Ydistance;
+        if(p2distance < 2)
+        {
+            player2.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
+            stateMachine.setNewState(this);
+        }
     }
 
     public override void OnLateUpdate()
@@ -62,18 +85,6 @@ public class GoblinBossCharge : State
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.GetComponent<PlayerMovement>() != null)
-        {
-            col.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
-            stateMachine.setNewState(goblinShootState);
-        }
-
-        if(col.gameObject.GetComponent<Player2Movement>() != null)
-        {
-            col.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
-            stateMachine.setNewState(this);
-        }
-
         if(col.gameObject.tag == "Stalag")
         {
             stateMachine.setNewState(goblinStunState);

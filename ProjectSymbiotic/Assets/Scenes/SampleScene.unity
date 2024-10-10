@@ -10030,6 +10030,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &522085479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4146891884227539433, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1282b5e50111c88419088c94466bc55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &533635706
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,6 +10125,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 718872630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &542072527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9172152915541863364, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187a47ca93a494840a2411f10439a46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &555985843
 GameObject:
   m_ObjectHideFlags: 0
@@ -22671,6 +22693,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!114 &1385417071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 943600359326743566, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd1836a5b1cdfa4692be3610703019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1392624867
 GameObject:
   m_ObjectHideFlags: 0
@@ -24985,6 +25018,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1530276216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1698694904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7602728197417271510, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+  m_PrefabInstance: {fileID: 6345379806026018103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1698694906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698694904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a65d655f3bf2d4ebcae7b82ba8ba9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 0}
+  enemyBase: {fileID: 0}
+  goblinChargeState: {fileID: 0}
 --- !u!1 &1718793016
 GameObject:
   m_ObjectHideFlags: 0
@@ -29721,10 +29774,34 @@ PrefabInstance:
       propertyPath: player1
       value: 
       objectReference: {fileID: 71793394}
+    - target: {fileID: 2696959084412850569, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 656206078}
+    - target: {fileID: 2696959084412850569, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: goblinEnragedState
+      value: 
+      objectReference: {fileID: 1698694906}
+    - target: {fileID: 3486650688448140589, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6318054
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486650688448140589, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.05360794
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275463027458955853, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: hurtState
+      value: 
+      objectReference: {fileID: 522085479}
     - target: {fileID: 4275463027458955853, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: deathState
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 542072527}
+    - target: {fileID: 4275463027458955853, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      propertyPath: stateMachine
+      value: 
+      objectReference: {fileID: 1385417071}
     - target: {fileID: 8154992575411059855, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
       propertyPath: m_Name
       value: Goblin Boss
@@ -29789,10 +29866,14 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 477427226}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8563644588038513372, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7602728197417271510, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1698694906}
   m_SourcePrefab: {fileID: 100100000, guid: b24d58b9a58b5604c93f24913a88d5fb, type: 3}
 --- !u!1001 &8431312677623714534
 PrefabInstance:

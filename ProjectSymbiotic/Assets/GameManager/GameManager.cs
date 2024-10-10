@@ -40,7 +40,7 @@ public class GameManager : StateMachineManager
     }
     public static void AddScore(float height)
     {
-        score += height * 10;
+        score += height * 100;
         MeterCounter.UpdateUI(score);
 
         if (score >= 1000)
