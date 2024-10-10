@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4033409436570859866}
   m_Layer: 7
   m_Name: Crate Gray
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

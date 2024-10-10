@@ -23,7 +23,7 @@ public class SeesawHingeScript : MonoBehaviour
 
     public Vector2 GetNormalVector()
     {
-        return new Vector2(Mathf.Sin(-rb.rotation*Mathf.Deg2Rad), Mathf.Cos(rb.rotation*Mathf.Deg2Rad));
+        return new Vector2(Mathf.Sin(-rb.rotation * Mathf.Deg2Rad), Mathf.Cos(rb.rotation * Mathf.Deg2Rad));
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ public class SeesawHingeScript : MonoBehaviour
         if (collisions.Count == 0 && Mathf.Abs(rb.rotation) > 0.4)
         {
             JointMotor2D motor = hinge.motor;
-            motor.motorSpeed = resetSpeed*Mathf.Sign(rb.rotation);
+            motor.motorSpeed = resetSpeed * Mathf.Sign(rb.rotation);
             hinge.motor = motor;
             hinge.useMotor = true;
         }
@@ -91,7 +91,7 @@ public class SeesawHingeScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collisions.Add(collision);
-        
+
         if (!frozen)
         {
             rb.freezeRotation = false;
@@ -103,5 +103,9 @@ public class SeesawHingeScript : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         collisions.Remove(collision);
+    }
+    public List<Collision2D> GetCollisions()
+    {
+        return collisions;
     }
 }
