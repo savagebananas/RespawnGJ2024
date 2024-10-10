@@ -40,7 +40,7 @@ public class Dragger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0)) { mouseholding = false; Debug.Log("Disattach"); }
+        if (Input.GetMouseButtonUp(0)) { mouseholding = false;  }
         GetBorder();
         if ((isMouseOver && Input.GetMouseButton(0) && canvas != null)||mouseholding)
         {

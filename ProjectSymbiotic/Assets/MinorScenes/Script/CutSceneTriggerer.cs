@@ -40,8 +40,8 @@ public class CutSceneTriggerer : MonoBehaviour
             p2m.enabled = false;
             p1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1);
             p2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1);
-            main.InitCutScene();
             eable = true;
+            main.InitCutScene();
         }
     }
 }

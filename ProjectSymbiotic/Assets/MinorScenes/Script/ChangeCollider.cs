@@ -6,10 +6,10 @@ using UnityEngine;
 public class ChangeCollider : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static Collider2D c1,c2;
-    public static CinemachineConfiner2D c2d;
-    private static int phase = 0;
-    public static void flip()
+    public PolygonCollider2D c1,c2;
+    public CinemachineConfiner2D c2d;
+    private int phase = 0;
+    public void flip()
     {
         if (phase==0)
         {
@@ -24,9 +24,6 @@ public class ChangeCollider : MonoBehaviour
     void Start()
     {
         phase = 0;
-        c1=GameObject.Find("MainMenuManager").gameObject.GetComponent<Collider2D>();
-        c2 = GameObject.Find("FallingCameraConfiner").gameObject.GetComponent<Collider2D>();
-        c2d=GetComponent<CinemachineConfiner2D>();
     }
 
     // Update is called once per frame
