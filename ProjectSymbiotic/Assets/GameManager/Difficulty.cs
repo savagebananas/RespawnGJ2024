@@ -57,7 +57,7 @@ public class Difficulty : MonoBehaviour
     [SerializeField] DifficultyModifier Medium;
     [SerializeField] DifficultyModifier Hard;
     private static DifficultyModifier easy, medium, hard;
-    private static DifficultyModifier peaceful = new DifficultyModifier(1, 0, 0, 0, new List<float> { 1f, 1f }, 10, 0);
+    private static DifficultyModifier peaceful = new DifficultyModifier(1, 0, 0, 0, new List<float> { 1f, 1f }, 15, 1);
     private static DifficultyModifier difficulty;
     private static DifficultyLevel difficultyLevel;
     private static FallingObjectSpawner spawner;
