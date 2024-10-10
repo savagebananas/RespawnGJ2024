@@ -59,5 +59,10 @@ public class GoblinBossCharge : State
             col.gameObject.GetComponent<Player2Movement>().TakeDamage(1);
             stateMachine.setNewState(this);
         }
+
+        if(col.gameObject.tag == "Stalag")
+        {
+            stateMachine.setNewState(goblinStunState);
+        }
     }
 }
