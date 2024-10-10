@@ -18,7 +18,7 @@ public class GameOver : CutScene
 
     public override void EndCutscene()
     {
-        throw new System.NotImplementedException();
+        // Restart button and main menu
     }
 
     public override void CameraShake()
