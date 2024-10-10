@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class GoblinBossEnraged : State
@@ -11,11 +12,19 @@ public class GoblinBossEnraged : State
 
     public override void OnStart()
     {
-       
+       StartCoroutine(Countdown());
     }
     public override void OnLateUpdate()
     {
 
     }
-    public override void OnExit(){}
+    public override void OnExit()
+    {
+        StalagManager.gobDone = true;
+    }
+
+    IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(5);
+    }
 }

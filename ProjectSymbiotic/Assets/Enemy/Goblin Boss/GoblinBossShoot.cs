@@ -17,6 +17,8 @@ public class GoblinBossShoot : State
 
     public override void OnUpdate()
     {
+        numStags = StalagManager.numStags;
+
         if(chainShot.GetComponent<ChainShot>().hasReturned)
         {
             Rigidbody2D p2rb = player2.GetComponent<Rigidbody2D>();
@@ -28,6 +30,10 @@ public class GoblinBossShoot : State
         if(numStags == 0)
         {
             stateMachine.setNewState(goblinEnragedState);
+        }
+        if(StalagManager.gobHit)
+        {
+            stateMachine.setNewState(goblinStunState);
         }
     }
 

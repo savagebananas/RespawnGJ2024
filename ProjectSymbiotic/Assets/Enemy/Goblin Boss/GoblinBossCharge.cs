@@ -25,6 +25,8 @@ public class GoblinBossCharge : State
 
     public override void OnUpdate()
     {
+        numStags = StalagManager.numStags;
+
         distance = Vector2.Distance(transform.position, target.position);
 
         height = transform.position.y;
@@ -34,6 +36,10 @@ public class GoblinBossCharge : State
         if(numStags == 0)
         {
             stateMachine.setNewState(goblinEnragedState);
+        }
+        if(StalagManager.gobHit)
+        {
+            stateMachine.setNewState(goblinStunState);
         }
     }
 

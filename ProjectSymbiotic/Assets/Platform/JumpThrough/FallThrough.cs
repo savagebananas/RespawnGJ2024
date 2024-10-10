@@ -30,7 +30,7 @@ public class FallThrough : MonoBehaviour
 
         if(playerOnPlatform && playerOn == 2)
         {
-            if(player1.GetComponent<Player2Movement>().vertical < 0)
+            if(player2.GetComponent<Player2Movement>().vertical < 0)
             {
                 col.enabled = false;
                 StartCoroutine(EnableCollider());

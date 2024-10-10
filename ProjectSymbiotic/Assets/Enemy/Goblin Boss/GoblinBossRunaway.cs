@@ -8,6 +8,7 @@ public class GoblinBossRunaway : State
     [SerializeField] private Enemy enemyBase;
     [SerializeField] private GoblinBossCharge goblinChargeState; // state
     [SerializeField] private GoblinBossEnraged goblinEnragedState; // state
+    [SerializeField] private GoblinBossStun goblinStunState; // state
     [SerializeField] private float speed;
     private Transform target;
     [SerializeField] private GameObject player1;
@@ -15,10 +16,14 @@ public class GoblinBossRunaway : State
 
     public override void OnUpdate()
     {
-        //numStags = stags.getnum
+        numStags = StalagManager.numStags;
         if(numStags == 0)
         {
             stateMachine.setNewState(goblinEnragedState);
+        }
+        if(StalagManager.gobHit)
+        {
+            stateMachine.setNewState(goblinStunState);
         }
     }
 

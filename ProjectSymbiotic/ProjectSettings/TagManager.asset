@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Breakable
   - Rock
+  - Stalag
   layers:
   - Default
   - TransparentFX

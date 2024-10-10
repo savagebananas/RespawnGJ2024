@@ -13,7 +13,7 @@ public class GoblinBossIdle : State
         // When player is within distance, start shooting again
         var distance = transform.position.x;
         var targetdistance = enemyBase.target.position.x;
-        if (distance - targetdistance <= 5 && distance >= -2)
+        if (distance - targetdistance <= 5 )
         {
             //Start cutscene
             //Somehow determine if cutscene is done
