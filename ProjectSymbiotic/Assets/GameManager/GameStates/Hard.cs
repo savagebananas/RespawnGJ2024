@@ -19,6 +19,11 @@ public class Hard : GameState
 
     public override void OnUpdate()
     {
+        // Go to boss cutscene once reached 950m
+        if (GameManager.GetHeight() >= 950)
+        {
+            stateMachine.setNewState(nextState);
+        }
     }
 
     public override bool StateEnd()

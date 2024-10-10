@@ -219,6 +219,8 @@ Transform:
   - {fileID: 82806063353842357}
   - {fileID: 8796331656467204115}
   - {fileID: 8484482952586731648}
+  - {fileID: 8981723086293706431}
+  - {fileID: 2487746819831052916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3760807685972055337
@@ -234,9 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 0}
+  animator: {fileID: 0}
   gameWinState: {fileID: 0}
   gameOverState: {fileID: 1317731584003170844}
-  CurrentGameState: {fileID: 574217872598914048}
+  CurrentGameState: {fileID: 3469169832996069305}
 --- !u!114 &5254125884786761136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,27 +254,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawner: {fileID: 0}
   Easy:
-    objectSpawnTime: 7
+    objectSpawnTime: 6
     minPerSpawn: 1
-    maxPerSpawn: 3
+    maxPerSpawn: 1
     fallingForce: 3
-    objectWeights: []
-    shootingCooldown: 7
+    objectWeights:
+    - 0.5
+    - 0.5
+    shootingCooldown: 6
     arrowSpeed: 1
   Medium:
     objectSpawnTime: 5
     minPerSpawn: 1
     maxPerSpawn: 2
-    fallingForce: 2
-    objectWeights: []
-    shootingCooldown: 5
+    fallingForce: 4
+    objectWeights:
+    - 0.5
+    - 0.5
+    shootingCooldown: 4
     arrowSpeed: 1
   Hard:
-    objectSpawnTime: 3
+    objectSpawnTime: 2
     minPerSpawn: 1
-    maxPerSpawn: 3
-    fallingForce: 3
-    objectWeights: []
+    maxPerSpawn: 2
+    fallingForce: 5
+    objectWeights:
+    - 0.7
+    - 0.3
     shootingCooldown: 3
     arrowSpeed: 2
 --- !u!1 &3134128916419568895
@@ -418,6 +427,108 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 3760807685972055337}
   nextState: {fileID: 0}
+--- !u!1 &5218272025666501641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8981723086293706431}
+  - component: {fileID: 6754102863707528847}
+  m_Layer: 0
+  m_Name: BossCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8981723086293706431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218272025666501641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 98225441865769082}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6754102863707528847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218272025666501641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26541fede4f34486ad976c00c0e4d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 3760807685972055337}
+  nextState: {fileID: 528766005098250545}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  seesaw: {fileID: 0}
+  fallingObjSpawner: {fileID: 0}
+  duration: 4
+  removeGoblins: 1
+  cameraSystem: {fileID: 0}
+--- !u!1 &6386689154421196167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2487746819831052916}
+  - component: {fileID: 528766005098250545}
+  m_Layer: 0
+  m_Name: Boss Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2487746819831052916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386689154421196167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 98225441865769082}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &528766005098250545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386689154421196167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c0a76482df54966a0657006aec1c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 3760807685972055337}
+  nextState: {fileID: 0}
+  cameraSystem: {fileID: 0}
+  p1: {fileID: 0}
+  p2: {fileID: 0}
 --- !u!1 &7585161011690240729
 GameObject:
   m_ObjectHideFlags: 0

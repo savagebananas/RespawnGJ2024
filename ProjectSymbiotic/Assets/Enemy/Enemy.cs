@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour
 
     }
 
-
     private void SetClosestTarget()
     {
         if (p1 != null && p2 == null) target = p1;
