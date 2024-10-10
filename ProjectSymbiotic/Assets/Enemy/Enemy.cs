@@ -17,8 +17,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private StateMachineManager stateMachine;
     [SerializeField] State hurtState;
     [SerializeField] State deathState;
-    [SerializeField] State idle;
-
     public bool canBeHurt;
 
     public bool isHitPlayer = false;
@@ -40,10 +38,6 @@ public class Enemy : MonoBehaviour
     {
         SetClosestTarget();
         Visuals();
-        if (GameManager.inCutscene && stateMachine.CurrentState != idle)
-        {
-            stateMachine.setNewState(idle);
-        }
     }
 
     public void TakeDamage(float dmg)

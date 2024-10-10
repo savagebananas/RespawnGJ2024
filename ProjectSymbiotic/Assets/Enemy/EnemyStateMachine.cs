@@ -5,15 +5,16 @@ using UnityEngine;
 public class EnemyStateMachine : StateMachineManager
 {
     public Animator animnator;
+    [SerializeField] State idle;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (CurrentState != null)
+        {
+            CurrentState.OnUpdate();
+        }
+        if (GameManager.inCutscene && CurrentState != idle) setNewState(idle);
     }
 }
